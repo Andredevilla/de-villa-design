@@ -306,7 +306,7 @@ section { scroll-margin-top: 80px; }
 .field textarea {
   width: 100%;
   padding: 12px 14px;
-  border: 1px solid #D9D2C5;
+  border: 1px solid rgba(59, 58, 54, 0.4); /* ≥3:1 on white per WCAG 1.4.11 */
   border-radius: var(--radius);
   background: #fff;
   font: inherit;
