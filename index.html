@@ -12,9 +12,8 @@
   <meta property="og:url" content="https://devilladesign.com">
   <meta property="og:image" content="https://devilladesign.com/assets/og-image.jpg">
   <meta property="og:locale" content="en_AU">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" as="font" type="font/woff2" href="fonts/fraunces-variable.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin>
   <link rel="canonical" href="https://devilladesign.com">
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="css/style.css">
@@ -39,8 +38,8 @@
       <span></span><span></span><span></span>
     </button>
     <nav class="site-nav" id="site-nav" aria-label="Main">
-      <a href="#work">Work</a>
       <a href="#services">Services</a>
+      <a href="#work">Work</a>
       <a href="#process">Process</a>
       <a href="#contact">Contact</a>
       <a class="btn" href="#contact">Book a free chat</a>
@@ -246,6 +245,6 @@
     <!-- TODO: add ABN once registered, e.g. <span>ABN 00 000 000 000</span> -->
   </div>
 </footer>
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>
