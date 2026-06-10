@@ -4,7 +4,7 @@
   --cream-2: #ECE6DB;
   --sand: #D8CFBF;
   --ink: #3B3A36;
-  --ink-soft: rgba(59, 58, 54, 0.65);
+  --ink-soft: rgba(59, 58, 54, 0.78);
   --line: #E3DDD2;
   --sage: #6B7A5E;
   --sage-dark: #59674E;
@@ -55,6 +55,7 @@ section { scroll-margin-top: 80px; }
 .section { padding: 88px 0; }
 .section-head { text-align: center; max-width: 560px; margin: 0 auto 48px; }
 .section-head p { color: var(--ink-soft); }
+.section-head > p:last-child { margin-bottom: 0; }
 
 .eyebrow {
   font-size: 0.75rem;
@@ -80,15 +81,24 @@ section { scroll-margin-top: 80px; }
   transition: background 0.2s ease;
 }
 .btn:hover { background: var(--sage-dark); }
+.btn:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
 
 .link-arrow { font-size: 0.95rem; color: var(--ink-soft); text-decoration: none; }
 .link-arrow:hover { color: var(--ink); }
+.link-arrow:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
 
-/* ---------- Scroll reveal ---------- */
-.reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+/* ---------- Scroll reveal (progressive enhancement: hidden only once JS adds .js-ready) ---------- */
+.reveal.js-ready { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal.visible { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .reveal { opacity: 1; transform: none; transition: none; }
+  .reveal.js-ready { opacity: 1; transform: none; transition: none; }
 }
