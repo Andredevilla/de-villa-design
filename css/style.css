@@ -268,3 +268,73 @@ section { scroll-margin-top: 80px; }
 }
 .step h3 { font-family: var(--sans); font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
 .step p { color: var(--ink-soft); font-size: 0.9rem; margin: 0; }
+
+/* ---------- Testimonial ---------- */
+.testimonial { background: var(--cream-2); text-align: center; }
+.testimonial blockquote {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  line-height: 1.4;
+  max-width: 620px;
+  margin: 0 auto;
+}
+.testimonial cite {
+  display: block;
+  font-family: var(--sans);
+  font-style: normal;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-top: 16px;
+}
+
+/* ---------- Contact ---------- */
+.contact { text-align: center; }
+.contact-form {
+  max-width: 520px;
+  margin: 0 auto;
+  text-align: left;
+  display: grid;
+  gap: 16px;
+}
+.field label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 6px;
+}
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #D9D2C5;
+  border-radius: var(--radius);
+  background: #fff;
+  font: inherit;
+  color: var(--ink);
+}
+.field input:focus-visible,
+.field textarea:focus-visible {
+  outline: 2px solid var(--sage);
+  outline-offset: 1px;
+  border-color: var(--sage);
+}
+.contact-form .btn { justify-self: start; }
+.form-status { font-size: 0.9rem; min-height: 1.4em; margin: 0; }
+.form-status.success { color: var(--sage-dark); }
+.form-status.error { color: #A4472F; }
+.contact .alt { margin-top: 22px; font-size: 0.95rem; color: var(--ink-soft); }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: var(--ink);
+  color: var(--footer-ink);
+  padding: 28px 0;
+  font-size: 0.85rem;
+}
+.site-footer .container {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.site-footer a { color: inherit; }
