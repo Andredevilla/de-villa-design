@@ -34,10 +34,10 @@
 <svg class="visually-hidden" aria-hidden="true" focusable="false">
   <filter id="corrupt" x="-20%" y="-20%" width="140%" height="140%">
     <feTurbulence type="turbulence" baseFrequency="0.015 0.09" numOctaves="2" seed="3" result="noise">
-      <animate attributeName="baseFrequency" values="0.015 0.09;0.03 0.05;0.015 0.09" dur="1.4s" repeatCount="indefinite"/>
+      <animate attributeName="baseFrequency" values="0.015 0.09;0.03 0.05;0.015 0.09" dur="1.4s" repeatCount="indefinite" begin="indefinite"/>
     </feTurbulence>
     <feDisplacementMap in="SourceGraphic" in2="noise" xChannelSelector="R" yChannelSelector="G" scale="0">
-      <animate attributeName="scale" values="6;34;10;42;6" dur="0.9s" repeatCount="indefinite"/>
+      <animate attributeName="scale" values="6;34;10;42;6" dur="0.9s" repeatCount="indefinite" begin="indefinite"/>
     </feDisplacementMap>
   </filter>
 </svg>
@@ -64,14 +64,14 @@
     <span class="arch-ring"></span>
   </div>
   <div class="wattle-band" aria-hidden="true">
-    <img class="wattle w1" src="assets/wattle-1.webp" width="440" height="589" alt="" loading="eager" decoding="async">
-    <img class="wattle w2" src="assets/wattle-2.webp" width="440" height="589" alt="" loading="eager" decoding="async">
-    <img class="wattle w3" src="assets/wattle-3.webp" width="440" height="589" alt="" loading="eager" decoding="async">
-    <img class="wattle w4" src="assets/wattle-1.webp" width="440" height="589" alt="" loading="eager" decoding="async">
-    <img class="wattle w5" src="assets/wattle-2.webp" width="440" height="589" alt="" loading="eager" decoding="async">
-    <img class="wattle w6" src="assets/wattle-3.webp" width="440" height="589" alt="" loading="eager" decoding="async">
-    <img class="wattle w7" src="assets/wattle-1.webp" width="440" height="589" alt="" loading="eager" decoding="async">
-    <img class="wattle w8" src="assets/wattle-2.webp" width="440" height="589" alt="" loading="eager" decoding="async">
+    <img class="wattle w1" src="assets/wattle-1.webp" width="440" height="589" alt="" fetchpriority="low" decoding="async">
+    <img class="wattle w2" src="assets/wattle-2.webp" width="440" height="589" alt="" fetchpriority="low" decoding="async">
+    <img class="wattle w3" src="assets/wattle-3.webp" width="440" height="589" alt="" fetchpriority="low" decoding="async">
+    <img class="wattle w4" src="assets/wattle-1.webp" width="440" height="589" alt="" fetchpriority="low" decoding="async">
+    <img class="wattle w5" src="assets/wattle-2.webp" width="440" height="589" alt="" fetchpriority="low" decoding="async">
+    <img class="wattle w6" src="assets/wattle-3.webp" width="440" height="589" alt="" fetchpriority="low" decoding="async">
+    <img class="wattle w7" src="assets/wattle-1.webp" width="440" height="589" alt="" fetchpriority="low" decoding="async">
+    <img class="wattle w8" src="assets/wattle-2.webp" width="440" height="589" alt="" fetchpriority="low" decoding="async">
   </div>
   <div class="container">
     <p class="eyebrow">Websites for health &amp; wellness · Australia</p>

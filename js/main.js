@@ -38,6 +38,15 @@ document.querySelectorAll('.reveal').forEach((el) => {
   observer.observe(el);
 });
 
+// Wattle corruption: run the SVG turbulence animation only while hovering
+const wattleBand = document.querySelector('.wattle-band');
+const corruptAnims = document.querySelectorAll('#corrupt animate');
+
+if (wattleBand && corruptAnims.length) {
+  wattleBand.addEventListener('mouseenter', () => corruptAnims.forEach((a) => a.beginElement()));
+  wattleBand.addEventListener('mouseleave', () => corruptAnims.forEach((a) => a.endElement()));
+}
+
 // Contact form: Formspree-style POST with mailto fallback until configured
 const form = document.querySelector('.contact-form');
 const statusEl = document.querySelector('.form-status');
