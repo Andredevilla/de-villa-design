@@ -418,7 +418,7 @@ h1 .accent { font-style: italic; color: var(--sage); }
 
 @media (prefers-reduced-motion: reduce) {
   .hero .eyebrow, .hero h1, .hero .lede, .hero .hero-actions { animation: none; }
-  .btn, .link-arrow .arrow, .card { transition: none; }
+  .btn, .link-arrow .arrow, .card, .work-card, .work-shot .mini { transition: none; }
   .grid-3 > .reveal, .steps > .reveal { transition-delay: 0s; }
 }
 
@@ -455,4 +455,21 @@ h1 .accent { font-style: italic; color: var(--sage); }
   }
   .step { position: relative; }
 }
+
+/* ---------- Differentiated work minis ---------- */
+.mini-nav { display: flex; gap: 4px; margin-bottom: 12px; }
+.mini-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--cream-2); }
+.mini-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin: 10px 0; }
+.mini-cell { height: 22px; border-radius: 3px; background: #EEE9E0; }
+.mini-cell.active { background: var(--sage); opacity: 0.55; }
+.mini-split { display: flex; gap: 10px; align-items: flex-start; }
+.mini-media { flex: 1; height: 64px; border-radius: 4px; background: linear-gradient(135deg, var(--sand), #E0D2C8); }
+.mini-copy { flex: 1.2; }
+.mini-bar.w-70 { width: 70%; }
+
+/* ---------- Work card hover ---------- */
+.work-card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.work-card:hover { transform: translateY(-4px); box-shadow: 0 14px 32px rgba(59, 58, 54, 0.12); }
+.work-shot .mini { transition: transform 0.3s ease; }
+.work-card:hover .mini { transform: translateY(-4px); }
 
