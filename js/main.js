@@ -38,26 +38,45 @@ document.querySelectorAll('.reveal').forEach((el) => {
   observer.observe(el);
 });
 
-// Wattle corruption grid: each block blurs what's beneath it on hover and
-// decays shortly after the cursor moves off (14 cols x 3 rows)
+// Wattle corruption grid (14 cols x 3 rows): hovering a cell reveals the
+// band slice one cell to the RIGHT (an offset frozen clone), mixing it over
+// the original; it auto-resets shortly after.
 const hero = document.querySelector('.hero');
+const band = document.querySelector('.wattle-band');
 
-if (hero && document.querySelector('.wattle-band')) {
+if (hero && band) {
+  const COLS = 14;
+  const ROWS = 3;
   const grid = document.createElement('div');
   grid.className = 'glitch-grid';
   grid.setAttribute('aria-hidden', 'true');
 
-  for (let i = 0; i < 42; i++) {
+  for (let i = 0; i < COLS * ROWS; i++) {
+    const col = i % COLS;
+    const row = Math.floor(i / COLS);
     const cell = document.createElement('div');
     cell.className = 'glitch-cell';
-    let decay;
+
+    // Peek layer: a full-width clone of the band, shifted left by one cell
+    // so this cell's window shows its right-hand neighbour's content.
+    const peek = document.createElement('div');
+    peek.className = 'cell-peek';
+    peek.style.width = COLS * 100 + '%';
+    peek.style.height = ROWS * 100 + '%';
+    peek.style.left = -((col + 1) * 100) + '%';
+    peek.style.top = -(row * 100) + '%';
+    peek.appendChild(band.cloneNode(true));
+    cell.appendChild(peek);
+
+    let reset;
     cell.addEventListener('mouseenter', () => {
-      clearTimeout(decay);
+      clearTimeout(reset);
       cell.classList.add('on');
+      reset = setTimeout(() => cell.classList.remove('on'), 700);
     });
     cell.addEventListener('mouseleave', () => {
-      clearTimeout(decay);
-      decay = setTimeout(() => cell.classList.remove('on'), 350);
+      clearTimeout(reset);
+      reset = setTimeout(() => cell.classList.remove('on'), 250);
     });
     grid.appendChild(cell);
   }

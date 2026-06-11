@@ -178,7 +178,8 @@ section { scroll-margin-top: 80px; }
 }
 
 /* ---------- Hero (asymmetric editorial) ---------- */
-.hero { padding: 110px 0 100px; text-align: left; }
+/* Top padding reserves a dedicated gap above the headline for the wattle band */
+.hero { padding: 330px 0 100px; text-align: left; }
 .hero h1 { font-size: clamp(2.6rem, 6.5vw, 4.3rem); letter-spacing: -0.01em; }
 .hero .eyebrow::before {
   content: "";
@@ -640,7 +641,7 @@ h1 .accent, h2 .accent { font-style: italic; color: var(--sage); }
   top: 0;
   left: 0;
   right: 0;
-  height: 380px;
+  height: 320px;
   z-index: 0;
   pointer-events: none;
 }
@@ -656,27 +657,37 @@ h1 .accent, h2 .accent { font-style: italic; color: var(--sage); }
   to { transform: scaleX(var(--flip, 1)) rotate(var(--to, 2deg)); }
 }
 
-/* Three bush bundles (3 + 3 + 2), kept toward the middle with clear space
-   above — branches overlap within each bundle like one shrub */
-.w1 { left: 19%; top: 44px;  width: 250px; --from: -7deg; --to: -4deg; --dur: 5.6s; animation-delay: -1.2s; }
-.w2 { left: 26%; top: 92px;  width: 195px; --flip: -1; --from: 4deg; --to: 7deg; --dur: 4.8s; animation-delay: -2.7s; }
-.w3 { left: 22%; top: 132px; width: 150px; --from: -2deg; --to: 1deg; --dur: 6.2s; animation-delay: -0.5s; }
+/* 15 branches in five bush bundles (4 + 2 + 4 + 2 + 3), middle-weighted,
+   living entirely inside the reserved gap above the headline */
+.w1  { left: 17%; top: 36px;  width: 300px; --from: -7deg; --to: -4deg; --dur: 5.6s; animation-delay: -1.2s; }
+.w2  { left: 24%; top: 86px;  width: 235px; --flip: -1; --from: 4deg; --to: 7deg; --dur: 4.8s; animation-delay: -2.7s; }
+.w3  { left: 21%; top: 130px; width: 180px; --from: -2deg; --to: 1deg; --dur: 6.2s; animation-delay: -0.5s; }
+.w9  { left: 28%; top: 40px;  width: 200px; --flip: -1; --from: 2deg; --to: 5deg; --dur: 5.1s; animation-delay: -3.1s; }
 
-.w4 { left: 45%; top: 36px;  width: 265px; --flip: -1; --from: 5deg; --to: 8deg; --dur: 6.4s; animation-delay: -3.4s; }
-.w5 { left: 52%; top: 96px;  width: 205px; --from: -8deg; --to: -5deg; --dur: 5.2s; animation-delay: -1.8s; }
-.w6 { left: 48%; top: 138px; width: 160px; --flip: -1; --from: 1deg; --to: 4deg; --dur: 4.5s; animation-delay: -0.9s; }
+.w12 { left: 35%; top: 60px;  width: 220px; --flip: -1; --from: 5deg; --to: 8deg; --dur: 5.7s; animation-delay: -1.6s; }
+.w13 { left: 38%; top: 118px; width: 170px; --from: -4deg; --to: -1deg; --dur: 4.6s; animation-delay: -2.4s; }
 
-.w7 { left: 64%; top: 60px;  width: 225px; --from: -5deg; --to: -2deg; --dur: 5.9s; animation-delay: -2.2s; }
-.w8 { left: 69%; top: 112px; width: 175px; --flip: -1; --from: 6deg; --to: 9deg; --dur: 4.7s; animation-delay: -4s; }
+.w4  { left: 44%; top: 28px;  width: 310px; --flip: -1; --from: 5deg; --to: 8deg; --dur: 6.4s; animation-delay: -3.4s; }
+.w5  { left: 51%; top: 84px;  width: 245px; --from: -8deg; --to: -5deg; --dur: 5.2s; animation-delay: -1.8s; }
+.w6  { left: 47%; top: 132px; width: 190px; --flip: -1; --from: 1deg; --to: 4deg; --dur: 4.5s; animation-delay: -0.9s; }
+.w10 { left: 55%; top: 36px;  width: 205px; --from: -3deg; --to: 0deg; --dur: 5.9s; animation-delay: -4.2s; }
 
-/* Corruption grid: hover blurs only the block under the cursor, with a
-   lingering decay after the cursor leaves (cells built by main.js) */
+.w14 { left: 59%; top: 64px;  width: 200px; --from: -6deg; --to: -3deg; --dur: 5.4s; animation-delay: -0.7s; }
+.w15 { left: 61%; top: 124px; width: 160px; --flip: -1; --from: 3deg; --to: 6deg; --dur: 4.4s; animation-delay: -2.9s; }
+
+.w7  { left: 64%; top: 48px;  width: 270px; --from: -5deg; --to: -2deg; --dur: 5.9s; animation-delay: -2.2s; }
+.w8  { left: 69%; top: 104px; width: 210px; --flip: -1; --from: 6deg; --to: 9deg; --dur: 4.7s; animation-delay: -4s; }
+.w11 { left: 67%; top: 20px;  width: 185px; --from: -1deg; --to: 2deg; --dur: 6.1s; animation-delay: -1.4s; }
+
+/* Corruption grid: hovering a block reveals the slice one block to its
+   right (a frozen clone of the band, offset by one cell), then resets.
+   Cells and clones are built by main.js. */
 .glitch-grid {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 240px;
+  height: 300px;
   z-index: 2;
   display: grid;
   grid-template-columns: repeat(14, 1fr);
@@ -684,28 +695,39 @@ h1 .accent, h2 .accent { font-style: italic; color: var(--sage); }
   pointer-events: none;
 }
 .glitch-cell {
+  position: relative;
+  overflow: hidden;
   pointer-events: auto;
-  backdrop-filter: blur(0) saturate(1);
-  -webkit-backdrop-filter: blur(0) saturate(1);
-  transition: backdrop-filter 0.3s ease, -webkit-backdrop-filter 0.3s ease;
 }
-.glitch-cell.on {
-  backdrop-filter: blur(7px) saturate(1.6) contrast(1.12);
-  -webkit-backdrop-filter: blur(7px) saturate(1.6) contrast(1.12);
-  transition-duration: 0.12s;
+.cell-peek {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.25s ease, visibility 0s linear 0.25s;
+  pointer-events: none;
 }
+.glitch-cell.on .cell-peek {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.1s ease, visibility 0s;
+}
+/* freeze the cloned branches so each revealed slice is a still frame */
+.cell-peek .wattle { animation-play-state: paused; }
 
 @media (max-width: 720px) {
-  .wattle-band { height: 240px; }
-  .w3, .w5, .w6, .w8 { display: none; }
-  .w1 { left: 14%; top: 36px; width: 160px; }
-  .w2 { left: 24%; top: 76px; width: 125px; }
-  .w4 { left: 52%; top: 40px; width: 170px; }
-  .w7 { left: 60%; top: 90px; width: 130px; }
-  .glitch-grid { height: 170px; }
+  .hero { padding-top: 250px; }
+  .wattle-band { height: 230px; }
+  .w3, .w5, .w6, .w8, .w9, .w10, .w12, .w13, .w15 { display: none; }
+  .w1  { left: 13%; top: 30px; width: 180px; }
+  .w2  { left: 22%; top: 78px; width: 140px; }
+  .w4  { left: 46%; top: 34px; width: 190px; }
+  .w14 { left: 56%; top: 92px; width: 130px; }
+  .w7  { left: 62%; top: 44px; width: 160px; }
+  .w11 { left: 70%; top: 96px; width: 120px; }
+  .glitch-grid { height: 210px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .wattle { animation: none; will-change: auto; }
-  .glitch-cell { transition: none; }
+  .cell-peek { transition: none; }
 }
