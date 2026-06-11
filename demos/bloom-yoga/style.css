@@ -824,7 +824,7 @@ h3 {
 }
 
 .tt-beach {
-  background-color: var(--terracotta);
+  background-color: var(--terracotta-dark); /* #A3502C on #FDF8F3 cream text ≈4.9:1 — passes AA */
   color: var(--cream);
 }
 
@@ -832,6 +832,16 @@ h3 {
   font-weight: 400;
   opacity: 0.85;
   display: inline;
+}
+
+/* Room sub-label inside timetable chip — AA-safe: inherits chip color */
+.tt-room {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  opacity: 0.75;
+  margin-top: 0.05rem;
 }
 
 .tt-empty {
@@ -885,6 +895,40 @@ h3 {
 
   .tt-chip {
     white-space: normal;
+  }
+
+  /* Session-name labels on stacked mobile cells */
+  .timetable tbody td:nth-child(2)::before {
+    content: 'Morning';
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--clay-light);
+    padding: 0.35rem 0 0.2rem;
+  }
+
+  .timetable tbody td:nth-child(3)::before {
+    content: 'Midday';
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--clay-light);
+    padding: 0.35rem 0 0.2rem;
+  }
+
+  .timetable tbody td:nth-child(4)::before {
+    content: 'Evening';
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--clay-light);
+    padding: 0.35rem 0 0.2rem;
   }
 }
 
@@ -1029,6 +1073,15 @@ h3 {
 
 .price-card--featured .price-desc {
   color: rgba(253, 248, 243, 0.8);
+}
+
+/* Visitor note on First Week Free card */
+.price-visitors {
+  font-size: 0.8125rem;
+  font-style: italic;
+  color: rgba(253, 248, 243, 0.65);
+  line-height: 1.5;
+  margin-top: -0.25rem;
 }
 
 /* ─── STUDIO / ABOUT ───────────────────────────────────────────── */

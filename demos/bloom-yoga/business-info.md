@@ -27,7 +27,7 @@
 - **Address:** 8/14 Banksia Drive, Byron Bay NSW 2481
 - **Phone:** (02) 6685 7733
 - **Email:** hello@bloomyoga.com.au
-- **Hours:** Classes daily 6am–7:30pm · Office Mon–Fri 9am–3pm
+- **Hours:** Classes seven days, from 6am weekdays · Office Mon–Fri 9am–3pm
 - **Booking:** Class schedule + "Book a mat" CTA
 
 ## Practical details

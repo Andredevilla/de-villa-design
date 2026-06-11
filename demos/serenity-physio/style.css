@@ -397,6 +397,13 @@ h1 {
   align-items: center;
 }
 
+.hero-price-hint {
+  margin-top: .75rem;
+  font-size: .8rem;
+  color: var(--clr-ink-muted);
+  line-height: 1.5;
+}
+
 .hero-image-wrap {
   position: relative;
 }
@@ -616,6 +623,48 @@ h1 {
 
 .about-feature svg {
   flex-shrink: 0;
+}
+
+/* Team list */
+.team-list {
+  margin-top: 2rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--clr-border);
+}
+
+.team-list > .label {
+  margin-bottom: 1rem;
+}
+
+.team-list ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.team-member {
+  display: flex;
+  align-items: baseline;
+  gap: .625rem;
+  padding: .55rem 0;
+  border-bottom: 1px solid var(--clr-border);
+  font-size: .875rem;
+}
+
+.team-member:last-child {
+  border-bottom: none;
+}
+
+.team-name {
+  font-weight: var(--fw-semi);
+  color: var(--clr-ink);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.team-role {
+  color: var(--clr-ink-muted);
+  line-height: 1.4;
 }
 
 /* ── Testimonial ───────────────────────────────────── */
