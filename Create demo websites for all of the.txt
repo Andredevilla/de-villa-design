@@ -1,0 +1,5 @@
+Create demo websites for all of the recent work tabs, create one for Serenity Physio, Bloom Yoga Studio, Coastal Dental. Create a file including the services, themes, colors, location, contacts, and any other information that a business would need. These files will be the information used in the websites.
+
+The goal is to make these websites as aesthetically pleasing a possible, that means generating quality images(Using Highfields), proper formatting, have a header and sub header for each website.
+
+/loop review the websites from 3 different views, 1. The business owner, does it reflect their business by having the right themes and services, 2. The customer, would the customer book a service from the website, 3. A experience website designer, are there any huge red flags. Take the feedback from all 3 perspectives and fix any issues, stop loop once there are no critic from any of the 3 perspectives.

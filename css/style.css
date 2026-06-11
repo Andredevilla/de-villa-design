@@ -246,7 +246,19 @@ section { scroll-margin-top: 80px; }
 .card .num { font-family: var(--serif); font-size: 1.4rem; color: var(--sage); }
 
 /* ---------- Work cards ---------- */
-.work-card { border-radius: var(--radius); overflow: hidden; background: #fff; }
+.work-card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #fff;
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+}
+.work-card:focus-visible {
+  outline: 3px solid var(--sage);
+  outline-offset: 3px;
+}
+.work-card .tag { color: var(--sage-dark); }
 .work-shot {
   height: 220px;
   padding: 28px 28px 0;
