@@ -422,3 +422,42 @@ h1 .accent { font-style: italic; color: var(--sage); }
   .btn, .link-arrow .arrow { transition: none; }
   .grid-3 > .reveal, .steps > .reveal { transition-delay: 0s; }
 }
+
+/* ---------- Section eyebrows ---------- */
+.section-head .eyebrow { margin: 0 0 12px; }
+.outcomes .eyebrow { color: #fff; }
+
+/* ---------- Service card hover ---------- */
+.card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(59, 58, 54, 0.08); }
+
+/* ---------- Outcomes band depth ---------- */
+.outcomes { background: radial-gradient(120% 90% at 85% 0%, #77876B 0%, var(--sage) 60%); }
+.outcome .glyph {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 50%;
+  font-size: 1.3rem;
+}
+
+/* ---------- Process connector line ---------- */
+@media (min-width: 721px) {
+  .steps { position: relative; }
+  .steps::before {
+    content: "";
+    position: absolute;
+    top: 22px;
+    left: 12.5%;
+    right: 12.5%;
+    border-top: 1px dashed var(--sand);
+  }
+  .step { position: relative; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card { transition: none; }
+}
