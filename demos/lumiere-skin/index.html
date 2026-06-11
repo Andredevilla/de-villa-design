@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#FAF7F2">
+  <title>Lumière Skin &amp; Laser — Doctor-Led Medical Spa, South Yarra Melbourne</title>
+  <meta name="description" content="A doctor-led medical spa in South Yarra, Melbourne. Honest skin advice, clinical-grade treatments, and a complimentary 30-minute skin consultation. TGA-compliant. Transparent pricing.">
+  <meta property="og:title" content="Lumière Skin &amp; Laser — South Yarra Melbourne">
+  <meta property="og:description" content="Doctor-led skin and laser treatments in South Yarra. Complimentary 30-minute consultation. Science meets glow.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_AU">
+
+  <!-- Preload critical fonts -->
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/cormorant-600.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/cormorant-italic-500.woff2" crossorigin>
+
+  <!-- Preload hero image -->
+  <link rel="preload" as="image" href="assets/hero.webp">
+
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "name": "Lumière Skin & Laser",
+    "description": "Doctor-led medical spa in South Yarra offering skin consultations, laser treatments, anti-wrinkle injectables, medical-grade facials, and laser hair removal.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Suite 5, 102 Toorak Road",
+      "addressLocality": "South Yarra",
+      "addressRegion": "VIC",
+      "postalCode": "3141",
+      "addressCountry": "AU"
+    },
+    "telephone": "+61398206611",
+    "email": "hello@lumiereskin.com.au",
+    "openingHours": ["Tu-Fr 09:00-19:00", "Sa 09:00-16:00"],
+    "priceRange": "$$"
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ============================================================
+       STICKY HEADER
+  ============================================================ -->
+  <header class="site-header" id="site-header" role="banner">
+    <div class="container">
+      <div class="header-inner">
+
+        <!-- Wordmark -->
+        <a href="#hero" class="wordmark" aria-label="Lumière Skin &amp; Laser — back to top">
+          Lumi<span class="accent-char">è</span>re
+        </a>
+
+        <!-- Primary nav -->
+        <nav class="site-nav" aria-label="Main navigation">
+          <ul class="nav-links" role="list">
+            <li><a href="#treatments">Treatments</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+
+          <div class="header-cta">
+            <a href="tel:+61398206611" class="btn" aria-label="Call us to book a consultation: (03) 9820 6611">
+              Book a consultation
+            </a>
+          </div>
+        </nav>
+
+        <!-- Mobile menu toggle -->
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-mobile">
+          <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <line x1="3" y1="6" x2="19" y2="6"/>
+            <line x1="3" y1="11" x2="19" y2="11"/>
+            <line x1="3" y1="16" x2="19" y2="16"/>
+          </svg>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile full-screen nav -->
+  <nav class="nav-mobile" id="nav-mobile" aria-label="Mobile navigation" aria-hidden="true">
+    <button class="nav-mobile-close" id="nav-mobile-close" aria-label="Close navigation menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <line x1="4" y1="4" x2="20" y2="20"/>
+        <line x1="20" y1="4" x2="4" y2="20"/>
+      </svg>
+    </button>
+    <a href="#treatments" class="nav-mobile-link">Treatments</a>
+    <a href="#about" class="nav-mobile-link">About</a>
+    <a href="#contact" class="nav-mobile-link">Contact</a>
+    <a href="tel:+61398206611" class="btn btn-gold nav-mobile-cta" aria-label="Call us to book a consultation: (03) 9820 6611">
+      Book a consultation
+    </a>
+  </nav>
+
+
+  <!-- ============================================================
+       HERO
+  ============================================================ -->
+  <section class="hero" id="hero" aria-label="Welcome to Lumière Skin &amp; Laser">
+    <div class="hero-bg">
+      <img
+        src="assets/hero.webp"
+        alt="Serene treatment room at Lumière Skin &amp; Laser, South Yarra"
+        width="1376"
+        height="768"
+        loading="eager"
+        decoding="async"
+      >
+    </div>
+
+    <div class="hero-content container">
+
+      <div class="hero-eyebrow">
+        <span class="hero-rule" aria-hidden="true"></span>
+        <span class="label">Doctor-led · South Yarra, Melbourne</span>
+      </div>
+
+      <h1 class="display-xl hero-heading">
+        Science<br>meets<br><em>glow.</em>
+      </h1>
+
+      <p class="hero-subhead">
+        A doctor-led medical spa in South Yarra&nbsp;— honest skin advice, clinical-grade treatments, results you can see.
+      </p>
+
+      <!-- Conversion engine: complimentary consult offer -->
+      <div class="hero-offer" role="complementary" aria-label="Hero offer: complimentary skin consultation">
+        <span class="hero-offer-label" aria-hidden="true">Our signature offer</span>
+        <p class="hero-offer-title">Complimentary skin consultation</p>
+        <p class="hero-offer-desc">A 30-minute, doctor-led skin analysis with a personalised treatment plan &mdash; no obligation, no pressure.</p>
+      </div>
+
+      <div class="hero-ctas">
+        <a href="tel:+61398206611" class="btn btn-primary" aria-label="Call us on (03) 9820 6611 to book your complimentary consultation">
+          Claim your free consult
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+        </a>
+        <a href="#treatments" class="btn btn-ghost-light">
+          View treatments
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero-scroll" aria-hidden="true">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       TRUST STRIP
+  ============================================================ -->
+  <div class="trust-strip" role="list" aria-label="Trust credentials">
+    <div class="container">
+      <ul class="trust-inner" role="list">
+        <li class="trust-item" role="listitem">
+          <svg class="trust-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M5 8.5l2 2 4-4"/></svg>
+          Doctor-led
+        </li>
+        <li class="trust-item" role="listitem">
+          <svg class="trust-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2.5" y="2.5" width="11" height="11" rx="1"/><path d="M5 8h6M8 5v6"/></svg>
+          TGA-compliant
+        </li>
+        <li class="trust-item" role="listitem">
+          <svg class="trust-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 2v12M2 8h12"/><circle cx="8" cy="8" r="5.5"/></svg>
+          Transparent pricing
+        </li>
+        <li class="trust-item" role="listitem">
+          <svg class="trust-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="1.5" y="4.5" width="13" height="8" rx="1.5"/><path d="M5 4.5V3a3 3 0 016 0v1.5"/></svg>
+          Afterpay on packages
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       TREATMENTS
+  ============================================================ -->
+  <section class="treatments" id="treatments" aria-labelledby="treatments-heading">
+    <div class="container">
+
+      <header class="section-header">
+        <span class="label">What we offer</span>
+        <h2 class="display-lg" id="treatments-heading">Our treatments</h2>
+        <p class="body-lg">
+          Every treatment at Lumière begins with an honest conversation. Suitability is always assessed in consultation — we will only recommend what is right for your skin.
+        </p>
+      </header>
+
+      <div class="treatments-grid" role="list" aria-label="Treatment menu">
+
+        <!-- 1: Skin Consultations (hero offer card) -->
+        <article class="treatment-card" role="listitem">
+          <span class="treatment-number" aria-hidden="true">01</span>
+          <h3 class="treatment-name">Skin Consultations</h3>
+          <p class="treatment-desc">
+            A 30-minute, doctor-led skin analysis with a personalised treatment plan. This is where your Lumière journey begins &mdash; honest, thorough, unhurried.
+          </p>
+          <div class="treatment-price">
+            <span class="price-from">Complimentary</span>
+          </div>
+        </article>
+
+        <!-- 2: Laser Skin Rejuvenation -->
+        <article class="treatment-card" role="listitem">
+          <span class="treatment-number" aria-hidden="true">02</span>
+          <h3 class="treatment-name">Laser Skin Rejuvenation</h3>
+          <p class="treatment-desc">
+            Targets pigment, redness and uneven texture. Results may vary; suitability assessed in consultation. All skin tones welcomed.
+          </p>
+          <div class="treatment-price">
+            <span class="price-from">From</span>
+            <span class="price-amount">$290</span>
+            <span class="price-note">&nbsp;/ session</span>
+          </div>
+        </article>
+
+        <!-- 3: Anti-Wrinkle & Dermal Fillers -->
+        <article class="treatment-card" role="listitem">
+          <span class="treatment-number" aria-hidden="true">03</span>
+          <h3 class="treatment-name">Anti-Wrinkle &amp; Dermal Fillers</h3>
+          <p class="treatment-desc">
+            Subtle, medically supervised results. These are prescription treatments administered by our cosmetic doctor &mdash; an in-person consultation is required before treatment.
+          </p>
+          <div class="treatment-price">
+            <span class="price-from">Consult required</span>
+          </div>
+          <span class="treatment-consult-note">Prescription treatment &mdash; pricing discussed in consultation.</span>
+        </article>
+
+        <!-- 4: Medical-Grade Facials & Peels -->
+        <article class="treatment-card" role="listitem">
+          <span class="treatment-number" aria-hidden="true">04</span>
+          <h3 class="treatment-name">Medical-Grade Facials &amp; Peels</h3>
+          <p class="treatment-desc">
+            Clinical-strength actives tailored to your skin. May support hydration, brightness and skin tone; individual results vary.
+          </p>
+          <div class="treatment-price">
+            <span class="price-from">From</span>
+            <span class="price-amount">$180</span>
+          </div>
+        </article>
+
+        <!-- 5: Laser Hair Removal -->
+        <article class="treatment-card" role="listitem">
+          <span class="treatment-number" aria-hidden="true">05</span>
+          <h3 class="treatment-name">Laser Hair Removal</h3>
+          <p class="treatment-desc">
+            Safe and effective for all skin tones using medically certified laser technology. Multiple sessions are typically required for best results.
+          </p>
+          <div class="treatment-price">
+            <span class="price-from">From</span>
+            <span class="price-amount">$89</span>
+            <span class="price-note">&nbsp;/ area</span>
+          </div>
+        </article>
+
+        <!-- 6: LED & Skin-Needling Programs -->
+        <article class="treatment-card" role="listitem">
+          <span class="treatment-number" aria-hidden="true">06</span>
+          <h3 class="treatment-name">LED &amp; Skin-Needling Programs</h3>
+          <p class="treatment-desc">
+            Collagen-support programs designed to be completed as a course. Suitability assessed at consultation; results may vary between individuals.
+          </p>
+          <div class="treatment-price">
+            <span class="price-from">Packages from</span>
+            <span class="price-amount">$240</span>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="treatments-footer">
+        <p>All prices are per session unless stated. Package pricing and Afterpay available on eligible treatments. Pricing confirmed at consultation.</p>
+        <a href="tel:+61398206611" class="btn btn-secondary" aria-label="Call (03) 9820 6611 to book your complimentary consultation">
+          Book your free skin consult
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       ABOUT / WHY LUMIÈRE
+  ============================================================ -->
+  <section class="about" id="about" aria-labelledby="about-heading">
+    <div class="container">
+      <div class="split-layout">
+
+        <!-- Image -->
+        <div class="about-image-wrap">
+          <div class="about-image-frame">
+            <img
+              src="assets/clinic.webp"
+              alt="Lumière Skin &amp; Laser clinic interior, South Yarra — calm, minimal treatment space"
+              width="1376"
+              height="768"
+              loading="lazy"
+              decoding="async"
+            >
+          </div>
+          <div class="about-image-accent" aria-hidden="true"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="about-content">
+          <span class="label">Our approach</span>
+          <h2 class="display-lg" id="about-heading">
+            Honest advice.<br>
+            <em style="font-style:italic;">Clinical authority.</em>
+          </h2>
+
+          <div class="about-ethos">
+            <p class="body-lg">
+              Lumière was founded on a simple belief: great skin results come from honest conversations, not hard sells. Every treatment plan begins with a thorough consultation &mdash; because the right treatment for your skin is the only treatment worth having.
+            </p>
+            <p>
+              Our approach is doctor-led and evidence-based. We use clinically validated technology and medical-grade formulations. All advertising and procedures comply with TGA guidelines; prescription treatments require an in-person consultation before commencement.
+            </p>
+            <p>
+              We believe in transparent, per-session pricing &mdash; and we will tell you honestly if a treatment may not be suitable for you.
+            </p>
+          </div>
+
+          <!-- Team -->
+          <div class="team-list" aria-label="Our clinical team">
+            <p class="team-list-title">Our clinical team</p>
+            <ul class="team-members" role="list">
+              <li class="team-member" role="listitem">
+                <span class="member-name">Dr Amelia Ford</span>
+                <span class="member-role">Cosmetic Doctor &amp; Medical Director</span>
+              </li>
+              <li class="team-member" role="listitem">
+                <span class="member-name">Rina Patel</span>
+                <span class="member-role">Dermal Clinician</span>
+              </li>
+              <li class="team-member" role="listitem">
+                <span class="member-name">Grace Liu</span>
+                <span class="member-role">Dermal Clinician</span>
+              </li>
+              <li class="team-member" role="listitem">
+                <span class="member-name">Bella Marsh</span>
+                <span class="member-role">Laser Technician</span>
+              </li>
+            </ul>
+          </div>
+
+          <blockquote class="consult-callout">
+            &ldquo;We start every relationship with a complimentary consultation &mdash; no scripts, no upselling. Just a thorough look at your skin and an honest plan.&rdquo;
+            <br><br>
+            <cite style="font-style: normal; font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-body);">— Dr Amelia Ford, Medical Director</cite>
+          </blockquote>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       TESTIMONIAL
+  ============================================================ -->
+  <section class="testimonial-section" aria-labelledby="testimonial-heading">
+    <div class="container">
+      <div class="testimonial-inner">
+        <h2 id="testimonial-heading" class="sr-only">Client testimonial</h2>
+        <blockquote>
+          <p class="testimonial-quote">
+            &ldquo;I'd been told by two other clinics that I needed a long list of treatments. Dr Ford sat with me for half an hour and said I actually needed just one thing &mdash; and it worked. That honesty is rare.&rdquo;
+          </p>
+          <footer class="testimonial-attr">
+            <span class="testimonial-line" aria-hidden="true"></span>
+            <cite class="testimonial-name">Sarah M. &mdash; South Yarra client</cite>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       CONTACT
+  ============================================================ -->
+  <section class="contact" id="contact" aria-labelledby="contact-heading">
+    <div class="container">
+
+      <div class="contact-grid">
+
+        <!-- Info -->
+        <div class="contact-info">
+          <span class="label">Find us</span>
+          <h2 class="display-lg" id="contact-heading">
+            Visit us in<br><em style="font-style:italic;">South Yarra.</em>
+          </h2>
+
+          <dl class="contact-details">
+            <div class="contact-detail">
+              <dt class="detail-label">Address</dt>
+              <dd class="detail-value">
+                Suite 5, 102 Toorak Road<br>
+                South Yarra VIC 3141<br>
+                Melbourne, Australia
+              </dd>
+            </div>
+            <div class="contact-detail">
+              <dt class="detail-label">Phone</dt>
+              <dd class="detail-value">
+                <a href="tel:+61398206611" aria-label="Call Lumière Skin and Laser on (03) 9820 6611">(03) 9820 6611</a>
+              </dd>
+            </div>
+            <div class="contact-detail">
+              <dt class="detail-label">Email</dt>
+              <dd class="detail-value">
+                <a href="mailto:hello@lumiereskin.com.au">hello@lumiereskin.com.au</a>
+              </dd>
+            </div>
+            <div class="contact-detail">
+              <dt class="detail-label">Hours</dt>
+              <dd class="detail-value">
+                Tue–Fri &nbsp; 9am – 7pm<br>
+                Sat &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 9am – 4pm<br>
+                Sun–Mon &nbsp; Closed
+              </dd>
+            </div>
+          </dl>
+        </div>
+
+        <!-- CTA panel -->
+        <div class="contact-cta-panel" aria-label="Book your complimentary skin consultation">
+          <span class="label">Ready to begin?</span>
+          <h3>Your complimentary skin consultation awaits.</h3>
+          <p>
+            Spend 30 minutes with our cosmetic doctor for a thorough skin analysis and a personalised treatment plan &mdash; with no obligation to proceed. Call us to arrange a time that suits you.
+          </p>
+          <a href="tel:+61398206611" class="btn btn-primary" aria-label="Call (03) 9820 6611 to book your complimentary consultation">
+            Call to book your free consult
+          </a>
+          <a href="mailto:hello@lumiereskin.com.au" class="btn btn-secondary" aria-label="Email us at hello@lumiereskin.com.au">
+            Send us an email
+          </a>
+          <p class="contact-note">Consultations are complimentary and obligation-free. Prescription treatments require an in-person consult.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-wordmark" aria-hidden="true">Lumière Skin &amp; Laser</span>
+        <div>
+          <p class="footer-legal">
+            Fictional concept website by <a href="/">De Villa Design</a>
+          </p>
+          <p class="footer-disclaimer">
+            Lumière Skin &amp; Laser is a fictional business created for portfolio purposes. All treatments, pricing and team members are illustrative only.
+            TGA-compliant wording applied throughout: &ldquo;may&rdquo; and &ldquo;suitability assessed in consultation&rdquo; are intentional disclaimers.
+          </p>
+        </div>
+        <span class="footer-wordmark" style="opacity:0" aria-hidden="true">Balance</span>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ============================================================
+       FIXED CONCEPT BADGE
+  ============================================================ -->
+  <a href="/" class="concept-badge" aria-label="Concept website by De Villa Design — visit De Villa Design">
+    Concept by De Villa Design
+  </a>
+
+
+  <!-- ============================================================
+       SCRIPTS
+  ============================================================ -->
+  <script>
+    (function () {
+      'use strict';
+
+      /* ---- Scrolled header ---- */
+      var header = document.getElementById('site-header');
+      function onScroll() {
+        if (window.scrollY > 60) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      /* ---- Mobile nav ---- */
+      var toggle = document.getElementById('menu-toggle');
+      var mobileNav = document.getElementById('nav-mobile');
+      var closeBtn = document.getElementById('nav-mobile-close');
+
+      function openNav() {
+        mobileNav.classList.add('open');
+        mobileNav.setAttribute('aria-hidden', 'false');
+        toggle.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeNav() {
+        mobileNav.classList.remove('open');
+        mobileNav.setAttribute('aria-hidden', 'true');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+
+      if (toggle) toggle.addEventListener('click', openNav);
+      if (closeBtn) closeBtn.addEventListener('click', closeNav);
+
+      /* Close on nav link click */
+      var mobileLinks = mobileNav ? mobileNav.querySelectorAll('a') : [];
+      mobileLinks.forEach(function (link) {
+        link.addEventListener('click', closeNav);
+      });
+
+      /* Close on Escape */
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && mobileNav && mobileNav.classList.contains('open')) {
+          closeNav();
+          if (toggle) toggle.focus();
+        }
+      });
+
+      /* ---- Intersection observer fade-in for sections ---- */
+      if (typeof IntersectionObserver !== 'undefined' && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        var fadeEls = document.querySelectorAll('.treatment-card, .team-member, .contact-detail');
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = '1';
+              entry.target.style.transform = 'translateY(0)';
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+        fadeEls.forEach(function (el, i) {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(16px)';
+          el.style.transition = 'opacity 0.55s ' + (i * 0.06) + 's ease, transform 0.55s ' + (i * 0.06) + 's ease';
+          observer.observe(el);
+        });
+      }
+
+    }());
+  </script>
+
+</body>
+</html>

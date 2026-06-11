@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Still Point Massage — Remedial and relaxation massage in Norwood, Adelaide. Diploma-qualified therapists, HICAPS rebates, evenings till 8pm. First visit $89." />
+  <title>Still Point Massage — Norwood, Adelaide</title>
+
+  <!-- Preload critical fonts -->
+  <link rel="preload" href="../../fonts/fraunces-variable.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="../../fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/hero.webp" as="image" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       STICKY HEADER
+  ═══════════════════════════════════════════════════════════ -->
+  <header class="site-header" role="banner" id="top">
+    <div class="container">
+      <div class="header-inner">
+
+        <!-- Wordmark -->
+        <a href="#top" class="wordmark" aria-label="Still Point Massage — home">
+          Still <span>Point</span>
+        </a>
+
+        <!-- Desktop nav -->
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="#treatments">Treatments</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <!-- Header CTA -->
+        <a href="tel:+61883625540" class="btn btn-primary header-cta">Call to book</a>
+
+        <!-- Mobile menu toggle -->
+        <button
+          class="menu-toggle"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+          type="button"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Mobile nav drawer -->
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+      <a href="#treatments">Treatments</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:+61883625540">Call (08) 8362 5540</a>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ═══════════════════════════════════════════════════════════
+         HERO
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="hero" aria-labelledby="hero-heading">
+
+      <!-- Background photo -->
+      <div class="hero-photo" aria-hidden="true">
+        <img
+          src="assets/hero.webp"
+          alt=""
+          width="1376"
+          height="768"
+          fetchpriority="high"
+        />
+      </div>
+
+      <!-- Warm glow decorative element -->
+      <div class="hero-glow" aria-hidden="true"></div>
+
+      <!-- Content -->
+      <div class="container">
+        <div class="hero-content">
+
+          <span class="hero-eyebrow">Norwood, Adelaide</span>
+
+          <h1 id="hero-heading">Press pause.</h1>
+
+          <p class="hero-sub">
+            Remedial and relaxation massage in Norwood, Adelaide — skilled hands, quiet rooms, and an hour that's entirely yours.
+          </p>
+
+          <!-- First visit $89 chip — conversion engine -->
+          <div class="offer-chip" role="note" aria-label="First visit offer">
+            <span class="offer-chip-badge">$89</span>
+            <span class="offer-chip-text">
+              <strong>First visit offer.</strong> 60-min remedial or relaxation — save $26.
+            </span>
+          </div>
+
+          <!-- CTAs -->
+          <div class="hero-ctas">
+            <a href="tel:+61883625540" class="btn btn-primary">
+              <!-- Phone icon -->
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18a2 2 0 012-2.18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 6.83a16 16 0 006.29 6.29l.91-.91a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.6v2.32z"/>
+              </svg>
+              <span>Call to book <span aria-hidden="true">—</span> <abbr title="phone number">(08) 8362 5540</abbr></span>
+            </a>
+            <a href="#treatments" class="hero-anchor">View treatments</a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Scroll hint -->
+      <div class="hero-scroll-hint" aria-hidden="true">
+        <div class="scroll-line"></div>
+      </div>
+
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         TRUST STRIP
+    ═══════════════════════════════════════════════════════════ -->
+    <aside class="trust-strip" aria-label="Key practice features">
+      <div class="container">
+        <ul class="trust-inner" role="list">
+          <li class="trust-item">
+            <!-- Diploma / credential icon -->
+            <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+            </svg>
+            Diploma-qualified remedial therapists
+          </li>
+          <li class="trust-item">
+            <!-- Health fund / card icon -->
+            <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+              <line x1="1" y1="10" x2="23" y2="10"/>
+            </svg>
+            HICAPS health-fund rebates
+          </li>
+          <li class="trust-item">
+            <!-- Clock / evening icon -->
+            <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            Evenings till 8 pm
+          </li>
+          <li class="trust-item">
+            <!-- Room / door icon -->
+            <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+              <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+            Quiet private rooms
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         TREATMENTS / SERVICES
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="services" id="treatments" aria-labelledby="treatments-heading">
+      <div class="container">
+
+        <div class="section-head">
+          <span class="section-label">What we offer</span>
+          <h2 id="treatments-heading">Treatments designed to restore</h2>
+          <p>Every session begins with a conversation. Whether you're managing chronic pain or simply need an hour of quiet, we'll tailor the work to what your body actually needs.</p>
+        </div>
+
+        <ul class="services-grid" role="list">
+
+          <!-- 1. Remedial Massage -->
+          <li class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 12h6M9 16h6M9 8h6M4 6h.01M4 10h.01M4 14h.01M4 18h.01M20 4H4a2 2 0 00-2 2v14a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2z"/>
+              </svg>
+            </div>
+            <h3>Remedial massage</h3>
+            <p>Assessment-based treatment for persistent pain, tension, and postural issues. We find the source and work it properly.</p>
+            <div class="service-price">
+              <span class="price-tag">60 min — $115</span>
+              <span class="price-tag">90 min — $160</span>
+            </div>
+          </li>
+
+          <!-- 2. Relaxation Massage -->
+          <li class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+              </svg>
+            </div>
+            <h3>Relaxation massage</h3>
+            <p>Slow, rhythmic, full-body unwinding. No agenda but ease — the kind of stillness you carry with you afterwards.</p>
+            <div class="service-price">
+              <span class="price-tag">60 min — $105</span>
+            </div>
+          </li>
+
+          <!-- 3. Deep Tissue -->
+          <li class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <circle cx="12" cy="12" r="6"/>
+                <circle cx="12" cy="12" r="2"/>
+              </svg>
+            </div>
+            <h3>Deep tissue</h3>
+            <p>Firm, targeted work for stubborn knots and layers of held tension. Pressure that reaches where it needs to go.</p>
+            <div class="service-price">
+              <span class="price-tag">60 min — $115</span>
+            </div>
+          </li>
+
+          <!-- 4. Pregnancy Massage -->
+          <li class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3>Pregnancy massage</h3>
+            <p>Supported side-lying comfort, trimester-safe techniques. A rare hour of ease during a time when rest is everything.</p>
+            <div class="service-price">
+              <span class="price-tag">60 min — $115</span>
+            </div>
+          </li>
+
+          <!-- 5. Hot Stone Therapy -->
+          <li class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            </div>
+            <h3>Hot stone therapy</h3>
+            <p>Heated basalt stones glide through muscle, allowing warmth to do the softening before the hands follow deep.</p>
+            <div class="service-price">
+              <span class="price-tag">75 min — $145</span>
+            </div>
+          </li>
+
+          <!-- 6. Workplace & Sports Recovery -->
+          <li class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8h1a4 4 0 010 8h-1"/>
+                <path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/>
+                <line x1="6" y1="1" x2="6" y2="4"/>
+                <line x1="10" y1="1" x2="10" y2="4"/>
+                <line x1="14" y1="1" x2="14" y2="4"/>
+              </svg>
+            </div>
+            <h3>Workplace &amp; sports recovery</h3>
+            <p>Cupping, assisted stretching, and bespoke recovery plans for athletes and desk-bound workers alike.</p>
+            <div class="service-price">
+              <span class="price-tag">Add-ons from $20</span>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         ABOUT
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="about" id="about" aria-labelledby="about-heading">
+      <div class="container">
+
+        <div class="about-grid">
+
+          <!-- Photo -->
+          <div class="about-photo">
+            <img
+              src="assets/room.webp"
+              alt="A softly lit Still Point treatment room with draped massage table, warm lamp glow, and folded towels"
+              width="1376"
+              height="768"
+              loading="lazy"
+            />
+          </div>
+
+          <!-- Content -->
+          <div class="about-content">
+            <span class="section-label">The studio</span>
+            <h2 id="about-heading">Three therapists. Three quiet rooms.</h2>
+            <p>
+              We're a small, unhurried practice on The Parade — the kind of place where you're greeted by name and left in capable hands. Every therapist holds a Diploma of Remedial Massage and is a current AMT member.
+            </p>
+
+            <!-- Therapists -->
+            <ul class="therapists" role="list" aria-label="Our therapists">
+
+              <li class="therapist">
+                <div class="therapist-avatar" aria-hidden="true">H</div>
+                <div class="therapist-info">
+                  <div class="therapist-name">Hannah Brooks</div>
+                  <div class="therapist-role">Senior remedial massage therapist</div>
+                </div>
+              </li>
+
+              <li class="therapist">
+                <div class="therapist-avatar" aria-hidden="true">M</div>
+                <div class="therapist-info">
+                  <div class="therapist-name">Marco Silva</div>
+                  <div class="therapist-role">Deep tissue &amp; sports recovery specialist</div>
+                </div>
+              </li>
+
+              <li class="therapist">
+                <div class="therapist-avatar" aria-hidden="true">A</div>
+                <div class="therapist-info">
+                  <div class="therapist-name">Aiko Tanaka</div>
+                  <div class="therapist-role">Pregnancy &amp; relaxation massage</div>
+                </div>
+              </li>
+
+            </ul>
+
+            <!-- Studio facts -->
+            <ul class="studio-facts" role="list" aria-label="Studio facilities">
+              <li class="fact-pill">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+                  <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg>
+                3 treatment rooms
+              </li>
+              <li class="fact-pill">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M9 6 5 12l4 6M15 6l4 6-4 6M9 12h6"/>
+                </svg>
+                Shower available
+              </li>
+              <li class="fact-pill">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="1" y="3" width="15" height="13" rx="2"/>
+                  <path d="M16 8h4l3 3v5h-7V8z"/>
+                  <circle cx="5.5" cy="18.5" r="2.5"/>
+                  <circle cx="18.5" cy="18.5" r="2.5"/>
+                </svg>
+                Street parking — The Parade
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         TESTIMONIAL
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="testimonial" aria-label="Client testimonial">
+      <div class="container">
+        <div class="testimonial-inner">
+          <span class="quote-mark" aria-hidden="true">"</span>
+          <blockquote cite="#">
+            <p>I've been coming to Still Point for two years. I walk in carrying a week's worth of tension and leave feeling like myself again. Hannah has fixed things a GP never could.</p>
+            <footer>
+              <cite>— Sarah M., Norwood</cite>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         CONTACT
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="contact" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+
+        <div class="contact-grid">
+
+          <!-- Contact info -->
+          <div class="contact-info">
+            <span class="section-label">Find us</span>
+            <h2 id="contact-heading">Come in for an hour that's yours</h2>
+            <p>We're on The Parade in Norwood — easy to reach from across Adelaide, with street parking right outside.</p>
+
+            <ul class="contact-details" role="list">
+
+              <li class="contact-row">
+                <svg class="contact-row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <div>
+                  <span class="contact-row-label">Address</span>
+                  <address class="contact-row-value" style="font-style:normal;">
+                    31 The Parade, Norwood SA 5067
+                  </address>
+                </div>
+              </li>
+
+              <li class="contact-row">
+                <svg class="contact-row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18a2 2 0 012-2.18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 6.83a16 16 0 006.29 6.29l.91-.91a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.6v2.32z"/>
+                </svg>
+                <div>
+                  <span class="contact-row-label">Phone</span>
+                  <div class="contact-row-value">
+                    <a href="tel:+61883625540">(08) 8362 5540</a>
+                  </div>
+                </div>
+              </li>
+
+              <li class="contact-row">
+                <svg class="contact-row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+                <div>
+                  <span class="contact-row-label">Email</span>
+                  <div class="contact-row-value">
+                    <a href="mailto:breathe@stillpointmassage.com.au">breathe@stillpointmassage.com.au</a>
+                  </div>
+                </div>
+              </li>
+
+              <li class="contact-row">
+                <svg class="contact-row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <div>
+                  <span class="contact-row-label">Hours</span>
+                  <div class="contact-row-value">
+                    Mon–Fri 10 am–8 pm<br />
+                    Sat 9 am–5 pm
+                  </div>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+
+          <!-- Offer repeat card -->
+          <div class="offer-card" aria-label="First visit offer details">
+            <p class="offer-card-price"><sup>$</sup>89</p>
+            <p class="offer-card-desc">
+              First visit — 60-min remedial or relaxation massage
+            </p>
+            <span class="offer-card-saving">Save $26 on your first session</span>
+            <a href="tel:+61883625540" class="btn btn-primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18a2 2 0 012-2.18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 6.83a16 16 0 006.29 6.29l.91-.91a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.6v2.32z"/>
+              </svg>
+              Call to book — (08) 8362 5540
+            </a>
+            <p class="offer-card-note">
+              First-visit offer valid for new clients.<br />
+              HICAPS rebates available on remedial massage.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-brand">Still Point Massage</span>
+        <p class="footer-copy">
+          Fictional concept website by <a href="/">De Villa Design</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Fixed concept badge -->
+  <a href="/" class="concept-badge" aria-label="Concept by De Villa Design — visit De Villa Design website">
+    Concept by De Villa Design
+  </a>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       JAVASCRIPT — minimal, progressive enhancement
+  ═══════════════════════════════════════════════════════════ -->
+  <script>
+    // Sticky header shadow on scroll
+    (function () {
+      var header = document.querySelector('.site-header');
+      if (!header) return;
+      var lastY = 0;
+      window.addEventListener('scroll', function () {
+        var y = window.scrollY;
+        header.classList.toggle('scrolled', y > 20);
+        lastY = y;
+      }, { passive: true });
+    }());
+
+    // Mobile menu toggle
+    (function () {
+      var toggle = document.querySelector('.menu-toggle');
+      var nav    = document.getElementById('mobile-nav');
+      if (!toggle || !nav) return;
+
+      toggle.addEventListener('click', function () {
+        var isOpen = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+        toggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+      });
+
+      // Close on nav link click
+      nav.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          nav.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.setAttribute('aria-label', 'Open navigation menu');
+        });
+      });
+    }());
+  </script>
+
+</body>
+</html>

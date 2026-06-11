@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Solace Springs Retreat — A boutique wellness retreat in the Daylesford hills. Mineral springs, forest quiet, and programs that actually restore you. Day retreats from $240. 90 minutes from Melbourne.">
+  <title>Solace Springs Retreat — Daylesford, VIC</title>
+
+  <!-- Preload critical fonts -->
+  <link rel="preload" href="/fonts/cormorant-600.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/cormorant-italic-500.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- Preload hero image -->
+  <link rel="preload" href="assets/hero.webp" as="image">
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* Self-hosted fonts */
+    @font-face {
+      font-family: 'Cormorant Garamond';
+      src: url('/fonts/cormorant-600.woff2') format('woff2');
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Cormorant Garamond';
+      src: url('/fonts/cormorant-italic-500.woff2') format('woff2');
+      font-weight: 500;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Inter';
+      src: url('/fonts/inter-latin.woff2') format('woff2');
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================================================
+       CONCEPT PILL (fixed)
+       ================================================ -->
+  <a href="/" class="concept-pill" aria-label="Concept website by De Villa Design">
+    Concept by De Villa Design
+  </a>
+
+  <!-- ================================================
+       STICKY HEADER
+       ================================================ -->
+  <header class="site-header" id="site-header" role="banner">
+    <div class="container">
+      <div class="header-inner">
+        <a href="#hero" class="wordmark" aria-label="Solace Springs Retreat — home">
+          Solace Springs
+          <span>Daylesford, Victoria</span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          id="nav-toggle"
+        >
+          <svg width="22" height="16" viewBox="0 0 22 16" fill="none" aria-hidden="true">
+            <rect width="22" height="2" rx="1" fill="currentColor"/>
+            <rect y="7" width="16" height="2" rx="1" fill="currentColor"/>
+            <rect y="14" width="22" height="2" rx="1" fill="currentColor"/>
+          </svg>
+        </button>
+
+        <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+          <a href="#programs">Programs</a>
+          <a href="#the-retreat">The Retreat</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <a href="tel:0353487790" class="btn btn-ghost-white header-cta" aria-label="Check availability — call (03) 5348 7790">
+          Check availability
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ================================================
+         HERO — full-bleed
+         ================================================ -->
+    <section class="hero noise" id="hero" aria-labelledby="hero-heading">
+      <div class="hero-bg" aria-hidden="true">
+        <img
+          src="assets/hero.webp"
+          alt=""
+          role="presentation"
+          fetchpriority="high"
+          decoding="sync"
+        >
+      </div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+
+      <div class="container hero-content">
+        <p class="hero-kicker">Daylesford, Victoria · Est. in the Hills</p>
+
+        <h1 id="hero-heading">Come back<br>to yourself.</h1>
+
+        <p class="hero-sub">
+          A boutique wellness retreat in the Daylesford hills — mineral springs,
+          forest quiet, and programs that actually restore you.
+        </p>
+
+        <div class="offer-chip" role="note" aria-label="Day retreat offer">
+          <strong>Day Retreat from $240</strong>&ensp;— your low-commitment first visit
+        </div>
+
+        <div class="hero-actions">
+          <a
+            href="tel:0353487790"
+            class="btn-primary"
+            aria-label="Check availability — call (03) 5348 7790"
+          >
+            Check availability — call
+          </a>
+          <a
+            href="#programs"
+            class="btn-secondary"
+            aria-label="Explore our programs"
+          >
+            Explore programs <span class="arrow-icon" aria-hidden="true">↓</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="scroll-hint" aria-hidden="true">
+        <div class="scroll-line"></div>
+        <span>Scroll</span>
+      </div>
+    </section>
+
+    <!-- ================================================
+         TRUST STRIP
+         ================================================ -->
+    <div class="trust-strip" role="region" aria-label="Key retreat facts">
+      <div class="container">
+        <ul class="trust-strip-inner">
+          <li>90 min from Melbourne</li>
+          <li>Adults-only (16+)</li>
+          <li>14-day flexible cancellation</li>
+          <li>Gift vouchers available</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ================================================
+         PROGRAMS
+         ================================================ -->
+    <section class="section programs" id="programs" aria-labelledby="programs-heading">
+      <div class="container">
+        <header class="section-header reveal">
+          <p class="eyebrow">What we offer</p>
+          <div class="rule" aria-hidden="true"></div>
+          <h2 id="programs-heading">Programs &amp; experiences</h2>
+          <p>
+            Every offering is designed around one idea: leaving feeling more like yourself.
+            From a single afternoon to a fully immersive week, choose the pace that suits you.
+          </p>
+        </header>
+
+        <div class="programs-grid">
+
+          <!-- Day Retreat — featured / hero offer -->
+          <article class="program-card featured reveal reveal-delay-1" aria-label="Day Retreat — featured offer">
+            <div class="featured-badge" aria-label="Hero offer">Best entry</div>
+            <span class="program-icon" aria-hidden="true">🌿</span>
+            <p class="program-tag">Day visit</p>
+            <h3>Day Retreat</h3>
+            <p class="program-desc">
+              Arrive mid-morning. Move through the mineral circuit, sit with lunch, receive
+              one treatment of your choice. Leave before dusk, genuinely lighter.
+            </p>
+            <p class="program-price">
+              From $240 <span>/ person</span>
+            </p>
+            <a href="tel:0353487790" class="program-cta" aria-label="Enquire about the Day Retreat — call us">
+              Check availability — call
+            </a>
+          </article>
+
+          <!-- Weekend Reset -->
+          <article class="program-card reveal reveal-delay-2" aria-label="Weekend Reset program">
+            <span class="program-icon" aria-hidden="true">🌲</span>
+            <p class="program-tag">2 nights</p>
+            <h3>Weekend Reset</h3>
+            <p class="program-desc">
+              Springs bathing, a full-body massage, guided forest walks through the hills,
+              and all meals from our seasonal kitchen. The weekend you actually need.
+            </p>
+            <p class="program-price">
+              From $890 <span>/ person</span>
+            </p>
+            <a href="tel:0353487790" class="program-cta" aria-label="Enquire about Weekend Reset — call us">
+              Check availability — call
+            </a>
+          </article>
+
+          <!-- Midweek Stillness -->
+          <article class="program-card reveal reveal-delay-3" aria-label="Midweek Stillness program">
+            <span class="program-icon" aria-hidden="true">🧘</span>
+            <p class="program-tag">3 nights</p>
+            <h3>Midweek Stillness</h3>
+            <p class="program-desc">
+              Yoga at dawn, afternoon bathing rituals, slow food, and a complete digital
+              detox. Three nights that recalibrate what rest actually means.
+            </p>
+            <p class="program-price">
+              From $1,240 <span>/ person</span>
+            </p>
+            <a href="tel:0353487790" class="program-cta" aria-label="Enquire about Midweek Stillness — call us">
+              Check availability — call
+            </a>
+          </article>
+
+          <!-- Couples Escape -->
+          <article class="program-card reveal reveal-delay-2" aria-label="Couples Escape program">
+            <span class="program-icon" aria-hidden="true">🌸</span>
+            <p class="program-tag">2 nights · for two</p>
+            <h3>Couples Escape</h3>
+            <p class="program-desc">
+              A private bathing pavilion to yourselves, twin massage, curated hampers,
+              and two nights in a forest suite. Genuinely romantic, never clichéd.
+            </p>
+            <p class="program-price">
+              From $1,980 <span>/ couple</span>
+            </p>
+            <a href="tel:0353487790" class="program-cta" aria-label="Enquire about Couples Escape — call us">
+              Check availability — call
+            </a>
+          </article>
+
+          <!-- Treatments -->
+          <article class="program-card reveal reveal-delay-3" aria-label="Treatments menu">
+            <span class="program-icon" aria-hidden="true">✦</span>
+            <p class="program-tag">For house guests</p>
+            <h3>Treatments Menu</h3>
+            <p class="program-desc">
+              Massage, restorative facials, mineral salt scrubs, and body wraps —
+              bookable as add-ons for any overnight stay or as standalone treatments.
+            </p>
+            <p class="program-price">
+              From $130 <span>/ treatment</span>
+            </p>
+            <a href="tel:0353487790" class="program-cta" aria-label="Enquire about treatments — call us">
+              Check availability — call
+            </a>
+          </article>
+
+          <!-- Private Group -->
+          <article class="program-card reveal reveal-delay-4" aria-label="Private Group Bookings">
+            <span class="program-icon" aria-hidden="true">◉</span>
+            <p class="program-tag">Exclusive use</p>
+            <h3>Private Group Bookings</h3>
+            <p class="program-desc">
+              Exclusive use of the full property for 8–16 guests. Wellness team retreats,
+              milestone celebrations, creative residencies. Entirely tailored.
+            </p>
+            <p class="program-price">
+              Bespoke <span>pricing</span>
+            </p>
+            <a href="tel:0353487790" class="program-cta" aria-label="Enquire about private group bookings — call us">
+              Enquire — call us
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================
+         THE RETREAT — about / property
+         ================================================ -->
+    <section class="section retreat-section" id="the-retreat" aria-labelledby="retreat-heading">
+      <div class="container">
+        <div class="retreat-layout">
+
+          <div class="retreat-image-wrap reveal">
+            <img
+              src="assets/springs.webp"
+              alt="Misty mineral spring pools at Solace Springs Retreat, surrounded by forest — steam rising over still water in the early morning light"
+              width="1376"
+              height="768"
+              loading="lazy"
+              decoding="async"
+            >
+          </div>
+
+          <div class="retreat-content">
+            <header class="section-header reveal reveal-delay-1">
+              <p class="eyebrow">The property</p>
+              <div class="rule" aria-hidden="true"></div>
+              <h2 id="retreat-heading">The Retreat</h2>
+              <p>
+                Tucked into the Daylesford hills, Solace Springs is a small property built
+                around one idea: that restoration requires unhurried space and genuine quiet.
+              </p>
+            </header>
+
+            <ul class="property-facts reveal reveal-delay-2" aria-label="Property features">
+              <li>
+                <span class="fact-icon" aria-hidden="true">◻</span>
+                <span><strong>12 forest suites</strong> — each with private outlook, stone bath, and hand-selected linen</span>
+              </li>
+              <li>
+                <span class="fact-icon" aria-hidden="true">◻</span>
+                <span><strong>3 private bathing pavilions</strong> — bookable for exclusive use by guests</span>
+              </li>
+              <li>
+                <span class="fact-icon" aria-hidden="true">◻</span>
+                <span><strong>Mineral spring circuit</strong> — cold plunge, hot soak, steam grotto, and outdoor pool</span>
+              </li>
+              <li>
+                <span class="fact-icon" aria-hidden="true">◻</span>
+                <span><strong>Seasonal restaurant</strong> — set daily menu, all dietary requirements catered</span>
+              </li>
+              <li>
+                <span class="fact-icon" aria-hidden="true">◻</span>
+                <span><strong>On-site parking</strong> — complimentary, 90 minutes from Melbourne CBD</span>
+              </li>
+              <li>
+                <span class="fact-icon" aria-hidden="true">◻</span>
+                <span><strong>Adults-only (16+)</strong> — respectful of the quiet we're all here for</span>
+              </li>
+            </ul>
+
+            <a
+              href="tel:0353487790"
+              class="btn btn-forest btn-lg reveal reveal-delay-3"
+              aria-label="Check availability — call (03) 5348 7790"
+            >
+              Check availability — call
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================
+         TESTIMONIAL
+         ================================================ -->
+    <section class="testimonial-section" aria-labelledby="testimonial-heading">
+      <div class="container">
+        <div class="testimonial-wrap reveal">
+          <span class="quote-mark" aria-hidden="true">&ldquo;</span>
+          <h2 id="testimonial-heading" class="sr-only">Guest testimonial</h2>
+          <blockquote cite="#testimonial">
+            <p>
+              I arrived wound tight after eight months of back-to-back work. By the second
+              morning I'd genuinely forgotten what day it was. That's not nothing — that's
+              exactly what I needed.
+            </p>
+          </blockquote>
+          <footer class="testimonial-author">
+            <p class="author-name">Sarah T.</p>
+            <p class="author-detail">Midweek Stillness guest &middot; Melbourne</p>
+          </footer>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================
+         CONTACT
+         ================================================ -->
+    <section class="section contact-section" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="contact-layout">
+
+          <div class="contact-info reveal">
+            <p class="eyebrow">Get in touch</p>
+            <div class="rule" aria-hidden="true"></div>
+            <h2 id="contact-heading">Visit us</h2>
+
+            <ul class="contact-details" aria-label="Contact information">
+              <li>
+                <span class="fact-icon" aria-hidden="true">📍</span>
+                <address style="font-style:normal;">
+                  480 Sailors Falls Road<br>
+                  Daylesford VIC 3460
+                </address>
+              </li>
+              <li>
+                <span class="fact-icon" aria-hidden="true">📞</span>
+                <span>
+                  <span class="hours-label">Reception daily 8am–8pm</span>
+                  <a href="tel:0353487790" aria-label="Call reception on (03) 5348 7790">(03) 5348 7790</a>
+                </span>
+              </li>
+              <li>
+                <span class="fact-icon" aria-hidden="true">✉</span>
+                <a href="mailto:stay@solacesprings.com.au" aria-label="Email stay@solacesprings.com.au">stay@solacesprings.com.au</a>
+              </li>
+              <li>
+                <span class="fact-icon" aria-hidden="true">🚗</span>
+                <span>90 minutes from Melbourne CBD · On-site parking</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="contact-panel reveal reveal-delay-2">
+            <p class="eyebrow" style="color:rgba(255,255,255,0.5); margin-block-end:0.75rem;">Day retreat offer</p>
+            <h3>Start with a day</h3>
+            <p>
+              Not ready to commit to a full stay? Our Day Retreat is the perfect first
+              visit — arrive at 10am, soak, lunch, one treatment, leave by 5pm feeling
+              entirely different.
+            </p>
+
+            <strong class="offer-highlight">Day Retreat from $240 per person</strong>
+
+            <p>
+              Call reception to check dates and secure your spot. Our team will talk you
+              through the circuit, treatment options, and what to bring.
+            </p>
+
+            <a
+              href="tel:0353487790"
+              class="btn btn-ghost-white btn-lg"
+              aria-label="Check availability for a day retreat — call (03) 5348 7790"
+            >
+              Check availability — call
+            </a>
+
+            <p class="date-hold-note">
+              We hold your preferred date free for 48 hours — no deposit required.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================================================
+       FOOTER
+       ================================================ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-wordmark" aria-hidden="true">Solace Springs</span>
+        <p class="footer-copy">
+          Fictional concept website by <a href="/">De Villa Design</a>
+        </p>
+        <p class="footer-copy" style="font-size:0.75rem; opacity:0.7;">
+          480 Sailors Falls Road, Daylesford VIC 3460 &middot; &copy; 2025
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================================================
+       JAVASCRIPT
+       ================================================ -->
+  <script>
+    (function () {
+      'use strict';
+
+      /* --- Sticky header scroll state --- */
+      var header = document.getElementById('site-header');
+      var lastScroll = 0;
+
+      function onScroll() {
+        var y = window.scrollY || window.pageYOffset;
+        if (y > 60) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+        lastScroll = y;
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll(); // run on load
+
+      /* --- Mobile nav toggle --- */
+      var toggle = document.getElementById('nav-toggle');
+      var nav = document.getElementById('site-nav');
+
+      if (toggle && nav) {
+        toggle.addEventListener('click', function () {
+          var isOpen = nav.classList.toggle('open');
+          toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          toggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+        });
+
+        // Close nav when a link is clicked
+        nav.querySelectorAll('a').forEach(function (link) {
+          link.addEventListener('click', function () {
+            nav.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.setAttribute('aria-label', 'Open navigation menu');
+          });
+        });
+
+        // Close on outside click
+        document.addEventListener('click', function (e) {
+          if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+            nav.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+
+      /* --- Scroll reveal --- */
+      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (!prefersReduced && 'IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(function (el) {
+          observer.observe(el);
+        });
+      } else {
+        // If reduced motion or no IntersectionObserver, show all immediately
+        document.querySelectorAll('.reveal').forEach(function (el) {
+          el.classList.add('visible');
+        });
+      }
+
+    }());
+  </script>
+
+</body>
+</html>

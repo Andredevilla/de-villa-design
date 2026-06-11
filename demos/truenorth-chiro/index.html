@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="True North Chiropractic — evidence-based chiropractic care in Paddington, Brisbane. $49 new-patient initial assessment. AHPRA-registered. No referral needed." />
+  <title>True North Chiropractic | Paddington, Brisbane</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preload" href="/fonts/archivo-variable.woff2" as="font" type="font/woff2" crossorigin />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════════
+       STICKY HEADER
+  ══════════════════════════════════════════════════════ -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+
+      <a href="#hero" class="wordmark" aria-label="True North Chiropractic — home">
+        <span class="wordmark__top">True North</span>
+        <span class="wordmark__name">Chiropractic</span>
+      </a>
+
+      <div class="wordmark__divider" aria-hidden="true"></div>
+
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="header-cta">
+        <a href="tel:0733674410" class="btn-primary" aria-label="Call to book an appointment">
+          Call to book
+        </a>
+      </div>
+
+      <button class="nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ══════════════════════════════════════════════════════
+         HERO — Split grid: navy content left | image right
+    ══════════════════════════════════════════════════════ -->
+    <section class="hero" id="hero" aria-label="Hero">
+
+      <div class="hero__content">
+
+        <div class="hero__eyebrow" aria-hidden="true">
+          <span class="hero__eyebrow-line"></span>
+          <span class="hero__eyebrow-text">Paddington, Brisbane</span>
+        </div>
+
+        <h1 class="hero__h1">
+          Stand taller.<br>
+          <em>Live lighter.</em>
+        </h1>
+
+        <p class="hero__subheader">
+          Evidence-based chiropractic care in Paddington, Brisbane — find the root cause, fix it properly, and stay fixed.
+        </p>
+
+        <!-- $49 offer chip — conversion engine -->
+        <div class="offer-chip" role="region" aria-label="New patient offer">
+          <div class="offer-chip__badge" aria-label="$49">
+            <span class="offer-chip__badge-price">$49</span>
+            <span class="offer-chip__badge-label">New patient</span>
+          </div>
+          <div class="offer-chip__text">
+            <span class="offer-chip__title">Initial assessment &amp; first adjustment</span>
+            <span class="offer-chip__detail">Normally <s>$120</s> — save $71 on your first visit</span>
+          </div>
+        </div>
+
+        <div class="hero__ctas">
+          <a href="tel:0733674410" class="btn-primary" aria-label="Call (07) 3367 4410 to book">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3.5 2h2.75l1 3L5.5 6.5c.9 1.82 2.18 3.1 4 4L11 8.75l3 1v2.75C14 13.99 13 15 11.5 15 5.87 15 1 10.13 1 4.5 1 3 2.01 2 3.5 2z" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Call to book
+          </a>
+          <a href="#contact" class="btn-secondary">
+            Clinic details &amp; hours
+          </a>
+        </div>
+
+      </div>
+
+      <div class="hero__image">
+        <img
+          src="assets/hero.webp"
+          alt="Chiropractor performing a precise spinal adjustment on a patient at True North Chiropractic, Paddington"
+          width="1376"
+          height="768"
+          fetchpriority="high"
+        />
+      </div>
+
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         TRUST STRIP
+    ══════════════════════════════════════════════════════ -->
+    <div class="trust-strip" role="region" aria-label="Trust indicators">
+      <div class="trust-strip__inner">
+
+        <div class="trust-item">
+          <div class="trust-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 2l2.5 5 5.5.8-4 3.9.95 5.5L10 14.75 5.05 17.2 6 11.7 2 7.8l5.5-.8L10 2z"/>
+            </svg>
+          </div>
+          <span class="trust-item__label">AHPRA&nbsp;registered</span>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="5" width="16" height="12" rx="1.5"/>
+              <path d="M6 5V4a2 2 0 014 0v1M2 9h16"/>
+            </svg>
+          </div>
+          <span class="trust-item__label">HICAPS on&nbsp;the&nbsp;spot</span>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 2C6.13 2 3 5.13 3 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.87-3.13-7-7-7z"/>
+              <circle cx="10" cy="9" r="2.5"/>
+            </svg>
+          </div>
+          <span class="trust-item__label">No referral&nbsp;needed</span>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="16" height="15" rx="1.5"/>
+              <path d="M14 2v2M6 2v2M2 8h16"/>
+              <path d="M6 12h4M6 15h2"/>
+            </svg>
+          </div>
+          <span class="trust-item__label">Same-week&nbsp;appointments</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════
+         SERVICES
+    ══════════════════════════════════════════════════════ -->
+    <section class="section services-section" id="services" aria-labelledby="services-heading">
+      <div class="section__inner">
+
+        <div class="services-header">
+          <div>
+            <div class="section-label">What we treat</div>
+            <h2 class="section-heading" id="services-heading">
+              Structural care<br>for every body
+            </h2>
+          </div>
+          <p class="section-body">
+            From chronic desk strain to sports recovery, our clinic offers evidence-based assessment and treatment — no generalist guesswork, no unnecessary visits.
+          </p>
+        </div>
+
+        <div class="services-grid" role="list">
+
+          <article class="service-card" role="listitem">
+            <div class="service-card__num">01</div>
+            <div class="service-card__icon-line" aria-hidden="true"></div>
+            <h3 class="service-card__title">Initial Assessment &amp; First Adjustment</h3>
+            <p class="service-card__body">Full spinal and posture exam, X-ray referral where clinically indicated. New patients: $49 (normally $120). The most thorough first visit you'll have.</p>
+          </article>
+
+          <article class="service-card" role="listitem">
+            <div class="service-card__num">02</div>
+            <div class="service-card__icon-line" aria-hidden="true"></div>
+            <h3 class="service-card__title">Chiropractic Adjustments</h3>
+            <p class="service-card__body">Precise manual and instrument-assisted techniques tailored to your spine. Every adjustment is purposeful, not routine.</p>
+          </article>
+
+          <article class="service-card" role="listitem">
+            <div class="service-card__num">03</div>
+            <div class="service-card__icon-line" aria-hidden="true"></div>
+            <h3 class="service-card__title">Posture &amp; Desk-Strain Programs</h3>
+            <p class="service-card__body">Targeted programs for office workers and WFH professionals. Address the structural patterns that hours at a screen create.</p>
+          </article>
+
+          <article class="service-card" role="listitem">
+            <div class="service-card__num">04</div>
+            <div class="service-card__icon-line" aria-hidden="true"></div>
+            <h3 class="service-card__title">Headache &amp; Migraine Care</h3>
+            <p class="service-card__body">Cervicogenic headache assessment and conservative management. If the source is in your neck, we'll find it — and address it properly.</p>
+          </article>
+
+          <article class="service-card" role="listitem">
+            <div class="service-card__num">05</div>
+            <div class="service-card__icon-line" aria-hidden="true"></div>
+            <h3 class="service-card__title">Sports &amp; Active-Life Care</h3>
+            <p class="service-card__body">Performance and recovery support for runners, lifters, and golfers. Structure matters more when you're asking more of your body.</p>
+          </article>
+
+          <article class="service-card" role="listitem">
+            <div class="service-card__num">06</div>
+            <div class="service-card__icon-line" aria-hidden="true"></div>
+            <h3 class="service-card__title">Pregnancy &amp; Family Care</h3>
+            <p class="service-card__body">Gentle, clinically appropriate techniques for every life stage — from expectant mothers to active kids and older adults.</p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         ABOUT / WHY
+    ══════════════════════════════════════════════════════ -->
+    <section class="about-section" id="about" aria-labelledby="about-heading">
+      <div class="about-grid">
+
+        <div class="about__image-col">
+          <img
+            src="assets/clinic.webp"
+            alt="The modern, well-lit treatment room at True North Chiropractic in Paddington, Brisbane"
+            width="1376"
+            height="768"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="about__content-col">
+          <div class="about__section-label">Why True North</div>
+          <h2 class="about__heading" id="about-heading">
+            Evidence first.<br>Results that last.
+          </h2>
+          <p class="about__body">
+            We don't sell you a treatment plan before we understand your problem. Our approach is assessment-led — find the structural cause, address it with precision, and give you the tools to stay well.
+          </p>
+
+          <ul class="about__pillars" aria-label="Our approach">
+            <li class="about__pillar">
+              <span class="about__pillar-mark" aria-hidden="true"></span>
+              <span class="about__pillar-text"><strong>AHPRA-registered practitioners</strong> — 5-year university qualified, held to the same standards as any allied health professional.</span>
+            </li>
+            <li class="about__pillar">
+              <span class="about__pillar-mark" aria-hidden="true"></span>
+              <span class="about__pillar-text"><strong>No upselling, no scare tactics</strong> — honest assessment, clear communication about what care can and can't achieve.</span>
+            </li>
+            <li class="about__pillar">
+              <span class="about__pillar-mark" aria-hidden="true"></span>
+              <span class="about__pillar-text"><strong>Structured care plans</strong> with defined goals and review points — you always know where you're at and why.</span>
+            </li>
+            <li class="about__pillar">
+              <span class="about__pillar-mark" aria-hidden="true"></span>
+              <span class="about__pillar-text"><strong>HICAPS on the spot</strong> — claim your health fund rebate immediately, no paperwork.</span>
+            </li>
+          </ul>
+
+          <div class="about__team-heading">Our practitioners</div>
+          <ul class="team-list" aria-label="Clinical team">
+
+            <li class="team-member">
+              <div class="team-member__avatar" aria-hidden="true">MW</div>
+              <div class="team-member__info">
+                <span class="team-member__name">Dr Marcus Webb</span>
+                <span class="team-member__role">Principal Chiropractor — 14 years in clinical practice</span>
+              </div>
+            </li>
+
+            <li class="team-member">
+              <div class="team-member__avatar" aria-hidden="true">LZ</div>
+              <div class="team-member__info">
+                <span class="team-member__name">Dr Lily Zhang</span>
+                <span class="team-member__role">Chiropractor — sports &amp; family care</span>
+              </div>
+            </li>
+
+            <li class="team-member">
+              <div class="team-member__avatar" aria-hidden="true">ST</div>
+              <div class="team-member__info">
+                <span class="team-member__name">Sam Torres</span>
+                <span class="team-member__role">Remedial Massage Therapist</span>
+              </div>
+            </li>
+
+          </ul>
+
+          <div class="about__parking">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="1.5" y="1.5" width="13" height="13" rx="1.5"/>
+              <path d="M5.5 11V5h3a2 2 0 010 4H5.5"/>
+            </svg>
+            Free 1-hour parking available behind the building
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         TESTIMONIAL
+    ══════════════════════════════════════════════════════ -->
+    <section class="testimonial-section" aria-labelledby="testimonial-heading">
+      <div class="testimonial-inner">
+
+        <div class="testimonial-mark">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+            <path d="M7 1l1.5 4H13l-3.5 2.5 1.5 4L7 9 3 11.5l1.5-4L1 5h4.5L7 1z"/>
+          </svg>
+          <span id="testimonial-heading" class="sr-only">Patient testimonial</span>
+          Patient story
+        </div>
+
+        <blockquote class="testimonial__quote">
+          "I'd had lower back pain for two years and resigned myself to managing it. Marcus did a proper assessment, explained exactly what was going on structurally, and within four visits I was back to running. No hype — just clear, effective treatment."
+        </blockquote>
+
+        <div class="testimonial__attribution" aria-label="Testimonial from">
+          <span class="testimonial__divider" aria-hidden="true"></span>
+          <div>
+            <div class="testimonial__person">James K.</div>
+            <div class="testimonial__detail">Paddington resident · treated for lumbar dysfunction</div>
+          </div>
+          <span class="testimonial__divider" aria-hidden="true"></span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         CONTACT / BOOKING
+    ══════════════════════════════════════════════════════ -->
+    <section class="section contact-section" id="contact" aria-labelledby="contact-heading">
+      <div class="section__inner">
+        <div class="contact-grid">
+
+          <!-- Left: details -->
+          <div class="contact__left">
+            <div class="contact__section-label">Find us</div>
+            <h2 class="contact__heading" id="contact-heading">
+              Ready when you are
+            </h2>
+            <p class="contact__subheading">
+              No referral needed. Same-week appointments available. Walk in feeling like yourself again.
+            </p>
+
+            <address style="font-style:normal;">
+              <div class="contact-details">
+
+                <div class="contact-detail">
+                  <div class="contact-detail__icon" aria-hidden="true">
+                    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M10 2C6.13 2 3 5.13 3 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.87-3.13-7-7-7z"/>
+                      <circle cx="10" cy="9" r="2.5"/>
+                    </svg>
+                  </div>
+                  <div class="contact-detail__content">
+                    <span class="contact-detail__label">Address</span>
+                    <span class="contact-detail__value">2/180 Given Terrace, Paddington QLD 4064</span>
+                  </div>
+                </div>
+
+                <div class="contact-detail">
+                  <div class="contact-detail__icon" aria-hidden="true">
+                    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3.5 2h2.75l1 3L5.5 6.5c.9 1.82 2.18 3.1 4 4L11 8.75l3 1v2.75C14 13.99 13 15 11.5 15 5.87 15 1 10.13 1 4.5 1 3 2.01 2 3.5 2z"/>
+                    </svg>
+                  </div>
+                  <div class="contact-detail__content">
+                    <span class="contact-detail__label">Phone</span>
+                    <a href="tel:0733674410" class="contact-detail__value">(07) 3367 4410</a>
+                  </div>
+                </div>
+
+                <div class="contact-detail">
+                  <div class="contact-detail__icon" aria-hidden="true">
+                    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="2" y="4" width="16" height="13" rx="1.5"/>
+                      <path d="M2 7l8 5 8-5"/>
+                    </svg>
+                  </div>
+                  <div class="contact-detail__content">
+                    <span class="contact-detail__label">Email</span>
+                    <a href="mailto:care@truenorthchiro.com.au" class="contact-detail__value">care@truenorthchiro.com.au</a>
+                  </div>
+                </div>
+
+              </div>
+            </address>
+
+            <table class="hours-table" aria-label="Clinic opening hours">
+              <caption class="sr-only">Opening hours</caption>
+              <tbody>
+                <tr>
+                  <td>Monday – Friday</td>
+                  <td>7:00 am – 7:00 pm</td>
+                </tr>
+                <tr>
+                  <td>Saturday</td>
+                  <td>7:00 am – 12:00 pm</td>
+                </tr>
+                <tr>
+                  <td>Sunday</td>
+                  <td>Closed</td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+
+          <!-- Right: booking card (sticky) -->
+          <aside class="contact__booking-card" aria-labelledby="booking-card-heading">
+
+            <div class="booking-card__label">New patient offer</div>
+
+            <div class="booking-card__offer">
+              <span class="booking-card__price">$49</span>
+              <span class="booking-card__was">$120</span>
+            </div>
+
+            <p class="booking-card__description">
+              Initial assessment &amp; first adjustment — the most complete new-patient visit in Paddington.
+            </p>
+
+            <ul class="booking-card__includes" aria-label="What's included">
+              <li class="booking-card__include">Full spinal &amp; posture examination</li>
+              <li class="booking-card__include">X-ray referral where clinically indicated</li>
+              <li class="booking-card__include">First chiropractic adjustment</li>
+              <li class="booking-card__include">Personalised care recommendations</li>
+              <li class="booking-card__include">HICAPS health fund claiming on the spot</li>
+            </ul>
+
+            <a href="tel:0733674410" class="btn-primary booking-card__cta" id="booking-card-heading" aria-label="Call (07) 3367 4410 to book your $49 initial assessment">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3.5 2h2.75l1 3L5.5 6.5c.9 1.82 2.18 3.1 4 4L11 8.75l3 1v2.75C14 13.99 13 15 11.5 15 5.87 15 1 10.13 1 4.5 1 3 2.01 2 3.5 2z" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Call to book
+            </a>
+
+            <p class="booking-card__note">
+              Call&nbsp;<a href="tel:0733674410" style="color:rgba(244,241,235,0.5);text-decoration:underline;">(07)&nbsp;3367&nbsp;4410</a> — no referral needed · same-week available
+            </p>
+
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+
+      <div class="footer__brand">
+        <a href="#hero" class="wordmark" aria-label="True North Chiropractic">
+          <span class="wordmark__top">True North</span>
+          <span class="wordmark__name">Chiropractic</span>
+        </a>
+        <p class="footer__tagline">
+          Evidence-based chiropractic care in Paddington, Brisbane. AHPRA-registered practitioners — no referral required.
+        </p>
+      </div>
+
+      <div class="footer__col">
+        <div class="footer__col-heading">Services</div>
+        <ul class="footer__links">
+          <li><a href="#services">Initial Assessment</a></li>
+          <li><a href="#services">Chiropractic Adjustments</a></li>
+          <li><a href="#services">Posture &amp; Desk-Strain</a></li>
+          <li><a href="#services">Headache &amp; Migraine Care</a></li>
+          <li><a href="#services">Sports &amp; Active-Life Care</a></li>
+          <li><a href="#services">Pregnancy &amp; Family Care</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <div class="footer__col-heading">Clinic</div>
+        <p class="footer__contact-item">2/180 Given Terrace<br>Paddington QLD 4064</p>
+        <p class="footer__contact-item"><a href="tel:0733674410">(07) 3367 4410</a></p>
+        <p class="footer__contact-item"><a href="mailto:care@truenorthchiro.com.au">care@truenorthchiro.com.au</a></p>
+        <p class="footer__contact-item">Mon–Fri 7am–7pm · Sat 7am–12pm</p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-bottom__legal">
+        True North Chiropractic is AHPRA-registered. HICAPS on-site. No referral required.<br>
+        © 2025 True North Chiropractic. All rights reserved.
+      </p>
+      <p class="footer-bottom__credit">
+        Fictional concept website by <a href="/">De Villa Design</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════════════════════
+       CONCEPT PILL (fixed bottom-left)
+  ══════════════════════════════════════════════════════ -->
+  <a href="/" class="concept-pill" aria-label="Concept website by De Villa Design">
+    <span class="concept-pill__dot" aria-hidden="true"></span>
+    Concept by De Villa Design
+  </a>
+
+  <!-- ══════════════════════════════════════════════════════
+       MINIMAL JS: nav toggle only
+  ══════════════════════════════════════════════════════ -->
+  <script>
+    (function () {
+      var toggle = document.querySelector('.nav-toggle');
+      var nav    = document.getElementById('site-nav');
+      if (!toggle || !nav) return;
+
+      toggle.addEventListener('click', function () {
+        var open = nav.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+
+      // Close nav on link click (mobile)
+      nav.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          nav.classList.remove('is-open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
