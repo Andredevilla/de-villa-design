@@ -3,6 +3,10 @@ const header = document.querySelector('.site-header');
 const toggle = document.querySelector('.nav-toggle');
 
 if (header && toggle) {
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
   toggle.addEventListener('click', () => {
     const open = header.classList.toggle('nav-open');
     toggle.setAttribute('aria-expanded', String(open));
