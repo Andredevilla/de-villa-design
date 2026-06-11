@@ -38,13 +38,30 @@ document.querySelectorAll('.reveal').forEach((el) => {
   observer.observe(el);
 });
 
-// Wattle corruption: run the SVG turbulence animation only while hovering
-const wattleBand = document.querySelector('.wattle-band');
-const corruptAnims = document.querySelectorAll('#corrupt animate');
+// Wattle corruption grid: each block blurs what's beneath it on hover and
+// decays shortly after the cursor moves off (14 cols x 3 rows)
+const hero = document.querySelector('.hero');
 
-if (wattleBand && corruptAnims.length) {
-  wattleBand.addEventListener('mouseenter', () => corruptAnims.forEach((a) => a.beginElement()));
-  wattleBand.addEventListener('mouseleave', () => corruptAnims.forEach((a) => a.endElement()));
+if (hero && document.querySelector('.wattle-band')) {
+  const grid = document.createElement('div');
+  grid.className = 'glitch-grid';
+  grid.setAttribute('aria-hidden', 'true');
+
+  for (let i = 0; i < 42; i++) {
+    const cell = document.createElement('div');
+    cell.className = 'glitch-cell';
+    let decay;
+    cell.addEventListener('mouseenter', () => {
+      clearTimeout(decay);
+      cell.classList.add('on');
+    });
+    cell.addEventListener('mouseleave', () => {
+      clearTimeout(decay);
+      decay = setTimeout(() => cell.classList.remove('on'), 350);
+    });
+    grid.appendChild(cell);
+  }
+  hero.appendChild(grid);
 }
 
 // Contact form: Formspree-style POST with mailto fallback until configured
