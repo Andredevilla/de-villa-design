@@ -357,3 +357,60 @@ section { scroll-margin-top: 80px; }
   flex-wrap: wrap;
 }
 .site-footer a { color: inherit; }
+
+/* ---------- Atmosphere: grain + hero depth ---------- */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.hero { position: relative; overflow: hidden; }
+.hero::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: min(680px, 90vw);
+  height: 72%;
+  background: linear-gradient(180deg, rgba(236, 230, 219, 0), rgba(236, 230, 219, 0.85));
+  border-radius: 999px 999px 0 0;
+}
+.hero .container { position: relative; z-index: 1; }
+
+h1 .accent { font-style: italic; color: var(--sage); }
+
+/* ---------- Hero load choreography ---------- */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+.hero .eyebrow, .hero h1, .hero .lede, .hero .hero-actions { animation: rise 0.7s ease both; }
+.hero h1 { animation-delay: 0.08s; }
+.hero .lede { animation-delay: 0.16s; }
+.hero .hero-actions { animation-delay: 0.24s; }
+
+/* ---------- Button & link micro-interactions ---------- */
+.btn { transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease; }
+.btn:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(107, 122, 94, 0.35); }
+.btn:active { transform: translateY(0); box-shadow: none; }
+.link-arrow .arrow { display: inline-block; transition: transform 0.2s ease; }
+.link-arrow:hover .arrow { transform: translateX(4px); }
+
+/* ---------- Staggered card reveals ---------- */
+.grid-3 > .reveal:nth-child(2) { transition-delay: 0.1s; }
+.grid-3 > .reveal:nth-child(3) { transition-delay: 0.2s; }
+.steps > .reveal:nth-child(2) { transition-delay: 0.08s; }
+.steps > .reveal:nth-child(3) { transition-delay: 0.16s; }
+.steps > .reveal:nth-child(4) { transition-delay: 0.24s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero .eyebrow, .hero h1, .hero .lede, .hero .hero-actions { animation: none; }
+  .btn, .link-arrow .arrow { transition: none; }
+  .grid-3 > .reveal, .steps > .reveal { transition-delay: 0s; }
+}
