@@ -626,3 +626,64 @@ h1 .accent, h2 .accent { font-style: italic; color: var(--sage); }
      earlier reduced-motion block, so they must be overridden again here */
   .card.reveal, .work-card.reveal, .work-shot .mini { transition: none; }
 }
+
+/* ---------- Golden wattle band ---------- */
+/* Vignette: lighter at centre, gently darker toward the sides */
+.hero {
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 38%, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0) 62%),
+    radial-gradient(ellipse 130% 105% at 50% 50%, rgba(243, 239, 233, 0) 55%, rgba(59, 58, 54, 0.12) 100%);
+}
+
+.wattle-band {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 340px;
+  z-index: 0;
+  pointer-events: none;
+}
+.wattle {
+  position: absolute;
+  height: auto;
+  pointer-events: auto;
+  transform-origin: top center;
+  animation: sway var(--dur, 5.2s) ease-in-out infinite alternate;
+  will-change: transform;
+  filter: drop-shadow(0 10px 18px rgba(59, 58, 54, 0.18));
+}
+@keyframes sway {
+  from { transform: rotate(var(--from, -2.4deg)); }
+  to { transform: rotate(var(--to, 2.4deg)); }
+}
+
+/* 8 sprigs: pair · solo · trio · pair — kept between 17% and 76%, never hard
+   against the edges, clustered but not bunched */
+.w1 { left: 17%; top: -34px; width: 120px; --from: -2.6deg; --to: 2deg;   --dur: 5.4s; animation-delay: -1.1s; }
+.w2 { left: 23%; top: -14px; width: 92px;  --from: -1.8deg; --to: 2.6deg; --dur: 4.6s; animation-delay: -2.8s; }
+.w3 { left: 35%; top: -46px; width: 138px; --from: -2.2deg; --to: 1.9deg; --dur: 6.1s; animation-delay: -0.4s; }
+.w4 { left: 46%; top: -22px; width: 108px; --from: -2.9deg; --to: 2.2deg; --dur: 4.9s; animation-delay: -3.6s; }
+.w5 { left: 51%; top: -54px; width: 148px; --from: -1.7deg; --to: 2.7deg; --dur: 6.6s; animation-delay: -1.9s; }
+.w6 { left: 57%; top: -12px; width: 96px;  --from: -2.4deg; --to: 1.8deg; --dur: 4.4s; animation-delay: -0.9s; }
+.w7 { left: 67%; top: -38px; width: 126px; --from: -2deg;   --to: 2.5deg; --dur: 5.8s; animation-delay: -2.3s; }
+.w8 { left: 73%; top: -18px; width: 100px; --from: -2.7deg; --to: 2.1deg; --dur: 5s;   animation-delay: -4.1s; }
+
+/* Corrupted distortion when hovering the wattle band */
+.wattle-band:hover .wattle {
+  filter: url(#corrupt) saturate(1.5) contrast(1.08);
+}
+
+@media (max-width: 720px) {
+  .wattle-band { height: 220px; }
+  .w2, .w5, .w7, .w8 { display: none; }
+  .w1 { left: 16%; width: 84px; }
+  .w3 { left: 38%; width: 100px; }
+  .w4 { left: 58%; width: 78px; }
+  .w6 { left: 72%; width: 70px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wattle { animation: none; will-change: auto; }
+  .wattle-band:hover .wattle { filter: drop-shadow(0 10px 18px rgba(59, 58, 54, 0.18)); }
+}
