@@ -38,56 +38,6 @@ document.querySelectorAll('.reveal').forEach((el) => {
   observer.observe(el);
 });
 
-// Wattle corruption grid (14 cols x 3 rows): hovering a cell reveals the
-// band slice one cell to the RIGHT (an offset frozen clone), mixing it over
-// the original; it auto-resets shortly after.
-const hero = document.querySelector('.hero');
-const band = document.querySelector('.wattle-band');
-
-if (hero && band) {
-  const COLS = 14;
-  const ROWS = 3;
-  const grid = document.createElement('div');
-  grid.className = 'glitch-grid';
-  grid.setAttribute('aria-hidden', 'true');
-
-  for (let i = 0; i < COLS * ROWS; i++) {
-    const col = i % COLS;
-    const row = Math.floor(i / COLS);
-    const cell = document.createElement('div');
-    cell.className = 'glitch-cell';
-
-    // Peek layer: a full-width clone of the band, shifted left by one cell
-    // so this cell's window shows its right-hand neighbour's content.
-    // Built lazily on first hover to keep the initial DOM small.
-    let peek = null;
-    const buildPeek = () => {
-      peek = document.createElement('div');
-      peek.className = 'cell-peek';
-      peek.style.width = COLS * 100 + '%';
-      peek.style.height = ROWS * 100 + '%';
-      peek.style.left = -((col + 1) * 100) + '%';
-      peek.style.top = -(row * 100) + '%';
-      peek.appendChild(band.cloneNode(true));
-      cell.appendChild(peek);
-    };
-
-    let reset;
-    cell.addEventListener('mouseenter', () => {
-      if (!peek) buildPeek();
-      clearTimeout(reset);
-      cell.classList.add('on');
-      reset = setTimeout(() => cell.classList.remove('on'), 700);
-    });
-    cell.addEventListener('mouseleave', () => {
-      clearTimeout(reset);
-      reset = setTimeout(() => cell.classList.remove('on'), 250);
-    });
-    grid.appendChild(cell);
-  }
-  hero.appendChild(grid);
-}
-
 // Contact form: Formspree-style POST with mailto fallback until configured
 const form = document.querySelector('.contact-form');
 const statusEl = document.querySelector('.form-status');
