@@ -1,5 +1,9 @@
 .superpowers/
 *.mp4
-Screenshot*.png
 lighthouse*.json
 lh-*.json
+# reference images live in the root; real site assets live in assets/
+/*.png
+/*.jpg
+/*.jpeg
+/*.webp
