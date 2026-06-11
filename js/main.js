@@ -59,17 +59,22 @@ if (hero && band) {
 
     // Peek layer: a full-width clone of the band, shifted left by one cell
     // so this cell's window shows its right-hand neighbour's content.
-    const peek = document.createElement('div');
-    peek.className = 'cell-peek';
-    peek.style.width = COLS * 100 + '%';
-    peek.style.height = ROWS * 100 + '%';
-    peek.style.left = -((col + 1) * 100) + '%';
-    peek.style.top = -(row * 100) + '%';
-    peek.appendChild(band.cloneNode(true));
-    cell.appendChild(peek);
+    // Built lazily on first hover to keep the initial DOM small.
+    let peek = null;
+    const buildPeek = () => {
+      peek = document.createElement('div');
+      peek.className = 'cell-peek';
+      peek.style.width = COLS * 100 + '%';
+      peek.style.height = ROWS * 100 + '%';
+      peek.style.left = -((col + 1) * 100) + '%';
+      peek.style.top = -(row * 100) + '%';
+      peek.appendChild(band.cloneNode(true));
+      cell.appendChild(peek);
+    };
 
     let reset;
     cell.addEventListener('mouseenter', () => {
+      if (!peek) buildPeek();
       clearTimeout(reset);
       cell.classList.add('on');
       reset = setTimeout(() => cell.classList.remove('on'), 700);
