@@ -261,23 +261,20 @@ section { scroll-margin-top: 80px; }
 .work-card .tag { color: var(--sage-dark); }
 .work-shot {
   height: 220px;
-  padding: 28px 28px 0;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
+  overflow: hidden;
 }
 .shot-a { background: var(--sand); }
 .shot-b { background: #C9D3C0; }
 .shot-c { background: #E0D2C8; }
 
-/* Real site screenshots rising from the tinted panel like browser shots —
-   uniform 740x450 captures sized to fill the panel's inner area */
+/* Real site screenshots fill the panel edge-to-edge (cover-cropped from the
+   top so the demo's header/hero stays visible at any card width) */
 .shot-img {
   width: 100%;
-  max-width: 340px;
-  height: auto;
-  border-radius: 6px 6px 0 0;
-  box-shadow: 0 8px 28px rgba(59, 58, 54, 0.22);
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
 }
 
 .work-meta {
@@ -499,8 +496,8 @@ h1 .accent, h2 .accent { font-style: italic; color: var(--sage); }
 /* ---------- Work card hover ---------- */
 .work-card.reveal { transition: opacity 0.6s ease, transform 0.3s ease, box-shadow 0.3s ease; }
 .work-card.reveal:hover { transform: translateY(-4px) rotate(-0.4deg); box-shadow: 0 14px 32px rgba(59, 58, 54, 0.12); }
-.work-shot .shot-img { transition: transform 0.3s ease; }
-.work-card:hover .shot-img { transform: translateY(-2px); }
+.work-shot .shot-img { transition: transform 0.35s ease; }
+.work-card:hover .shot-img { transform: scale(1.04); }
 
 
 /* ---------- Hero art: floating organic shapes ---------- */
