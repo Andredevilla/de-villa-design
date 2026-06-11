@@ -224,7 +224,7 @@ h3 {
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--terracotta);
+  color: var(--clay-light); /* was --terracotta; darkened for AA contrast at small size */
   margin-bottom: var(--space-sm);
 }
 
@@ -678,6 +678,216 @@ h3 {
   margin-top: auto;
 }
 
+/* ─── TIMETABLE ────────────────────────────────────────────────── */
+
+.timetable-wrap {
+  margin-top: var(--space-3xl);
+  padding-top: var(--space-2xl);
+  border-top: 1px solid rgba(196, 104, 63, 0.15);
+}
+
+.timetable-header {
+  text-align: center;
+  max-width: 600px;
+  margin-inline: auto;
+  margin-bottom: var(--space-2xl);
+}
+
+.timetable-title {
+  font-size: clamp(1.625rem, 3.5vw, 2.25rem);
+  margin-top: var(--space-xs);
+  margin-bottom: var(--space-sm);
+}
+
+.timetable-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.timetable {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  background-color: var(--cream);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  font-family: var(--font-sans);
+}
+
+.timetable thead tr {
+  background-color: var(--deep-clay);
+  color: var(--cream);
+}
+
+.timetable thead th {
+  padding: 0.75rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.timetable-day-col {
+  width: 90px;
+}
+
+.timetable tbody tr {
+  border-bottom: 1px solid rgba(196, 104, 63, 0.1);
+  transition: background-color var(--transition-fast);
+}
+
+.timetable tbody tr:last-child {
+  border-bottom: none;
+}
+
+.timetable tbody tr:hover {
+  background-color: rgba(246, 232, 221, 0.5);
+}
+
+.timetable-row--highlight {
+  background-color: rgba(196, 104, 63, 0.04);
+}
+
+.timetable-row--highlight:hover {
+  background-color: rgba(196, 104, 63, 0.08) !important;
+}
+
+.timetable tbody th {
+  padding: 0.875rem 1rem;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--deep-clay);
+  text-align: left;
+  white-space: nowrap;
+  vertical-align: top;
+}
+
+.timetable tbody td {
+  padding: 0.875rem 1rem;
+  vertical-align: top;
+}
+
+/* Day abbreviation toggle */
+.day-full { display: inline; }
+.day-abbr { display: none; }
+
+@media (max-width: 780px) {
+  .day-full { display: none; }
+  .day-abbr { display: inline; }
+}
+
+/* Timetable class chips */
+.tt-chip {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  margin-bottom: 0.3rem;
+  white-space: nowrap;
+  line-height: 1.6;
+}
+
+.tt-chip:last-child {
+  margin-bottom: 0;
+}
+
+.tt-vinyasa {
+  background-color: rgba(196, 104, 63, 0.12);
+  color: var(--deep-clay);
+}
+
+.tt-yin {
+  background-color: rgba(123, 132, 88, 0.14);
+  color: #3F4A22;
+}
+
+.tt-hot26 {
+  background-color: rgba(196, 104, 63, 0.25);
+  color: var(--deep-clay);
+}
+
+.tt-beginners {
+  background-color: rgba(122, 59, 34, 0.1);
+  color: var(--deep-clay);
+}
+
+.tt-prenatal {
+  background-color: rgba(246, 232, 221, 0.9);
+  color: var(--deep-clay);
+  border: 1px solid rgba(196, 104, 63, 0.2);
+}
+
+.tt-beach {
+  background-color: var(--terracotta);
+  color: var(--cream);
+}
+
+.tt-location {
+  font-weight: 400;
+  opacity: 0.85;
+  display: inline;
+}
+
+.tt-empty {
+  color: rgba(122, 59, 34, 0.3);
+  font-size: 0.875rem;
+}
+
+.timetable-note {
+  text-align: center;
+  font-size: 0.8125rem;
+  color: var(--clay-light);
+  margin-top: var(--space-lg);
+  line-height: 1.6;
+}
+
+.timetable-note a {
+  color: var(--clay-light);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color var(--transition-fast);
+}
+
+.timetable-note a:hover {
+  color: var(--deep-clay);
+}
+
+/* Mobile: stack days vertically, hide column headers except "Day" */
+@media (max-width: 599px) {
+  .timetable {
+    min-width: unset;
+  }
+
+  .timetable thead th:not(.timetable-day-col) {
+    display: none;
+  }
+
+  .timetable tbody td {
+    display: block;
+    padding: 0.3rem 1rem 0.3rem 1rem;
+  }
+
+  .timetable tbody tr {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding-bottom: 0.5rem;
+  }
+
+  .timetable tbody th {
+    padding-bottom: 0.4rem;
+  }
+
+  .tt-chip {
+    white-space: normal;
+  }
+}
+
 /* ─── PRICING ──────────────────────────────────────────────────── */
 
 .pricing {
@@ -792,7 +1002,7 @@ h3 {
 
 .price-per {
   font-size: 0.8125rem;
-  color: var(--leaf);
+  color: var(--leaf-dark); /* was --leaf; darkened for AA contrast at small size */
   font-weight: 600;
   margin-top: -0.5rem;
 }
@@ -1005,7 +1215,7 @@ figcaption {
   font-size: 0.8125rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--terracotta);
+  color: var(--clay-light); /* was --terracotta; darkened for AA contrast at small size */
   margin-bottom: 0.2rem;
 }
 
@@ -1060,6 +1270,35 @@ figcaption {
 .contact-email-link:hover {
   color: var(--terracotta);
   border-color: var(--terracotta);
+}
+
+/* Nervous-beginner email CTA */
+.btn-nervous {
+  display: inline-flex;
+  align-items: center;
+  background-color: transparent;
+  color: var(--clay-light);
+  border: 1.5px dashed rgba(122, 59, 34, 0.35);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  text-decoration: none;
+  text-align: left;
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast);
+  white-space: normal;
+  cursor: pointer;
+}
+
+.btn-nervous:hover {
+  background-color: rgba(155, 77, 46, 0.07);
+  color: var(--deep-clay);
+  border-color: var(--clay-light);
 }
 
 /* ─── FOOTER ───────────────────────────────────────────────────── */

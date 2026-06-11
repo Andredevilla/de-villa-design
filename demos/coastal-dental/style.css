@@ -20,7 +20,7 @@
   --white:   #FFFFFF;
   --coral:   #F4845F;
   --navy:    #173B4D;
-  --grey:    #6B7280;
+  --grey:    #5B6470;
   --grey-lt: #F1F5F6;
   --border:  #D0E9ED;
 
@@ -504,7 +504,7 @@ ul { list-style: none; }
   gap: 0.35rem;
   background: #FFF4F0;
   border: 1.5px solid var(--coral);
-  color: #C84F2C;
+  color: #B23F1F;
   font-size: 0.82rem;
   font-weight: 700;
   padding: 0.35rem 0.8rem;
@@ -600,6 +600,48 @@ ul { list-style: none; }
   color: var(--teal);
   flex-shrink: 0;
   margin-top: 2px;
+}
+
+/* Meet the team */
+.team-list {
+  margin-top: 1.75rem;
+  background: var(--seafoam);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  border: 1.5px solid var(--border);
+}
+
+.team-list-heading {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--teal);
+  margin-bottom: 0.9rem;
+}
+
+.team-list ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.team-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.team-list li strong {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.team-list li span {
+  font-size: 0.85rem;
+  color: var(--grey);
+  line-height: 1.4;
 }
 
 /* ============================================================
@@ -969,10 +1011,10 @@ ul { list-style: none; }
   line-height: 1.55;
 }
 
-.emergency-note p strong { color: #C84F2C; }
+.emergency-note p strong { color: #B23F1F; }
 
 .emergency-note a {
-  color: #C84F2C;
+  color: #B23F1F;
   font-weight: 700;
   text-decoration: underline;
   text-underline-offset: 2px;

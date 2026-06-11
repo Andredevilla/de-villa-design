@@ -765,6 +765,26 @@ h1 {
   margin-top: .75rem;
 }
 
+.cta-pricing {
+  margin-top: 1.25rem;
+  padding: .875rem 1rem;
+  background: var(--clr-bg);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+}
+
+.cta-pricing-fees,
+.cta-pricing-referral {
+  font-size: .82rem;
+  color: var(--clr-ink-muted);
+  line-height: 1.55;
+}
+
+.cta-pricing-fees {
+  font-weight: var(--fw-medium);
+  margin-bottom: .35rem;
+}
+
 .cta-note {
   margin-top: 1.25rem !important;
   font-size: .8rem;
