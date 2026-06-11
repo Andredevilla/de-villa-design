@@ -219,6 +219,7 @@ section { scroll-margin-top: 80px; }
   color: var(--ink-soft);
   padding-right: 32px; /* trailing gap so the -50% loop is seamless */
 }
+.marquee-copy { display: inline-flex; align-items: center; gap: 32px; }
 .marquee-track .dot { color: var(--sage); }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
@@ -384,7 +385,7 @@ section { scroll-margin-top: 80px; }
 .site-footer {
   background: var(--ink);
   color: var(--footer-ink);
-  padding: 28px 0;
+  padding: 44px 0 28px;
   font-size: 0.85rem;
 }
 .site-footer .container {
@@ -603,7 +604,6 @@ h1 .accent, h2 .accent { font-style: italic; color: var(--sage); }
 }
 
 /* ---------- Footer wordmark & selection ---------- */
-.site-footer { padding: 44px 0 28px; }
 .footer-mark {
   font-family: var(--serif);
   font-style: italic;
@@ -617,8 +617,12 @@ h1 .accent, h2 .accent { font-style: italic; color: var(--sage); }
 
 @media (prefers-reduced-motion: reduce) {
   .hero-art span { animation: none; }
-  .marquee-track { animation: none; }
+  .marquee-track { animation: none; will-change: auto; }
+  .marquee-copy:nth-child(2) { display: none; }
   .site-nav a:not(.btn)::after { transition: none; }
   .step-num { transition: none; }
   .site-header { transition: none; }
+  /* re-suppress: these transition rules appear later in source than the
+     earlier reduced-motion block, so they must be overridden again here */
+  .card.reveal, .work-card.reveal, .work-shot .mini { transition: none; }
 }
