@@ -609,7 +609,7 @@ h1 .accent, h2 .accent { font-style: italic; color: var(--sage); }
   font-style: italic;
   font-size: clamp(2.6rem, 7vw, 4.5rem);
   line-height: 1;
-  color: rgba(207, 201, 189, 0.18);
+  color: rgba(207, 201, 189, 0.6); /* ≥3:1 on --ink for the contrast audit (large text) */
   margin-bottom: 18px;
 }
 
