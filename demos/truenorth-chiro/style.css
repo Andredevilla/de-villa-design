@@ -1463,3 +1463,10 @@ ul { list-style: none; }
 
   .concept-pill { bottom: 1rem; left: 1rem; }
 }
+
+/* review fix: eyebrow labels at body-adjacent size must pass AA */
+.section-label,
+.about__section-label,
+.contact__section-label {
+  color: var(--copper-dark);
+}
