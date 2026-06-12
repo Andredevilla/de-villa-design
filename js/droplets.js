@@ -13,18 +13,18 @@
     bead: 'assets/droplets/bead.png',
   };
 
-  const mobile = matchMedia('(max-width: 720px)').matches;
+  let mobile = matchMedia('(max-width: 720px)').matches;
 
   // Initial frame mirrors the reference layout: 1 small, 2 big, 3 medium.
   // x: fraction of viewport width · y: fraction of viewport height at scroll 0
   // v: parallax factor (px fallen per px scrolled) · blur for depth on two big ones
   const INITIAL = [
-    { s: 'bead',     size: 52,  x: 0.07, y: 0.10, v: 0.55 },           // 1 small, top-left
-    { s: 'sphere',   size: 230, x: 0.16, y: 0.34, v: 0.85, blur: 3 },  // big, soft-focus
+    { s: 'bead',     size: 52,  x: 0.04, y: 0.58, v: 0.55 },           // 1 small, lower-left (clear of hero copy)
+    { s: 'sphere',   size: 230, x: 0.12, y: 0.42, v: 0.85, blur: 3 },  // big, soft-focus
     { s: 'sphere',   size: 190, x: 0.78, y: 0.62, v: 1.15 },           // big, sharp
-    { s: 'teardrop', size: 110, x: 0.46, y: 0.16, v: 0.95 },           // mediums
-    { s: 'wobble',   size: 96,  x: 0.66, y: 0.08, v: 0.70, blur: 2 },
-    { s: 'wobble',   size: 120, x: 0.30, y: 0.74, v: 1.30 },
+    { s: 'teardrop', size: 110, x: 0.46, y: 0.14, v: 0.95 },           // mediums
+    { s: 'wobble',   size: 96,  x: 0.66, y: 0.06, v: 0.70, blur: 2 },
+    { s: 'wobble',   size: 120, x: 0.90, y: 0.20, v: 1.30 },
   ];
   // Staged above the viewport; enter as the page scrolls. Later = smaller on average.
   const STAGED = [
@@ -41,9 +41,13 @@
   let vw = innerWidth;
   let vh = innerHeight;
   let scrollable = 1;
+  let raf;
+  let resizeTimer;
   const drops = [];
 
   function build() {
+    field.textContent = '';
+    drops.length = 0;
     vw = innerWidth;
     vh = innerHeight;
     scrollable = Math.max(1, document.documentElement.scrollHeight - vh);
@@ -87,7 +91,7 @@
       bead.width = s;
       bead.height = s;
       bead.className = 'pop-bead';
-      bead.style.left = `${drop.x + drop.size / 2}px`;
+      bead.style.left = `${Math.max(0, Math.min(drop.x + drop.size / 2, vw - s))}px`;
       bead.style.top = `${Math.min(screenY, vh - s)}px`;
       bead.style.setProperty('--dx', `${(Math.random() - 0.5) * 140}px`);
       bead.style.setProperty('--dy', `${-30 - Math.random() * 90}px`);
@@ -134,18 +138,28 @@
         `translate(${drop.x}px, ${screenY}px) scale(${1 + w}, ${1 - w})`;
     }
     firstFrame = false;
+    // every drop has popped: the show is over — stop the loop for good
+    if (drops.every((d) => d.popped)) return;
     raf = requestAnimationFrame(frame);
   }
 
-  let raf;
-  let resizeTimer;
   addEventListener('resize', () => {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
       vw = innerWidth;
       vh = innerHeight;
       scrollable = Math.max(1, document.documentElement.scrollHeight - vh);
-      for (const drop of drops) drop.x = drop.xf * vw;
+      const nowMobile = matchMedia('(max-width: 720px)').matches;
+      if (nowMobile !== mobile) {
+        // crossing the breakpoint (e.g. tablet rotation): rebuild the field
+        mobile = nowMobile;
+        cancelAnimationFrame(raf);
+        firstFrame = true;
+        build();
+        raf = requestAnimationFrame(frame);
+      } else {
+        for (const drop of drops) drop.x = drop.xf * vw;
+      }
     }, 150);
   }, { passive: true });
 
