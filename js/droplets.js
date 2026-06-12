@@ -11,31 +11,37 @@
     teardrop: 'assets/droplets/teardrop.png',
     wobble: 'assets/droplets/wobble.png',
     bead: 'assets/droplets/bead.png',
+    splash: 'assets/droplets/splash.png',
   };
 
   let mobile = matchMedia('(max-width: 720px)').matches;
 
-  // Initial frame mirrors the reference layout: 1 small, 2 big, 3 medium.
+  // Initial frame: reference layout density plus extras (10 drops), all hugging
+  // the left/right edges — the centre column is a no-droplet zone so copy stays clear.
   // x: fraction of viewport width · y: fraction of viewport height at scroll 0
-  // v: parallax factor (px fallen per px scrolled) · blur for depth on two big ones
+  // v: parallax factor (px fallen per px scrolled)
   const INITIAL = [
-    { s: 'bead',     size: 52,  x: 0.04, y: 0.58, v: 0.55 },           // 1 small, lower-left (clear of hero copy)
-    { s: 'sphere',   size: 230, x: 0.12, y: 0.42, v: 0.85, blur: 3 },  // big, soft-focus
-    { s: 'sphere',   size: 190, x: 0.78, y: 0.62, v: 1.15 },           // big, sharp
-    { s: 'teardrop', size: 110, x: 0.46, y: 0.14, v: 0.95 },           // mediums
-    { s: 'wobble',   size: 96,  x: 0.66, y: 0.06, v: 0.70, blur: 2 },
-    { s: 'wobble',   size: 120, x: 0.90, y: 0.20, v: 1.30 },
+    { s: 'bead',     size: 52,  x: 0.05, y: 0.12, v: 0.55 },
+    { s: 'bead',     size: 64,  x: 0.17, y: 0.05, v: 0.70 },
+    { s: 'sphere',   size: 230, x: 0.09, y: 0.38, v: 0.85 },
+    { s: 'teardrop', size: 112, x: 0.15, y: 0.64, v: 0.95 },
+    { s: 'wobble',   size: 124, x: 0.03, y: 0.84, v: 1.25 },
+    { s: 'wobble',   size: 96,  x: 0.91, y: 0.09, v: 0.70 },
+    { s: 'teardrop', size: 132, x: 0.83, y: 0.30, v: 1.00 },
+    { s: 'sphere',   size: 190, x: 0.87, y: 0.56, v: 1.15 },
+    { s: 'bead',     size: 48,  x: 0.95, y: 0.74, v: 0.90 },
+    { s: 'sphere',   size: 148, x: 0.82, y: 0.90, v: 1.35 },
   ];
   // Staged above the viewport; enter as the page scrolls. Later = smaller on average.
   const STAGED = [
-    { s: 'teardrop', size: 130, x: 0.58, at: 0.10, v: 1.05 },
-    { s: 'sphere',   size: 105, x: 0.10, at: 0.22, v: 0.80, blur: 2 },
-    { s: 'wobble',   size: 88,  x: 0.86, at: 0.34, v: 1.20 },
-    { s: 'teardrop', size: 74,  x: 0.38, at: 0.48, v: 0.90 },
-    { s: 'bead',     size: 56,  x: 0.70, at: 0.60, v: 1.10 },
-    { s: 'wobble',   size: 62,  x: 0.22, at: 0.72, v: 0.75, blur: 1 },
-    { s: 'bead',     size: 44,  x: 0.50, at: 0.84, v: 1.00 },
-    { s: 'bead',     size: 38,  x: 0.90, at: 0.92, v: 0.85 },
+    { s: 'teardrop', size: 120, x: 0.10, at: 0.10, v: 1.05 },
+    { s: 'sphere',   size: 104, x: 0.88, at: 0.20, v: 0.85 },
+    { s: 'wobble',   size: 88,  x: 0.04, at: 0.32, v: 1.20 },
+    { s: 'bead',     size: 58,  x: 0.93, at: 0.44, v: 0.95 },
+    { s: 'teardrop', size: 76,  x: 0.16, at: 0.56, v: 0.90 },
+    { s: 'wobble',   size: 64,  x: 0.85, at: 0.68, v: 0.75 },
+    { s: 'bead',     size: 46,  x: 0.07, at: 0.80, v: 1.05 },
+    { s: 'bead',     size: 40,  x: 0.96, at: 0.90, v: 0.85 },
   ];
 
   let vw = innerWidth;
@@ -61,8 +67,7 @@
       img.height = d.size;
       img.decoding = 'async';
       img.loading = 'eager';
-      if (d.blur) img.style.filter = `blur(${d.blur}px)`;
-      img.style.opacity = d.blur ? '0.55' : '0.8';
+      img.style.opacity = '0.92';
       field.appendChild(img);
       drops.push({
         el: img,
@@ -79,22 +84,37 @@
     });
   }
 
-  function pop(drop, screenY) {
+  function pop(drop) {
     drop.popped = true;
     drop.el.remove();
-    // burst: 5 micro-beads scatter upward-outward from the pop point and fade
-    for (let i = 0; i < 5; i++) {
+    const cx = drop.x + drop.size / 2;
+
+    // splash crown rises from the bottom edge where the drop landed
+    const w = Math.max(90, drop.size * 2);
+    const splash = document.createElement('img');
+    splash.src = SPRITE.splash;
+    splash.alt = '';
+    splash.width = w;
+    splash.height = w;
+    splash.className = 'splash';
+    splash.style.left = `${Math.max(0, Math.min(cx - w / 2, vw - w))}px`;
+    splash.style.top = `${vh - w * 0.92}px`;
+    splash.addEventListener('animationend', () => splash.remove());
+    field.appendChild(splash);
+
+    // plus loose micro-beads scattering up and out
+    for (let i = 0; i < 6; i++) {
       const bead = document.createElement('img');
       bead.src = SPRITE.bead;
       bead.alt = '';
-      const s = 10 + Math.random() * 14;
+      const s = 10 + Math.random() * 16;
       bead.width = s;
       bead.height = s;
       bead.className = 'pop-bead';
-      bead.style.left = `${Math.max(0, Math.min(drop.x + drop.size / 2, vw - s))}px`;
-      bead.style.top = `${Math.min(screenY, vh - s)}px`;
-      bead.style.setProperty('--dx', `${(Math.random() - 0.5) * 140}px`);
-      bead.style.setProperty('--dy', `${-30 - Math.random() * 90}px`);
+      bead.style.left = `${Math.max(0, Math.min(cx + (Math.random() - 0.5) * drop.size, vw - s))}px`;
+      bead.style.top = `${vh - s - 4}px`;
+      bead.style.setProperty('--dx', `${(Math.random() - 0.5) * 180}px`);
+      bead.style.setProperty('--dy', `${-50 - Math.random() * 130}px`);
       bead.addEventListener('animationend', () => bead.remove());
       field.appendChild(bead);
     }
@@ -117,14 +137,16 @@
     for (const drop of drops) {
       if (drop.popped) continue;
       const screenY = drop.y0 + sc * drop.v;
-      if (screenY > vh) {
+      // pop the moment the drop's BOTTOM edge touches the bottom of the screen,
+      // so the explosion happens in view before the liquid disappears
+      if (screenY + drop.size >= vh) {
         // drops already past the bottom on page load (anchor link, reload
         // mid-page) vanish silently instead of bursting all at once
         if (firstFrame) {
           drop.popped = true;
           drop.el.remove();
         } else {
-          pop(drop, screenY);
+          pop(drop);
         }
         continue;
       }

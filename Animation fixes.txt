@@ -1,0 +1,11 @@
+Animation fixes:
+
+Fix 1: The drops in the website are very low quality the resolution of the images are low so it looks blurry and unprofessional.
+
+Fix 2: The water droplets don't explode once they hit the bottom of the page, they just go below and disappear.
+
+Fix 3: There aren't enough water droplets copy the layout/amount of droplets in file "WaterDropletLayout" this is the minim amount of droplets add 2-3 more than in the reference, don't put any in the middle of the site this area is no droplet zone.
+
+Fix 4: Instead of having images overlayed in the background that move as the user scrolls, generate a video that you will sink to the website so certain frames are inline with the scrolling of the user. To generate this video, first create a reference starting image, check in with me once this image is created and I will give feedback.
+
+Fix 5: Add on to the issue of water droplets not exploding here is a reference of what an exploded water droplet should look like. Reference exploded droplet and exploded droplet 2
