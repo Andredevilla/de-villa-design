@@ -99,6 +99,7 @@
   let lastScroll = scrollY;
   let velocity = 0;
   let lastT = performance.now();
+  let firstFrame = true;
 
   function frame(t) {
     const dt = Math.min(0.05, (t - lastT) / 1000);
@@ -113,7 +114,14 @@
       if (drop.popped) continue;
       const screenY = drop.y0 + sc * drop.v;
       if (screenY > vh) {
-        pop(drop, screenY);
+        // drops already past the bottom on page load (anchor link, reload
+        // mid-page) vanish silently instead of bursting all at once
+        if (firstFrame) {
+          drop.popped = true;
+          drop.el.remove();
+        } else {
+          pop(drop, screenY);
+        }
         continue;
       }
       if (screenY < -drop.size * 2) {
@@ -125,6 +133,7 @@
       drop.el.style.transform =
         `translate(${drop.x}px, ${screenY}px) scale(${1 + w}, ${1 - w})`;
     }
+    firstFrame = false;
     raf = requestAnimationFrame(frame);
   }
 
