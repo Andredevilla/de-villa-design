@@ -664,3 +664,18 @@ h1 .accent, h2 .accent { font-style: italic; color: var(--sage); }
   font-size: 0.85rem;
   color: var(--ink-soft);
 }
+
+/* ---------- Calendly inline scheduler ---------- */
+.calendly-embed {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.calendly-embed .calendly-inline-widget {
+  min-width: 300px;
+  height: 700px;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+@media (max-width: 600px) {
+  .calendly-embed .calendly-inline-widget { height: 920px; }
+}

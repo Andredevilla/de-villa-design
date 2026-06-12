@@ -212,32 +212,15 @@
     <div class="section-head reveal">
       <p class="eyebrow">Get started</p>
       <h2>Ready for a website you're <em class="accent">proud of</em>?</h2>
-      <p>A free 20-minute chat about your goals. No pressure, no jargon.</p>
-      <p class="contact-book"><a class="btn" href="https://calendly.com/andre-devilladesign/free-20-minute-chat" target="_blank" rel="noopener">Pick a time — book the free chat</a></p>
-      <p class="contact-or">Or send a message instead:</p>
+      <p>A free 20-minute chat about your goals. No pressure, no jargon. Pick any time that suits — it shows in your timezone.</p>
     </div>
-    <!-- Netlify Forms: detected at deploy time via data-netlify; submissions
-         appear in the Netlify dashboard and are emailed to the site owner -->
-    <form class="contact-form reveal" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-      <input type="hidden" name="form-name" value="contact">
-      <p class="visually-hidden" aria-hidden="true">
-        <label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
-      </p>
-      <div class="field">
-        <label for="name">Name</label>
-        <input id="name" name="name" type="text" required autocomplete="name">
-      </div>
-      <div class="field">
-        <label for="email">Email</label>
-        <input id="email" name="email" type="email" required autocomplete="email">
-      </div>
-      <div class="field">
-        <label for="message">What do you need?</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-      </div>
-      <button class="btn" type="submit">Send message</button>
-      <p class="form-status" role="status" aria-live="polite"></p>
-    </form>
+    <!-- Calendly inline scheduler, lazy-loaded by main.js when this section nears the viewport -->
+    <div class="calendly-embed reveal" id="calendly-embed"
+         data-url="https://calendly.com/andre-devilladesign/free-20-minute-chat?hide_gdpr_banner=1&background_color=FBFDFC&text_color=3B3A36&primary_color=6B7A5E">
+      <noscript>
+        <a class="btn" href="https://calendly.com/andre-devilladesign/free-20-minute-chat" target="_blank" rel="noopener">Book the free chat on Calendly</a>
+      </noscript>
+    </div>
     <p class="alt">Prefer email? <a href="mailto:andre@devilladesign.com">andre@devilladesign.com</a></p>
     <p class="alt">You'll be talking directly with Andre — the designer behind De Villa. Replies within one business day.</p>
   </div>

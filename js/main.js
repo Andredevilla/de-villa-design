@@ -38,34 +38,37 @@ document.querySelectorAll('.reveal').forEach((el) => {
   observer.observe(el);
 });
 
-// Contact form: Formspree-style POST with mailto fallback until configured
-const form = document.querySelector('.contact-form');
-const statusEl = document.querySelector('.form-status');
+// Calendly inline scheduler: lazy-load the widget script only when the
+// contact section approaches the viewport, so it never blocks page load
+const calendlyHost = document.getElementById('calendly-embed');
 
-if (form && statusEl) {
-  const submitBtn = form.querySelector('button[type="submit"]');
+if (calendlyHost && 'IntersectionObserver' in window) {
+  const loadCalendly = () => {
+    const widget = document.createElement('div');
+    widget.className = 'calendly-inline-widget';
+    widget.setAttribute('data-url', calendlyHost.getAttribute('data-url'));
+    calendlyHost.appendChild(widget);
 
-  form.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const data = new FormData(form);
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    document.body.appendChild(script);
+  };
 
-    if (submitBtn) submitBtn.disabled = true;
-    try {
-      // Netlify Forms: AJAX submissions post url-encoded data to the page itself
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(data).toString(),
-      });
-      if (!response.ok) throw new Error('Request failed');
-      form.reset();
-      statusEl.textContent = "Thanks — your message is on its way. I'll reply within one business day.";
-      statusEl.className = 'form-status success';
-    } catch {
-      statusEl.textContent = 'Something went wrong. Please email andre@devilladesign.com instead.';
-      statusEl.className = 'form-status error';
-    } finally {
-      if (submitBtn) submitBtn.disabled = false;
+  const calObserver = new IntersectionObserver((entries) => {
+    if (entries.some((entry) => entry.isIntersecting)) {
+      calObserver.disconnect();
+      loadCalendly();
     }
-  });
+  }, { rootMargin: '600px 0px' });
+  calObserver.observe(calendlyHost);
+} else if (calendlyHost) {
+  // very old browsers: plain link fallback
+  const link = document.createElement('a');
+  link.className = 'btn';
+  link.href = 'https://calendly.com/andre-devilladesign/free-20-minute-chat';
+  link.target = '_blank';
+  link.rel = 'noopener';
+  link.textContent = 'Book the free chat on Calendly';
+  calendlyHost.appendChild(link);
 }
