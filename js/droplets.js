@@ -6,13 +6,24 @@
   const field = document.getElementById('droplet-field');
   if (!field || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
+  // Animated WebP loops: real liquid wobble baked into each sprite.
+  // *2 variants are time-reversed copies so same-type drops don't visibly sync.
   const SPRITE = {
-    sphere: 'assets/droplets/sphere.png',
-    teardrop: 'assets/droplets/teardrop.png',
-    wobble: 'assets/droplets/wobble.png',
-    bead: 'assets/droplets/bead.png',
-    splash: 'assets/droplets/splash.png',
+    sphere: 'assets/droplets/sphere.webp',
+    sphere2: 'assets/droplets/sphere2.webp',
+    teardrop: 'assets/droplets/teardrop.webp',
+    wobble: 'assets/droplets/wobble.webp',
+    bead: 'assets/droplets/bead.webp',
+    bead2: 'assets/droplets/bead2.webp',
+    splash: 'assets/droplets/splash.webp',
   };
+  // alternate same-type sprites between normal and reversed playback
+  const variantCounter = {};
+  function spriteFor(type) {
+    variantCounter[type] = (variantCounter[type] || 0) + 1;
+    const alt = `${type}2`;
+    return variantCounter[type] % 2 === 0 && SPRITE[alt] ? SPRITE[alt] : SPRITE[type];
+  }
 
   let mobile = matchMedia('(max-width: 720px)').matches;
 
@@ -20,28 +31,31 @@
   // the left/right edges — the centre column is a no-droplet zone so copy stays clear.
   // x: fraction of viewport width · y: fraction of viewport height at scroll 0
   // v: parallax factor (px fallen per px scrolled)
+  // Matches the approved reference frame: droplets in the outer thirds only,
+  // middle third is the no-droplet zone, only the top-left bead may clip an edge.
   const INITIAL = [
-    { s: 'bead',     size: 52,  x: 0.05, y: 0.12, v: 0.55 },
-    { s: 'bead',     size: 64,  x: 0.17, y: 0.05, v: 0.70 },
-    { s: 'sphere',   size: 230, x: 0.09, y: 0.38, v: 0.85 },
-    { s: 'teardrop', size: 112, x: 0.15, y: 0.64, v: 0.95 },
-    { s: 'wobble',   size: 124, x: 0.03, y: 0.84, v: 1.25 },
-    { s: 'wobble',   size: 96,  x: 0.91, y: 0.09, v: 0.70 },
-    { s: 'teardrop', size: 132, x: 0.83, y: 0.30, v: 1.00 },
-    { s: 'sphere',   size: 190, x: 0.87, y: 0.56, v: 1.15 },
-    { s: 'bead',     size: 48,  x: 0.95, y: 0.74, v: 0.90 },
-    { s: 'sphere',   size: 148, x: 0.82, y: 0.90, v: 1.35 },
+    { s: 'bead',     size: 56,  x: 0.02, y: 0.03, v: 0.55 },
+    { s: 'sphere',   size: 215, x: 0.09, y: 0.16, v: 0.85 },
+    { s: 'teardrop', size: 110, x: 0.05, y: 0.50, v: 0.95 },
+    { s: 'wobble',   size: 120, x: 0.12, y: 0.68, v: 1.25 },
+    { s: 'sphere',   size: 200, x: 0.78, y: 0.14, v: 1.10 },
+    { s: 'bead',     size: 62,  x: 0.92, y: 0.36, v: 0.70 },
+    { s: 'teardrop', size: 115, x: 0.85, y: 0.44, v: 1.00 },
+    { s: 'wobble',   size: 95,  x: 0.76, y: 0.60, v: 0.90 },
+    { s: 'bead',     size: 52,  x: 0.94, y: 0.66, v: 0.80 },
+    { s: 'bead',     size: 72,  x: 0.82, y: 0.80, v: 1.20 },
   ];
-  // Staged above the viewport; enter as the page scrolls. Later = smaller on average.
+  // Matches the approved wave-2 frame: enter from the top as the page scrolls,
+  // smaller on average but the bottom-most are solid small-mediums, not specks.
   const STAGED = [
-    { s: 'teardrop', size: 120, x: 0.10, at: 0.10, v: 1.05 },
-    { s: 'sphere',   size: 104, x: 0.88, at: 0.20, v: 0.85 },
-    { s: 'wobble',   size: 88,  x: 0.04, at: 0.32, v: 1.20 },
-    { s: 'bead',     size: 58,  x: 0.93, at: 0.44, v: 0.95 },
-    { s: 'teardrop', size: 76,  x: 0.16, at: 0.56, v: 0.90 },
-    { s: 'wobble',   size: 64,  x: 0.85, at: 0.68, v: 0.75 },
-    { s: 'bead',     size: 46,  x: 0.07, at: 0.80, v: 1.05 },
-    { s: 'bead',     size: 40,  x: 0.96, at: 0.90, v: 0.85 },
+    { s: 'teardrop', size: 130, x: 0.07, at: 0.10, v: 1.05 },
+    { s: 'sphere',   size: 120, x: 0.80, at: 0.18, v: 0.95 },
+    { s: 'wobble',   size: 88,  x: 0.03, at: 0.28, v: 0.85 },
+    { s: 'teardrop', size: 92,  x: 0.86, at: 0.38, v: 1.10 },
+    { s: 'bead',     size: 84,  x: 0.10, at: 0.50, v: 1.15 },
+    { s: 'bead',     size: 64,  x: 0.90, at: 0.62, v: 0.80 },
+    { s: 'bead',     size: 80,  x: 0.82, at: 0.76, v: 1.00 },
+    { s: 'bead',     size: 70,  x: 0.94, at: 0.88, v: 0.90 },
   ];
 
   let vw = innerWidth;
@@ -61,7 +75,7 @@
 
     defs.forEach((d, i) => {
       const img = document.createElement('img');
-      img.src = SPRITE[d.s];
+      img.src = spriteFor(d.s);
       img.alt = '';
       img.width = d.size;
       img.height = d.size;
@@ -132,7 +146,9 @@
     // smoothed scroll velocity drives the wiggle amplitude
     velocity += ((sc - lastScroll) / Math.max(dt, 0.001) - velocity) * 0.12;
     lastScroll = sc;
-    const amp = Math.min(0.16, 0.025 + Math.abs(velocity) / 9000);
+    // idle liquid motion is baked into the animated sprites — the JS wiggle now
+    // only adds fall-stretch proportional to scroll speed
+    const amp = Math.min(0.08, Math.abs(velocity) / 14000);
 
     for (const drop of drops) {
       if (drop.popped) continue;

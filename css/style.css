@@ -733,15 +733,17 @@ h1 .accent, h2 .accent { font-style: italic; color: var(--sage); }
   from { opacity: 0.9; transform: translate(0, 0) scale(1); }
   to { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(0.55); }
 }
+/* the splash clip animates its own eruption; CSS just times its removal —
+   animationend on this fade is what deletes the element */
 .droplet-field .splash {
   position: absolute;
   transform-origin: 50% 100%;
-  animation: splash-pop 0.7s cubic-bezier(0.18, 0.7, 0.4, 1) forwards;
+  animation: splash-pop 1.8s ease-out forwards;
 }
 @keyframes splash-pop {
-  0% { opacity: 0.95; transform: scale(0.3); }
-  25% { opacity: 1; transform: scale(0.85); }
-  100% { opacity: 0; transform: scale(1.08); }
+  0% { opacity: 1; }
+  75% { opacity: 1; }
+  100% { opacity: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   .droplet-field { display: none; }
