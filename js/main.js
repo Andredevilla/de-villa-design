@@ -55,9 +55,9 @@ if (form && statusEl) {
       const body = encodeURIComponent(
         data.get('message') + '\n\nFrom: ' + data.get('name') + ' <' + data.get('email') + '>'
       );
-      statusEl.textContent = 'Opening your email app… or write to hello@devilladesign.com directly.';
+      statusEl.textContent = 'Opening your email app… or write to andre@devilladesign.com directly.';
       statusEl.className = 'form-status success';
-      window.location.href = 'mailto:hello@devilladesign.com?subject=' + subject + '&body=' + body;
+      window.location.href = 'mailto:andre@devilladesign.com?subject=' + subject + '&body=' + body;
       return;
     }
 
@@ -73,7 +73,7 @@ if (form && statusEl) {
       statusEl.textContent = "Thanks — your message is on its way. I'll reply within one business day.";
       statusEl.className = 'form-status success';
     } catch {
-      statusEl.textContent = 'Something went wrong. Please email hello@devilladesign.com instead.';
+      statusEl.textContent = 'Something went wrong. Please email andre@devilladesign.com instead.';
       statusEl.className = 'form-status error';
     } finally {
       if (submitBtn) submitBtn.disabled = false;
