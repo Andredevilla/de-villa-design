@@ -11,3 +11,7 @@ lh-*.json
 outreach/
 # user reference folders
 /Claude refrences/
+
+# design reference material (not deployable)
+Website inspiration/
+Website improvment instructions..txt
