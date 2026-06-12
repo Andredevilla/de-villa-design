@@ -404,14 +404,14 @@ section { scroll-margin-top: 80px; }
 }
 
 /* ---------- Contact ---------- */
-.contact { text-align: center; background: var(--cream-2); }
+.contact { text-align: center; background: var(--cream-2); padding-bottom: 104px; }
 .contact .alt { margin-top: 22px; font-size: 0.95rem; color: var(--ink-soft); }
 
 /* ---------- Footer ---------- */
 .site-footer {
   background: var(--ink);
   color: var(--footer-ink);
-  padding: 44px 0 28px;
+  padding: 64px 0 32px;
   font-size: 0.85rem;
 }
 .site-footer .container {
@@ -516,7 +516,7 @@ h1 .accent, h2 .accent { font-style: italic; color: var(--sage); }
     top: 22px;
     left: 12.5%;
     right: 12.5%;
-    border-top: 1px dashed rgba(50, 56, 72, 0.28);
+    border-top: 1px dashed rgba(50, 56, 72, 0.4);
   }
   .step { position: relative; }
 }
@@ -674,7 +674,7 @@ h1 .accent, h2 .accent { font-style: italic; color: var(--sage); }
 /* ---------- Calendly inline scheduler ---------- */
 .calendly-embed {
   max-width: 760px;
-  margin: 0 auto;
+  margin: 0 auto 16px;
   min-height: 700px;
   position: relative;
   background: rgba(255, 255, 255, 0.55);
