@@ -656,3 +656,11 @@ h1 .accent, h2 .accent { font-style: italic; color: var(--sage); }
   margin: 28px 0 0;
   text-align: center;
 }
+
+/* ---------- Contact: direct booking CTA above the form ---------- */
+.contact-book { margin: 24px 0 0; }
+.contact-or {
+  margin: 18px 0 0;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
