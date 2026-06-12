@@ -373,6 +373,12 @@ ul, ol {
   height: 22px;
 }
 
+/* Mobile drawer is hidden everywhere by default; the 600px media query
+   re-enables it as an off-canvas panel */
+.nav-mobile {
+  display: none;
+}
+
 /* ---------- HERO ---------- */
 .hero {
   position: relative;
@@ -434,7 +440,7 @@ ul, ol {
   margin-bottom: 1.5rem;
   opacity: 0;
   transform: translateY(12px);
-  animation: fadeUp 0.8s 0.2s var(--transition) forwards;
+  animation: fadeUp 0.8s 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .hero-eyebrow .label {
@@ -448,7 +454,7 @@ ul, ol {
   height: 1px;
   background: rgba(168, 129, 70, 0.7);
   margin-bottom: 0.75rem;
-  animation: expandWidth 0.8s 0.1s var(--transition) forwards;
+  animation: expandWidth 0.8s 0.1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .hero-heading {
@@ -456,7 +462,7 @@ ul, ol {
   margin-bottom: 1.5rem;
   opacity: 0;
   transform: translateY(16px);
-  animation: fadeUp 0.9s 0.35s var(--transition) forwards;
+  animation: fadeUp 0.9s 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   max-width: 14ch;
 }
 
@@ -473,7 +479,7 @@ ul, ol {
   margin-bottom: 2.5rem;
   opacity: 0;
   transform: translateY(14px);
-  animation: fadeUp 0.9s 0.5s var(--transition) forwards;
+  animation: fadeUp 0.9s 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 /* Hero offer panel */
@@ -488,7 +494,7 @@ ul, ol {
   max-width: 480px;
   opacity: 0;
   transform: translateY(14px);
-  animation: fadeUp 0.9s 0.65s var(--transition) forwards;
+  animation: fadeUp 0.9s 0.65s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .hero-offer-label {
@@ -521,7 +527,7 @@ ul, ol {
   gap: 1rem;
   opacity: 0;
   transform: translateY(14px);
-  animation: fadeUp 0.9s 0.8s var(--transition) forwards;
+  animation: fadeUp 0.9s 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 /* Scroll indicator */

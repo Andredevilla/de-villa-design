@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F3EFE9">
+  <title>Demo Sites — De Villa Design</title>
+  <meta name="description" content="Eight concept websites by De Villa Design — one for every kind of health and wellness business we serve.">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-variable.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin.woff2" crossorigin>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .gallery-hero { padding: 72px 0 28px; text-align: left; }
+    .gallery-hero h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); letter-spacing: -0.01em; }
+    .gallery-hero p { max-width: 560px; color: var(--ink-soft); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      padding-bottom: 96px;
+    }
+    @media (max-width: 980px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .gallery-grid { grid-template-columns: 1fr; } }
+    .gallery-card .work-meta { flex-direction: column; align-items: flex-start; gap: 4px; }
+    .gallery-card .service-type {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sage-dark);
+      font-weight: 500;
+    }
+    .back-link { font-size: 0.9rem; }
+    .gallery-card h2 { font-size: 1.05rem; margin: 0; }
+    /* this slim header has no hamburger — keep the back link visible on mobile */
+    @media (max-width: 720px) {
+      .site-nav {
+        display: flex !important;
+        position: static;
+        flex-direction: row;
+        padding: 0;
+        border: 0;
+        background: none;
+      }
+      .site-nav a { width: auto; padding: 0; }
+    }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/">DE VILLA DESIGN</a>
+    <nav class="site-nav" aria-label="Main">
+      <a class="back-link" href="/">← Back to main site</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="gallery-hero">
+    <div class="container">
+      <p class="eyebrow">Portfolio · Demo sites</p>
+      <h1>Eight businesses, eight <em class="accent">different websites</em>.</h1>
+      <p>Every demo below is a complete working concept site — built for a fictional Australian health &amp; wellness business with its own brand, copy, photography and booking flow. Open any of them.</p>
+    </div>
+  </section>
+  <section aria-label="Demo site gallery">
+    <div class="container">
+      <div class="gallery-grid">
+        <a class="work-card gallery-card" href="/demos/serenity-physio/">
+          <div class="work-shot"><img class="shot-img" src="/demos/shots/serenity-physio.webp" width="740" height="450" alt="Serenity Physio homepage" loading="lazy" decoding="async"></div>
+          <div class="work-meta"><span class="service-type">Physiotherapy</span><h2 class="h3-size">Serenity Physio</h2></div>
+        </a>
+        <a class="work-card gallery-card" href="/demos/bloom-yoga/">
+          <div class="work-shot"><img class="shot-img" src="/demos/shots/bloom-yoga.webp" width="740" height="450" alt="Bloom Yoga Studio homepage" loading="lazy" decoding="async"></div>
+          <div class="work-meta"><span class="service-type">Yoga studio</span><h2 class="h3-size">Bloom Yoga Studio</h2></div>
+        </a>
+        <a class="work-card gallery-card" href="/demos/coastal-dental/">
+          <div class="work-shot"><img class="shot-img" src="/demos/shots/coastal-dental.webp" width="740" height="450" alt="Coastal Dental homepage" loading="lazy" decoding="async"></div>
+          <div class="work-meta"><span class="service-type">Dental practice</span><h2 class="h3-size">Coastal Dental</h2></div>
+        </a>
+        <a class="work-card gallery-card" href="/demos/truenorth-chiro/">
+          <div class="work-shot"><img class="shot-img" src="/demos/shots/truenorth-chiro.webp" width="740" height="450" alt="True North Chiropractic homepage" loading="lazy" decoding="async"></div>
+          <div class="work-meta"><span class="service-type">Chiropractic</span><h2 class="h3-size">True North Chiropractic</h2></div>
+        </a>
+        <a class="work-card gallery-card" href="/demos/lumiere-skin/">
+          <div class="work-shot"><img class="shot-img" src="/demos/shots/lumiere-skin.webp" width="740" height="450" alt="Lumière Skin &amp; Laser homepage" loading="lazy" decoding="async"></div>
+          <div class="work-meta"><span class="service-type">Med spa</span><h2 class="h3-size">Lumière Skin &amp; Laser</h2></div>
+        </a>
+        <a class="work-card gallery-card" href="/demos/form-pilates/">
+          <div class="work-shot"><img class="shot-img" src="/demos/shots/form-pilates.webp" width="740" height="450" alt="FORM Pilates Studio homepage" loading="lazy" decoding="async"></div>
+          <div class="work-meta"><span class="service-type">Pilates</span><h2 class="h3-size">FORM Pilates Studio</h2></div>
+        </a>
+        <a class="work-card gallery-card" href="/demos/stillpoint-massage/">
+          <div class="work-shot"><img class="shot-img" src="/demos/shots/stillpoint-massage.webp" width="740" height="450" alt="Still Point Massage homepage" loading="lazy" decoding="async"></div>
+          <div class="work-meta"><span class="service-type">Massage therapy</span><h2 class="h3-size">Still Point Massage</h2></div>
+        </a>
+        <a class="work-card gallery-card" href="/demos/solace-springs/">
+          <div class="work-shot"><img class="shot-img" src="/demos/shots/solace-springs.webp" width="740" height="450" alt="Solace Springs Retreat homepage" loading="lazy" decoding="async"></div>
+          <div class="work-meta"><span class="service-type">Wellness retreat</span><h2 class="h3-size">Solace Springs Retreat</h2></div>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <span>De Villa Design · Websites for health &amp; wellness</span>
+    <a href="mailto:hello@devilladesign.com">hello@devilladesign.com</a>
+  </div>
+</footer>
+</body>
+</html>
