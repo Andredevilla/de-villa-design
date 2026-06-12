@@ -43,30 +43,19 @@ const form = document.querySelector('.contact-form');
 const statusEl = document.querySelector('.form-status');
 
 if (form && statusEl) {
-  const endpoint = form.getAttribute('action');
   const submitBtn = form.querySelector('button[type="submit"]');
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
     const data = new FormData(form);
 
-    if (endpoint.includes('YOUR_FORM_ID')) {
-      const subject = encodeURIComponent('Website enquiry — ' + data.get('name'));
-      const body = encodeURIComponent(
-        data.get('message') + '\n\nFrom: ' + data.get('name') + ' <' + data.get('email') + '>'
-      );
-      statusEl.textContent = 'Opening your email app… or write to andre@devilladesign.com directly.';
-      statusEl.className = 'form-status success';
-      window.location.href = 'mailto:andre@devilladesign.com?subject=' + subject + '&body=' + body;
-      return;
-    }
-
     if (submitBtn) submitBtn.disabled = true;
     try {
-      const response = await fetch(endpoint, {
+      // Netlify Forms: AJAX submissions post url-encoded data to the page itself
+      const response = await fetch('/', {
         method: 'POST',
-        body: data,
-        headers: { Accept: 'application/json' },
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(data).toString(),
       });
       if (!response.ok) throw new Error('Request failed');
       form.reset();

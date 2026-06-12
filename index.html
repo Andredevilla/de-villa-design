@@ -216,9 +216,13 @@
       <p class="contact-book"><a class="btn" href="https://calendly.com/andre-devilladesign/free-20-minute-chat" target="_blank" rel="noopener">Pick a time — book the free chat</a></p>
       <p class="contact-or">Or send a message instead:</p>
     </div>
-    <!-- TODO at deploy time: replace YOUR_FORM_ID with a real Formspree form ID.
-         Until then, JS falls back to a mailto submission. -->
-    <form class="contact-form reveal" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <!-- Netlify Forms: detected at deploy time via data-netlify; submissions
+         appear in the Netlify dashboard and are emailed to the site owner -->
+    <form class="contact-form reveal" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="contact">
+      <p class="visually-hidden" aria-hidden="true">
+        <label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+      </p>
       <div class="field">
         <label for="name">Name</label>
         <input id="name" name="name" type="text" required autocomplete="name">
