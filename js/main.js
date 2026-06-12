@@ -55,6 +55,8 @@ if (form && statusEl) {
       const body = encodeURIComponent(
         data.get('message') + '\n\nFrom: ' + data.get('name') + ' <' + data.get('email') + '>'
       );
+      statusEl.textContent = 'Opening your email app… or write to hello@devilladesign.com directly.';
+      statusEl.className = 'form-status success';
       window.location.href = 'mailto:hello@devilladesign.com?subject=' + subject + '&body=' + body;
       return;
     }
