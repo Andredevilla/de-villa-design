@@ -7,3 +7,7 @@ lh-*.json
 /*.jpg
 /*.jpeg
 /*.webp
+# internal outreach system - never deploy or commit prospect data
+outreach/
+# user reference folders
+/Claude refrences/
