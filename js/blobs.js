@@ -19,7 +19,7 @@ import { wobbleRadius, separationForce, integrate, repulsionForce, clamp } from 
   const VISUAL = 1.2;          // visible radius factor — the soft gradient + wobble extend past r
   const BASE_WOBBLE = 0.06;
   const BASE_ALPHA = 0.55;
-  const MIN_GAP = 72;          // 0.75 inch (96 CSS px/inch) minimum gap between visible edges
+  const MIN_GAP = 36;          // ~0.375 inch minimum gap between visible edges
   const MAX_SPEED = 60;        // px/s
   const SPRING = 1.2;
   const DAMPING = 0.92;
