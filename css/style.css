@@ -429,18 +429,15 @@ section { scroll-margin-top: 80px; }
 
 /* ---------- Light Frost liquid-glass background ---------- */
 .bg-frost-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
-/* colour field the frost refracts: brand lavender / pink / mint glows */
-.bg-aurora {
+/* moving colour field: the blob canvas (drawn by js/blobs.js) */
+.bg-blobs {
   position: fixed;
   inset: 0;
+  width: 100%;
+  height: 100%;
   z-index: -2;
   pointer-events: none;
-  background:
-    radial-gradient(52% 62% at 12% 18%, rgba(122, 130, 240, 0.62), transparent 72%),
-    radial-gradient(48% 58% at 88% 12%, rgba(240, 184, 220, 0.72), transparent 72%),
-    radial-gradient(55% 65% at 78% 82%, rgba(127, 216, 200, 0.58), transparent 72%),
-    radial-gradient(50% 60% at 22% 88%, rgba(132, 120, 246, 0.5), transparent 72%),
-    var(--cream);
+  display: block;
 }
 /* the Light Frost pane (Essential Blocks effect3): blur(0) backdrop snapshot
    warped by the displacement filter, under a faint white tint */
@@ -449,8 +446,8 @@ section { scroll-margin-top: 80px; }
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  -webkit-backdrop-filter: blur(0px);
-  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
   filter: url(#lf-glass-distortion);
   background: rgba(255, 255, 255, 0.3);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) inset;

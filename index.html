@@ -31,9 +31,8 @@
   </script>
 </head>
 <body>
-<!-- Light Frost liquid-glass background: aurora colour field distorted by the
-     frost pane's SVG displacement filter (Essential Blocks "Light Frost" recipe) -->
-<div class="bg-aurora" aria-hidden="true"></div>
+<!-- Animated jelly-blob colour field, drawn under the Light Frost pane -->
+<canvas class="bg-blobs" id="blob-field" aria-hidden="true"></canvas>
 <div class="bg-frost" aria-hidden="true"></div>
 <svg class="bg-frost-defs" aria-hidden="true" focusable="false">
   <filter id="lf-glass-distortion" x="0%" y="0%" width="100%" height="100%">
@@ -246,5 +245,6 @@
   </div>
 </footer>
   <script src="js/main.js" defer></script>
+  <script type="module" src="js/blobs.js"></script>
 </body>
 </html>
