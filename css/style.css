@@ -230,39 +230,6 @@ section { scroll-margin-top: 80px; }
   flex-wrap: wrap;
 }
 
-/* ---------- Trust strip (marquee) ---------- */
-.trust { background: var(--cream-2); padding: 16px 0; overflow: hidden; }
-.marquee-track {
-  display: inline-flex;
-  align-items: center;
-  gap: 32px;
-  white-space: nowrap;
-  will-change: transform;
-  animation: marquee 32s linear infinite;
-  font-size: 0.75rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-  padding-right: 32px; /* trailing gap so the -50% loop is seamless */
-}
-.marquee-copy { display: inline-flex; align-items: center; gap: 32px; }
-.marquee-track .dot { color: var(--sage); }
-.marquee-track a {
-  text-decoration: none;
-  color: inherit;
-  transition: color 0.2s ease;
-}
-.marquee-track a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
-.marquee-track a:focus-visible {
-  outline: 2px solid var(--sage);
-  outline-offset: 3px;
-  color: var(--ink);
-}
-/* pause the ribbon while pointing or keyboard-focusing so links are clickable */
-.marquee:hover .marquee-track,
-.marquee:focus-within .marquee-track { animation-play-state: paused; }
-@keyframes marquee { to { transform: translateX(-50%); } }
-
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -436,10 +403,10 @@ section { scroll-margin-top: 80px; }
   z-index: -2;
   pointer-events: none;
   background:
-    radial-gradient(40% 50% at 15% 20%, rgba(122, 130, 240, 0.35), transparent 70%),
-    radial-gradient(35% 45% at 85% 15%, rgba(240, 196, 224, 0.45), transparent 70%),
-    radial-gradient(45% 55% at 75% 80%, rgba(127, 216, 200, 0.32), transparent 70%),
-    radial-gradient(38% 48% at 25% 85%, rgba(122, 130, 240, 0.22), transparent 70%),
+    radial-gradient(52% 62% at 12% 18%, rgba(122, 130, 240, 0.62), transparent 72%),
+    radial-gradient(48% 58% at 88% 12%, rgba(240, 184, 220, 0.72), transparent 72%),
+    radial-gradient(55% 65% at 78% 82%, rgba(127, 216, 200, 0.58), transparent 72%),
+    radial-gradient(50% 60% at 22% 88%, rgba(132, 120, 246, 0.5), transparent 72%),
     var(--cream);
 }
 /* the Light Frost pane (Essential Blocks effect3): blur(0) backdrop snapshot
@@ -681,8 +648,6 @@ h1 .accent, h2 .accent { font-style: italic; color: var(--sage); }
 
 @media (prefers-reduced-motion: reduce) {
   .hero-art span { animation: none; }
-  .marquee-track { animation: none; will-change: auto; }
-  .marquee-copy:nth-child(2) { display: none; }
   .site-nav a:not(.btn)::after { transition: none; }
   .step-num { transition: none; }
   .site-header { transition: none; }
@@ -698,15 +663,7 @@ h1 .accent, h2 .accent { font-style: italic; color: var(--sage); }
     radial-gradient(ellipse 130% 105% at 50% 50%, rgba(242, 245, 250, 0) 55%, rgba(80, 90, 140, 0.14) 100%);
 }
 
-/* ---------- Audit fixes: marquee hint + browse-all link ---------- */
-.marquee-hint {
-  margin: 0 0 8px;
-  text-align: center;
-  font-size: 0.7rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-}
+/* ---------- Work section: browse-all link ---------- */
 .work-more {
   margin: 28px 0 0;
   text-align: center;
