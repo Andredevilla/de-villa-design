@@ -280,13 +280,20 @@ section { scroll-margin-top: 80px; }
 @media (max-width: 860px) { .grid-3 { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 540px) { .grid-3 { grid-template-columns: 1fr; } }
 
+/* same liquid-glass construction as .btn (gloss layer over a translucent
+   periwinkle gradient, white inner edge, colored soft shadow) at card opacity */
 .card {
-  background: rgba(255, 255, 255, 0.66);
-  backdrop-filter: blur(12px) saturate(1.25);
-  -webkit-backdrop-filter: blur(12px) saturate(1.25);
-  border: 1px solid var(--line);
-  box-shadow: 0 2px 16px rgba(50, 56, 72, 0.09), inset 0 1px 0 rgba(255, 255, 255, 0.85);
-  border-radius: var(--radius);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 52%),
+    linear-gradient(135deg, rgba(122, 130, 240, 0.16), rgba(82, 91, 214, 0.10));
+  backdrop-filter: blur(14px) saturate(1.4);
+  -webkit-backdrop-filter: blur(14px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow:
+    0 8px 24px rgba(106, 116, 232, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    inset 0 -10px 18px rgba(255, 255, 255, 0.10);
+  border-radius: 20px;
   padding: 28px;
 }
 .card h3 { margin-top: 14px; }
@@ -519,7 +526,13 @@ h1 .accent, h2 .accent { font-style: italic; color: var(--sage); }
 /* .card.reveal beats .reveal.js-ready / .reveal.visible in the cascade so the
    hover lift and snappy transition actually apply after the scroll reveal */
 .card.reveal { transition: opacity 0.6s ease, transform 0.3s ease, box-shadow 0.3s ease; }
-.card.reveal:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(50, 56, 72, 0.10); }
+.card.reveal:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 12px 30px rgba(106, 116, 232, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    inset 0 -10px 18px rgba(255, 255, 255, 0.10);
+}
 
 /* ---------- Outcomes band depth ---------- */
 /* darker than --sage so the white body copy holds ≥4.5:1 across the band */
