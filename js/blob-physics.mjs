@@ -22,3 +22,16 @@ export function repulsionForce(bx, by, cx, cy, radius, strength) {
   const f = strength * falloff;
   return { fx: (dx / dist) * f, fy: (dy / dist) * f };
 }
+
+// Keep two blobs at least `minGap` apart (surface-to-surface). When they get
+// closer than that, push them apart proportional to the overlap. Run pairwise,
+// this also produces the domino: a shoved blob pushes its neighbours.
+export function separationForce(ax, ay, ar, bx, by, br, minGap, strength) {
+  const dx = ax - bx, dy = ay - by;
+  const dist = Math.hypot(dx, dy);
+  const target = ar + br + minGap;
+  if (dist >= target || dist === 0) return { fx: 0, fy: 0 };
+  const overlap = (target - dist) / target;
+  const f = strength * overlap;
+  return { fx: (dx / dist) * f, fy: (dy / dist) * f };
+}

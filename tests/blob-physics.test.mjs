@@ -44,3 +44,18 @@ test('repulsionForce pushes away from cursor and is stronger when closer', () =>
   assert.equal(near.fy, 0);
   assert.ok(near.fx > far.fx, 'closer blob gets a stronger push');
 });
+
+import { separationForce } from '../js/blob-physics.mjs';
+
+test('separationForce is zero when blobs are far apart', () => {
+  // centres 500 apart, radii 50+50, gap 30 -> target 130 < 500
+  const f = separationForce(0, 0, 50, 500, 0, 50, 30, 40);
+  assert.deepEqual(f, { fx: 0, fy: 0 });
+});
+
+test('separationForce pushes overlapping blobs apart', () => {
+  // centres 100 apart, radii 50+50, gap 30 -> target 130 > 100 -> push
+  const f = separationForce(0, 0, 50, 100, 0, 50, 30, 40);
+  assert.ok(f.fx < 0, 'blob A pushed in -x, away from B which is at +x');
+  assert.equal(f.fy, 0);
+});
