@@ -1,7 +1,7 @@
 // js/blobs.js — animated jelly-blob background (entry module).
 // Pure maths live in ./blob-physics.mjs (unit-tested); this file owns the canvas,
 // blob state, rendering, input, and degradation.
-import { wobbleRadius } from './blob-physics.mjs';
+import { wobbleRadius, separationForce, integrate } from './blob-physics.mjs';
 
 (() => {
   const canvas = document.getElementById('blob-field');
@@ -17,6 +17,13 @@ import { wobbleRadius } from './blob-physics.mjs';
   const R_MIN = 90, R_MAX = 200;
   const BASE_WOBBLE = 0.06;
   const BASE_ALPHA = 0.55;
+  const MIN_GAP = 30;
+  const MAX_SPEED = 60;        // px/s
+  const SPRING = 1.2;
+  const DAMPING = 0.92;
+  const SEP_STRENGTH = 220;
+  const DRIFT_AMP = 26;        // px wander around the base anchor
+  const DRIFT_SPEED = 0.00018; // radians/ms
 
   let w = 0, h = 0;
   let blobs = [];
@@ -84,14 +91,59 @@ import { wobbleRadius } from './blob-physics.mjs';
     for (const b of blobs) drawBlob(b, t);
   }
 
+  function step(dt, t) {
+    // 1) drift: move each blob's anchor slowly around its base position
+    for (const b of blobs) {
+      b.anchorX = b.baseX + Math.sin(t * DRIFT_SPEED + b.driftX) * DRIFT_AMP;
+      b.anchorY = b.baseY + Math.cos(t * DRIFT_SPEED + b.driftY) * DRIFT_AMP;
+    }
+    // 2) pairwise separation (min-gap + domino)
+    for (let i = 0; i < blobs.length; i++) {
+      for (let j = i + 1; j < blobs.length; j++) {
+        const a = blobs[i], b = blobs[j];
+        const f = separationForce(a.x, a.y, a.r, b.x, b.y, b.r, MIN_GAP, SEP_STRENGTH);
+        a.vx += f.fx * dt; a.vy += f.fy * dt;
+        b.vx -= f.fx * dt; b.vy -= f.fy * dt;
+      }
+    }
+    // 3) integrate
+    for (const b of blobs) integrate(b, dt, { spring: SPRING, damping: DAMPING, maxSpeed: MAX_SPEED });
+  }
+
+  let raf = 0, last = 0;
+
+  function frame(now) {
+    const dt = Math.min(0.05, (now - last) / 1000) || 0;
+    last = now;
+    step(dt, now);
+    renderFrame(now);
+    raf = requestAnimationFrame(frame);
+  }
+
   function start() {
     resize();
     makeBlobs();
-    renderFrame(0);              // static frame; Task 8 replaces this with a loop
     canvas.dataset.ready = '1';  // success signal for headless verification
+    if (reduced) { renderFrame(0); return; }   // static frame, no loop
+    last = performance.now();
+    raf = requestAnimationFrame(frame);
   }
 
   start();
-  // reduced-motion: leave the single static frame, do not animate.
-  window.addEventListener('resize', () => { resize(); makeBlobs(); renderFrame(0); });
+
+  window.addEventListener('resize', () => {
+    resize();
+    makeBlobs();
+    if (reduced) renderFrame(0);
+  });
+
+  document.addEventListener('visibilitychange', () => {
+    if (reduced) return;
+    if (document.hidden) {
+      cancelAnimationFrame(raf);
+    } else {
+      last = performance.now();
+      raf = requestAnimationFrame(frame);
+    }
+  });
 })();
