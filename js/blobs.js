@@ -10,7 +10,7 @@ import { wobbleRadius, separationForce, integrate, repulsionForce, clamp } from 
   if (!ctx) return;
 
   // ---- tunables (spec §"Tunable constants") ----
-  const PALETTE = ['#6A74E8', '#8E84F2', '#F0C4E0', '#7FD8C8'];
+  const PALETTE = ['#6A74E8']; // single brand blue for every blob
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const coarse = matchMedia('(hover: none)').matches;
   const COUNT = coarse ? 8 : 15;
@@ -18,7 +18,7 @@ import { wobbleRadius, separationForce, integrate, repulsionForce, clamp } from 
   const R_MIN = coarse ? 40 : 64, R_MAX = coarse ? 78 : 120;
   const VISUAL = 1.2;          // visible radius factor — the soft gradient + wobble extend past r
   const BASE_WOBBLE = 0.06;
-  const BASE_ALPHA = 0.69;     // +25% from 0.55
+  const BASE_ALPHA = 0.8;
   const MIN_GAP = 36;          // ~0.375 inch minimum gap between visible edges
   const MAX_SPEED = 60;        // px/s
   const SPRING = 1.2;
