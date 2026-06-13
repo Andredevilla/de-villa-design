@@ -20,14 +20,14 @@ import { wobbleRadius, separationForce, integrate, repulsionForce, clamp } from 
   const BASE_WOBBLE = 0.06;
   const BASE_ALPHA = 0.8;
   const MIN_GAP = 36;          // ~0.375 inch minimum gap between visible edges
-  const MAX_SPEED = 81;        // px/s (+35% escape speed)
+  const MAX_SPEED = 162;       // px/s (doubled escape speed)
   const SPRING = 1.2;
   const DAMPING = 0.92;
   const SEP_STRENGTH = 240;
   const DRIFT_AMP = 16;        // px wander around the base anchor (small so drift can't break the gap)
   const DRIFT_SPEED = 0.00018; // radians/ms
   const CURSOR_RADIUS = 100;
-  const CURSOR_STRENGTH = 1215; // +35% — how hard blobs are shoved out of the cursor radius
+  const CURSOR_STRENGTH = 2430; // how hard blobs are shoved out of the cursor radius (doubled)
   const CURSOR_WOBBLE = 0.16;  // wobble amplitude right at the cursor
   const RETURN = 5;            // how hard an off-screen blob steers back to full visibility
 
