@@ -20,15 +20,16 @@ import { wobbleRadius, separationForce, integrate, repulsionForce, clamp } from 
   const BASE_WOBBLE = 0.06;
   const BASE_ALPHA = 0.8;
   const MIN_GAP = 36;          // ~0.375 inch minimum gap between visible edges
-  const MAX_SPEED = 60;        // px/s
+  const MAX_SPEED = 81;        // px/s (+35% escape speed)
   const SPRING = 1.2;
   const DAMPING = 0.92;
   const SEP_STRENGTH = 240;
   const DRIFT_AMP = 16;        // px wander around the base anchor (small so drift can't break the gap)
   const DRIFT_SPEED = 0.00018; // radians/ms
   const CURSOR_RADIUS = 100;
-  const CURSOR_STRENGTH = 900;
+  const CURSOR_STRENGTH = 1215; // +35% — how hard blobs are shoved out of the cursor radius
   const CURSOR_WOBBLE = 0.16;  // wobble amplitude right at the cursor
+  const RETURN = 5;            // how hard an off-screen blob steers back to full visibility
 
   let w = 0, h = 0;
   let blobs = [];
@@ -116,7 +117,7 @@ import { wobbleRadius, separationForce, integrate, repulsionForce, clamp } from 
     for (let k = 0; k < 16; k++) {
       hardSeparate(false);
       for (const b of blobs) {
-        const m = b.r * 0.35;
+        const m = Math.min(b.r * VISUAL, Math.min(w, h) * 0.45); // start fully on-screen where it fits
         b.x = Math.max(m, Math.min(w - m, b.x));
         b.y = Math.max(m, Math.min(h - m, b.y));
       }
@@ -173,6 +174,15 @@ import { wobbleRadius, separationForce, integrate, repulsionForce, clamp } from 
       } else {
         b.boost *= 0.9; // ease the wobble back down when the cursor leaves
       }
+    }
+    // 2c) containment: any blob whose figure is off-screen steers back the SHORTEST way to full
+    // visibility (clamp to the nearest in-bounds centre); zero force while fully on-screen.
+    for (const b of blobs) {
+      const rv = Math.min(b.r * VISUAL, Math.min(w, h) * 0.45);
+      const tx = b.x < rv ? rv : (b.x > w - rv ? w - rv : b.x);
+      const ty = b.y < rv ? rv : (b.y > h - rv ? h - rv : b.y);
+      if (tx !== b.x) b.vx += (tx - b.x) * RETURN * dt;
+      if (ty !== b.y) b.vy += (ty - b.y) * RETURN * dt;
     }
     // 3) integrate
     for (const b of blobs) integrate(b, dt, { spring: SPRING, damping: DAMPING, maxSpeed: MAX_SPEED });
