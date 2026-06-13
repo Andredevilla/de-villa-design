@@ -7,6 +7,7 @@ import { wobbleRadius, separationForce, integrate, repulsionForce, clamp } from 
   const canvas = document.getElementById('blob-field');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
+  if (!ctx) return;
 
   // ---- tunables (spec §"Tunable constants") ----
   const PALETTE = ['#6A74E8', '#8E84F2', '#F0C4E0', '#7FD8C8'];
@@ -152,10 +153,16 @@ import { wobbleRadius, separationForce, integrate, repulsionForce, clamp } from 
 
   start();
 
+  // Debounced so a burst of resize events (drag, mobile URL-bar show/hide,
+  // orientation jiggle) doesn't rebuild the field repeatedly or jump the blobs mid-scroll.
+  let resizeId = 0;
   window.addEventListener('resize', () => {
-    resize();
-    makeBlobs();
-    if (reduced) renderFrame(0);
+    clearTimeout(resizeId);
+    resizeId = setTimeout(() => {
+      resize();
+      makeBlobs();
+      if (reduced) renderFrame(0);
+    }, 150);
   });
 
   document.addEventListener('visibilitychange', () => {
@@ -163,6 +170,7 @@ import { wobbleRadius, separationForce, integrate, repulsionForce, clamp } from 
     if (document.hidden) {
       cancelAnimationFrame(raf);
     } else {
+      cancelAnimationFrame(raf);   // guard against a double-started rAF loop
       last = performance.now();
       raf = requestAnimationFrame(frame);
     }
