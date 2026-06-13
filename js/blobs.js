@@ -1,7 +1,7 @@
 // js/blobs.js — animated jelly-blob background (entry module).
 // Pure maths live in ./blob-physics.mjs (unit-tested); this file owns the canvas,
 // blob state, rendering, input, and degradation.
-import { wobbleRadius, separationForce, integrate, repulsionForce, clamp } from './blob-physics.mjs';
+import { wobbleRadius, integrate, repulsionForce, clamp } from './blob-physics.mjs';
 
 (() => {
   const canvas = document.getElementById('blob-field');
@@ -23,8 +23,12 @@ import { wobbleRadius, separationForce, integrate, repulsionForce, clamp } from 
   const MAX_SPEED = 162;       // px/s (doubled escape speed)
   const SPRING = 1.2;
   const DAMPING = 0.92;
-  const SEP_STRENGTH = 240;
-  const DRIFT_AMP = 16;        // px wander around the base anchor (small so drift can't break the gap)
+  const MERGE_OVERLAP = 0.25;  // merge two blobs once their overlap reaches 1/4 of the smaller blob's area
+  const MAX_MERGE_R = 300;     // don't merge past this radius (keeps one blob from filling the screen)
+  const SPLIT_HOLD = 2;        // seconds the cursor must rest on a blob before it splits
+  const SPLIT_RATIOS = [0.6, 0.3, 0.45]; // area split, cycling: 60/40, then 30/70, then 45/55
+  const MIN_SPLIT_R = 56;      // a blob smaller than this is too small to split further
+  const DRIFT_AMP = 16;        // px wander around the base anchor
   const DRIFT_SPEED = 0.00018; // radians/ms
   const CURSOR_RADIUS = 100;
   const CURSOR_STRENGTH = 2430; // how hard blobs are shoved out of the cursor radius (doubled)
@@ -33,6 +37,7 @@ import { wobbleRadius, separationForce, integrate, repulsionForce, clamp } from 
 
   let w = 0, h = 0;
   let blobs = [];
+  let splitIndex = 0;
   const cursor = { x: -9999, y: -9999, active: false };
 
   // "#6A74E8" + alpha -> "rgba(r,g,b,a)"
@@ -49,6 +54,18 @@ import { wobbleRadius, separationForce, integrate, repulsionForce, clamp } from 
     ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
   }
 
+  function makeBlob(x, y, r, vx = 0, vy = 0) {
+    return {
+      baseX: x, baseY: y, anchorX: x, anchorY: y,
+      x, y, vx, vy, r,
+      color: PALETTE[Math.floor(Math.random() * PALETTE.length)],
+      phase: Math.random() * Math.PI * 2,
+      driftX: Math.random() * Math.PI * 2,
+      driftY: Math.random() * Math.PI * 2,
+      boost: 0, hover: 0,
+    };
+  }
+
   function makeBlobs() {
     blobs = [];
     const cols = Math.max(1, Math.round(Math.sqrt(COUNT * (w / h || 1))));
@@ -62,16 +79,7 @@ import { wobbleRadius, separationForce, integrate, repulsionForce, clamp } from 
         const jy = (Math.random() - 0.5) * (h / rows) * 0.35;
         const ax = ((c + 0.5) / cols) * w + jx;
         const ay = ((r + 0.5) / rows) * h + jy;
-        blobs.push({
-          baseX: ax, baseY: ay, anchorX: ax, anchorY: ay,
-          x: ax, y: ay, vx: 0, vy: 0,
-          r: blobR,
-          color: PALETTE[i % PALETTE.length],
-          phase: Math.random() * Math.PI * 2,
-          driftX: Math.random() * Math.PI * 2,
-          driftY: Math.random() * Math.PI * 2,
-          boost: 0,
-        });
+        blobs.push(makeBlob(ax, ay, blobR));
       }
     }
   }
@@ -125,6 +133,71 @@ import { wobbleRadius, separationForce, integrate, repulsionForce, clamp } from 
     for (const b of blobs) { b.baseX = b.x; b.baseY = b.y; b.anchorX = b.x; b.anchorY = b.y; }
   }
 
+  // Area of the lens where two circles overlap (0 if disjoint; full small circle if nested).
+  function circleOverlapArea(r1, r2, d) {
+    if (d >= r1 + r2) return 0;
+    if (d <= Math.abs(r1 - r2)) return Math.PI * Math.min(r1, r2) ** 2;
+    const r1s = r1 * r1, r2s = r2 * r2;
+    const a1 = r1s * Math.acos((d * d + r1s - r2s) / (2 * d * r1));
+    const a2 = r2s * Math.acos((d * d + r2s - r1s) / (2 * d * r2));
+    const a3 = 0.5 * Math.sqrt((-d + r1 + r2) * (d + r1 - r2) * (d - r1 + r2) * (d + r1 + r2));
+    return a1 + a2 - a3;
+  }
+
+  // Merge the first pair overlapping by >= 1/4 of the smaller blob's area. Area is conserved
+  // (new r = sqrt(r1^2 + r2^2)); position & velocity are area-weighted. One merge per frame
+  // keeps array mutation simple and cascades naturally over subsequent frames.
+  function handleMerges() {
+    for (let i = 0; i < blobs.length; i++) {
+      for (let j = i + 1; j < blobs.length; j++) {
+        const a = blobs[i], b = blobs[j];
+        const aa = a.r * a.r, ab = b.r * b.r, tot = aa + ab;
+        if (Math.sqrt(tot) > MAX_MERGE_R) continue;             // would be too big — let them just overlap
+        const d = Math.hypot(a.x - b.x, a.y - b.y);
+        if (circleOverlapArea(a.r, b.r, d) >= MERGE_OVERLAP * Math.PI * Math.min(a.r, b.r) ** 2) {
+          const merged = makeBlob(
+            (a.x * aa + b.x * ab) / tot,
+            (a.y * aa + b.y * ab) / tot,
+            Math.sqrt(tot),
+            (a.vx * aa + b.vx * ab) / tot,
+            (a.vy * aa + b.vy * ab) / tot,
+          );
+          blobs.splice(j, 1);
+          blobs.splice(i, 1);
+          blobs.push(merged);
+          return;
+        }
+      }
+    }
+  }
+
+  // Split a blob into two of different sizes (areas split by the cycling ratio), conserving
+  // total area; place the two just touching and pop them apart so they don't instantly re-merge.
+  function splitBlob(idx) {
+    const b = blobs[idx];
+    const ratio = SPLIT_RATIOS[splitIndex % SPLIT_RATIOS.length];
+    splitIndex++;
+    const area = b.r * b.r;                 // (the pi factor cancels everywhere here)
+    const ra = Math.sqrt(area * ratio);
+    const rb = Math.sqrt(area * (1 - ratio));
+    const ang = Math.random() * Math.PI * 2;
+    const ux = Math.cos(ang), uy = Math.sin(ang);
+    const sep = ra + rb + 4;                // centres just apart -> ~0 overlap
+    const A = makeBlob(b.x - ux * sep * (rb * rb / area), b.y - uy * sep * (rb * rb / area), ra, b.vx - ux * 40, b.vy - uy * 40);
+    const B = makeBlob(b.x + ux * sep * (ra * ra / area), b.y + uy * sep * (ra * ra / area), rb, b.vx + ux * 40, b.vy + uy * 40);
+    blobs.splice(idx, 1, A, B);
+  }
+
+  function handleSplits() {
+    for (let i = blobs.length - 1; i >= 0; i--) {
+      const b = blobs[i];
+      if (b.hover >= SPLIT_HOLD) {
+        if (b.r >= MIN_SPLIT_R) splitBlob(i);
+        else b.hover = 0;                   // too small to split meaningfully
+      }
+    }
+  }
+
   function drawBlob(b, t) {
     const amp = BASE_WOBBLE + (CURSOR_WOBBLE - BASE_WOBBLE) * (b.boost || 0);
     const STEPS = 28;
@@ -150,33 +223,32 @@ import { wobbleRadius, separationForce, integrate, repulsionForce, clamp } from 
   }
 
   function step(dt, t) {
-    // 1) drift: move each blob's anchor slowly around its base position
+    // 1) drift: wander each blob's home anchor a little so the field stays alive
     for (const b of blobs) {
       b.anchorX = b.baseX + Math.sin(t * DRIFT_SPEED + b.driftX) * DRIFT_AMP;
       b.anchorY = b.baseY + Math.cos(t * DRIFT_SPEED + b.driftY) * DRIFT_AMP;
     }
-    // 2) pairwise separation (min-gap + domino)
-    for (let i = 0; i < blobs.length; i++) {
-      for (let j = i + 1; j < blobs.length; j++) {
-        const a = blobs[i], b = blobs[j];
-        const f = separationForce(a.x, a.y, a.r * VISUAL, b.x, b.y, b.r * VISUAL, MIN_GAP, SEP_STRENGTH);
-        a.vx += f.fx * dt; a.vy += f.fy * dt;
-        b.vx -= f.fx * dt; b.vy -= f.fy * dt;
-      }
-    }
-    // 2b) cursor repulsion (desktop) + per-blob wobble boost from proximity
+    // 2) cursor: nearby blobs flee it; the blob directly under the cursor is HELD (it stops
+    //    fleeing, pinned to the cursor, and accumulates hover time toward a split).
     for (const b of blobs) {
       if (cursor.active && !coarse) {
-        const f = repulsionForce(b.x, b.y, cursor.x, cursor.y, CURSOR_RADIUS + b.r, CURSOR_STRENGTH);
-        b.vx += f.fx * dt; b.vy += f.fy * dt;
         const d = Math.hypot(b.x - cursor.x, b.y - cursor.y);
-        b.boost = clamp(1 - d / (CURSOR_RADIUS + b.r), 0, 1);
+        if (d < b.r) {                      // cursor is on this blob — hold it under the cursor
+          b.anchorX = cursor.x; b.anchorY = cursor.y;
+          b.hover += dt;
+          b.boost = 1;
+        } else {                            // flee the cursor
+          b.hover = 0;
+          const f = repulsionForce(b.x, b.y, cursor.x, cursor.y, CURSOR_RADIUS + b.r, CURSOR_STRENGTH);
+          b.vx += f.fx * dt; b.vy += f.fy * dt;
+          b.boost = clamp(1 - d / (CURSOR_RADIUS + b.r), 0, 1);
+        }
       } else {
-        b.boost *= 0.9; // ease the wobble back down when the cursor leaves
+        b.hover = 0;
+        b.boost *= 0.9;
       }
     }
-    // 2c) containment: any blob whose figure is off-screen steers back the SHORTEST way to full
-    // visibility (clamp to the nearest in-bounds centre); zero force while fully on-screen.
+    // 3) containment: off-screen blobs steer back the SHORTEST way to full visibility
     for (const b of blobs) {
       const rv = Math.min(b.r * VISUAL, Math.min(w, h) * 0.45);
       const tx = b.x < rv ? rv : (b.x > w - rv ? w - rv : b.x);
@@ -184,11 +256,11 @@ import { wobbleRadius, separationForce, integrate, repulsionForce, clamp } from 
       if (tx !== b.x) b.vx += (tx - b.x) * RETURN * dt;
       if (ty !== b.y) b.vy += (ty - b.y) * RETURN * dt;
     }
-    // 3) integrate
+    // 4) integrate
     for (const b of blobs) integrate(b, dt, { spring: SPRING, damping: DAMPING, maxSpeed: MAX_SPEED });
-    // 4) hard min-gap guarantee: physically separate any pair still too close (e.g. cursor-shoved)
-    hardSeparate(true);
-    hardSeparate(true);
+    // 5) merge overlapping blobs, then split any held under the cursor long enough
+    handleMerges();
+    handleSplits();
   }
 
   let raf = 0, last = 0;
