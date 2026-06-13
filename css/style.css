@@ -566,46 +566,6 @@ h1 .accent, h2 .accent { font-style: italic; color: var(--sage); }
 .work-card:hover .shot-img { transform: scale(1.04); }
 
 
-/* ---------- Hero art: floating organic shapes ---------- */
-.hero-art { position: absolute; inset: 0; pointer-events: none; }
-.hero-art span { position: absolute; display: block; }
-.blob-1 {
-  top: 6%;
-  right: -3%;
-  width: 320px;
-  height: 320px;
-  background: radial-gradient(circle at 35% 35%, #D2D8F8 0%, rgba(210, 216, 248, 0) 70%);
-  border-radius: 58% 42% 55% 45% / 50% 58% 42% 50%;
-  animation: drift 16s ease-in-out infinite alternate;
-}
-.blob-2 {
-  bottom: 8%;
-  right: 22%;
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle at 40% 40%, #F2D6EA 0%, rgba(242, 214, 234, 0) 70%);
-  border-radius: 45% 55% 48% 52% / 55% 45% 55% 45%;
-  animation: drift 22s ease-in-out infinite alternate-reverse;
-}
-.arch-ring {
-  top: 16%;
-  right: 12%;
-  width: 220px;
-  height: 220px;
-  border: 1px dashed var(--sand);
-  border-radius: 50%;
-  animation: spin-slow 80s linear infinite;
-}
-@keyframes drift {
-  from { transform: translate(0, 0) rotate(0deg); }
-  to { transform: translate(-14px, 18px) rotate(6deg); }
-}
-@keyframes spin-slow { to { transform: rotate(360deg); } }
-
-@media (max-width: 720px) {
-  .blob-2, .arch-ring { display: none; }
-  .blob-1 { width: 220px; height: 220px; top: auto; bottom: -6%; right: -16%; }
-}
 
 /* ---------- Ghost section numerals ---------- */
 .section-head { position: relative; z-index: 0; }
@@ -677,7 +637,6 @@ h1 .accent, h2 .accent { font-style: italic; color: var(--sage); }
 ::selection { background: var(--sage-dark); color: #fff; }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-art span { animation: none; }
   .marquee-track { animation: none; will-change: auto; }
   .marquee-copy:nth-child(2) { display: none; }
   .site-nav a:not(.btn)::after { transition: none; }
