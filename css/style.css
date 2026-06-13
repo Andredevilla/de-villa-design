@@ -231,7 +231,10 @@ section { scroll-margin-top: 80px; }
 }
 
 /* ---------- Trust strip (marquee) ---------- */
-.trust { background: var(--cream-2); padding: 16px 0; overflow: hidden; }
+/* position+z-index lift the band above the blob canvas (z-index:-2) so the
+   opaque fill reliably covers any blob that drifts under the rotating list.
+   --cream matches the page background below, so the cover reads as seamless. */
+.trust { position: relative; z-index: 1; background: var(--cream); padding: 16px 0; overflow: hidden; }
 .marquee-track {
   display: inline-flex;
   align-items: center;
