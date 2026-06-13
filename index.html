@@ -31,6 +31,17 @@
   </script>
 </head>
 <body>
+<!-- Light Frost liquid-glass background: aurora colour field distorted by the
+     frost pane's SVG displacement filter (Essential Blocks "Light Frost" recipe) -->
+<div class="bg-aurora" aria-hidden="true"></div>
+<div class="bg-frost" aria-hidden="true"></div>
+<svg class="bg-frost-defs" aria-hidden="true" focusable="false">
+  <filter id="lf-glass-distortion" x="0%" y="0%" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.009 0.009" numOctaves="2" seed="92" result="noise"/>
+    <feGaussianBlur in="noise" stdDeviation="0.02" result="blur"/>
+    <feDisplacementMap in="SourceGraphic" in2="blur" scale="77" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
 <header class="site-header">
   <div class="container">
     <a class="brand" href="#top">DE VILLA DESIGN</a>

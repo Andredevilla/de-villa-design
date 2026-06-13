@@ -49,11 +49,14 @@
 /* ---------- Reset & base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+/* page bg lives on html so the fixed Light Frost layers (negative z-index in
+   body's stacking context) sit behind content but in front of the canvas */
+html { scroll-behavior: smooth; background: var(--cream); }
 
 body {
   margin: 0;
-  background: var(--cream);
+  background: transparent;
+  isolation: isolate;
   color: var(--ink);
   font-family: var(--sans);
   font-size: 1.0625rem;
@@ -416,6 +419,36 @@ section { scroll-margin-top: 80px; }
   flex-wrap: wrap;
 }
 .site-footer a { color: inherit; }
+
+/* ---------- Light Frost liquid-glass background ---------- */
+.bg-frost-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+/* colour field the frost refracts: brand lavender / pink / mint glows */
+.bg-aurora {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(40% 50% at 15% 20%, rgba(122, 130, 240, 0.35), transparent 70%),
+    radial-gradient(35% 45% at 85% 15%, rgba(240, 196, 224, 0.45), transparent 70%),
+    radial-gradient(45% 55% at 75% 80%, rgba(127, 216, 200, 0.32), transparent 70%),
+    radial-gradient(38% 48% at 25% 85%, rgba(122, 130, 240, 0.22), transparent 70%),
+    var(--cream);
+}
+/* the Light Frost pane (Essential Blocks effect3): blur(0) backdrop snapshot
+   warped by the displacement filter, under a faint white tint */
+.bg-frost {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  -webkit-backdrop-filter: blur(0px);
+  backdrop-filter: blur(0px);
+  filter: url(#lf-glass-distortion);
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) inset;
+  transform: translateZ(0);
+}
 
 /* ---------- Atmosphere: grain + hero depth ---------- */
 body::after {
