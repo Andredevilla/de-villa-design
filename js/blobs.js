@@ -228,21 +228,15 @@ import { wobbleRadius, integrate, repulsionForce, clamp } from './blob-physics.m
       b.anchorX = b.baseX + Math.sin(t * DRIFT_SPEED + b.driftX) * DRIFT_AMP;
       b.anchorY = b.baseY + Math.cos(t * DRIFT_SPEED + b.driftY) * DRIFT_AMP;
     }
-    // 2) cursor: nearby blobs flee it; the blob directly under the cursor is HELD (it stops
-    //    fleeing, pinned to the cursor, and accumulates hover time toward a split).
+    // 2) cursor: blobs ALWAYS flee the cursor. A blob also accrues hover time while the cursor
+    //    stays over it (you have to keep up with it as it runs) — 2s of that splits it.
     for (const b of blobs) {
       if (cursor.active && !coarse) {
         const d = Math.hypot(b.x - cursor.x, b.y - cursor.y);
-        if (d < b.r) {                      // cursor is on this blob — hold it under the cursor
-          b.anchorX = cursor.x; b.anchorY = cursor.y;
-          b.hover += dt;
-          b.boost = 1;
-        } else {                            // flee the cursor
-          b.hover = 0;
-          const f = repulsionForce(b.x, b.y, cursor.x, cursor.y, CURSOR_RADIUS + b.r, CURSOR_STRENGTH);
-          b.vx += f.fx * dt; b.vy += f.fy * dt;
-          b.boost = clamp(1 - d / (CURSOR_RADIUS + b.r), 0, 1);
-        }
+        const f = repulsionForce(b.x, b.y, cursor.x, cursor.y, CURSOR_RADIUS + b.r, CURSOR_STRENGTH);
+        b.vx += f.fx * dt; b.vy += f.fy * dt;
+        b.boost = clamp(1 - d / (CURSOR_RADIUS + b.r), 0, 1);
+        if (d < b.r) b.hover += dt; else b.hover = 0;  // cursor is over this blob
       } else {
         b.hover = 0;
         b.boost *= 0.9;
