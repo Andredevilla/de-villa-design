@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#F3EFE9">
+  <meta name="theme-color" content="#F2F5FA">
   <title>De Villa Design — Websites for Health &amp; Wellness Businesses in Australia</title>
   <meta name="description" content="Calm, beautiful websites for Australian clinics, studios and wellness practitioners. Designed to earn trust and fill your books.">
   <meta property="og:title" content="De Villa Design — Websites for Health &amp; Wellness">
@@ -15,7 +15,7 @@
   <link rel="preload" as="font" type="font/woff2" href="fonts/fraunces-variable.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin>
   <link rel="canonical" href="https://devilladesign.com">
-  <link rel="icon" href="data:,">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3C16 3 7 14.5 7 20.5a9 9 0 0 0 18 0C25 14.5 16 3 16 3Z' fill='%236A74E8'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="css/style.css">
   <script type="application/ld+json">
   {
@@ -31,6 +31,17 @@
   </script>
 </head>
 <body>
+<!-- Light Frost liquid-glass background: aurora colour field distorted by the
+     frost pane's SVG displacement filter (Essential Blocks "Light Frost" recipe) -->
+<div class="bg-aurora" aria-hidden="true"></div>
+<div class="bg-frost" aria-hidden="true"></div>
+<svg class="bg-frost-defs" aria-hidden="true" focusable="false">
+  <filter id="lf-glass-distortion" x="0%" y="0%" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.009 0.009" numOctaves="2" seed="92" result="noise"/>
+    <feGaussianBlur in="noise" stdDeviation="0.02" result="blur"/>
+    <feDisplacementMap in="SourceGraphic" in2="blur" scale="77" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
 <header class="site-header">
   <div class="container">
     <a class="brand" href="#top">DE VILLA DESIGN</a>
@@ -103,9 +114,9 @@
 <section class="section work-section" id="work">
   <div class="container">
     <div class="section-head reveal" data-num="02">
-      <p class="eyebrow">Portfolio</p>
-      <h2>Recent work</h2>
-      <p>Eight complete concept sites — open one and explore exactly what I'd build for a business like yours.</p>
+      <p class="eyebrow">Demo sites</p>
+      <h2>See the standard for yourself</h2>
+      <p>Eight complete concept sites I designed and built — open one and explore exactly what I'd build for a business like yours.</p>
     </div>
     <div class="grid-3">
       <a class="work-card reveal" href="demos/stillpoint-massage/">
@@ -148,12 +159,12 @@
     <div class="grid-3">
       <div class="outcome reveal">
         <div class="glyph" aria-hidden="true">↑</div>
-        <h3>More bookings</h3>
-        <p>Clear calls-to-action and online booking built in, so visitors become clients.</p>
+        <h3>Booking built in</h3>
+        <p>Online booking and clear calls-to-action wired into every page, so visitors can become clients on the spot.</p>
       </div>
       <div class="outcome reveal">
         <div class="glyph" aria-hidden="true">✓</div>
-        <h3>Instant credibility</h3>
+        <h3>Designed to earn trust</h3>
         <p>Look established and professional from the very first glance.</p>
       </div>
       <div class="outcome reveal">
@@ -216,7 +227,7 @@
     </div>
     <!-- Calendly inline scheduler, lazy-loaded by main.js when this section nears the viewport -->
     <div class="calendly-embed reveal" id="calendly-embed"
-         data-url="https://calendly.com/andre-devilladesign/free-20-minute-chat?hide_gdpr_banner=1&background_color=FBFDFC&text_color=3B3A36&primary_color=6B7A5E">
+         data-url="https://calendly.com/andre-devilladesign/free-20-minute-chat?hide_gdpr_banner=1&background_color=FBFCFE&text_color=323848&primary_color=6A74E8">
       <noscript>
         <a class="btn" href="https://calendly.com/andre-devilladesign/free-20-minute-chat" target="_blank" rel="noopener">Book the free chat on Calendly</a>
       </noscript>
@@ -233,7 +244,6 @@
   <div class="container">
     <span>De Villa Design · Websites for health &amp; wellness</span>
     <a href="mailto:andre@devilladesign.com">andre@devilladesign.com</a>
-    <!-- TODO: add ABN once registered, e.g. <span>ABN 00 000 000 000</span> -->
   </div>
 </footer>
   <script src="js/main.js" defer></script>
