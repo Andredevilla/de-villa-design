@@ -1,7 +1,7 @@
 // js/blobs.js — animated jelly-blob background (entry module).
 // Pure maths live in ./blob-physics.mjs (unit-tested); this file owns the canvas,
 // blob state, rendering, input, and degradation.
-import { wobbleRadius, separationForce, integrate } from './blob-physics.mjs';
+import { wobbleRadius, separationForce, integrate, repulsionForce, clamp } from './blob-physics.mjs';
 
 (() => {
   const canvas = document.getElementById('blob-field');
@@ -24,9 +24,13 @@ import { wobbleRadius, separationForce, integrate } from './blob-physics.mjs';
   const SEP_STRENGTH = 220;
   const DRIFT_AMP = 26;        // px wander around the base anchor
   const DRIFT_SPEED = 0.00018; // radians/ms
+  const CURSOR_RADIUS = 100;
+  const CURSOR_STRENGTH = 900;
+  const CURSOR_WOBBLE = 0.16;  // wobble amplitude right at the cursor
 
   let w = 0, h = 0;
   let blobs = [];
+  const cursor = { x: -9999, y: -9999, active: false };
 
   // "#6A74E8" + alpha -> "rgba(r,g,b,a)"
   function rgba(hex, a) {
@@ -68,7 +72,7 @@ import { wobbleRadius, separationForce, integrate } from './blob-physics.mjs';
   }
 
   function drawBlob(b, t) {
-    const amp = BASE_WOBBLE; // cursor boost wired in Task 9
+    const amp = BASE_WOBBLE + (CURSOR_WOBBLE - BASE_WOBBLE) * (b.boost || 0);
     const STEPS = 28;
     ctx.beginPath();
     for (let i = 0; i <= STEPS; i++) {
@@ -106,6 +110,17 @@ import { wobbleRadius, separationForce, integrate } from './blob-physics.mjs';
         b.vx -= f.fx * dt; b.vy -= f.fy * dt;
       }
     }
+    // 2b) cursor repulsion (desktop) + per-blob wobble boost from proximity
+    for (const b of blobs) {
+      if (cursor.active && !coarse) {
+        const f = repulsionForce(b.x, b.y, cursor.x, cursor.y, CURSOR_RADIUS + b.r, CURSOR_STRENGTH);
+        b.vx += f.fx * dt; b.vy += f.fy * dt;
+        const d = Math.hypot(b.x - cursor.x, b.y - cursor.y);
+        b.boost = clamp(1 - d / (CURSOR_RADIUS + b.r), 0, 1);
+      } else {
+        b.boost *= 0.9; // ease the wobble back down when the cursor leaves
+      }
+    }
     // 3) integrate
     for (const b of blobs) integrate(b, dt, { spring: SPRING, damping: DAMPING, maxSpeed: MAX_SPEED });
   }
@@ -124,6 +139,12 @@ import { wobbleRadius, separationForce, integrate } from './blob-physics.mjs';
     resize();
     makeBlobs();
     canvas.dataset.ready = '1';  // success signal for headless verification
+    if (!coarse) {
+      window.addEventListener('mousemove', (e) => {
+        cursor.x = e.clientX; cursor.y = e.clientY; cursor.active = true;
+      }, { passive: true });
+      window.addEventListener('mouseout', () => { cursor.active = false; });
+    }
     if (reduced) { renderFrame(0); return; }   // static frame, no loop
     last = performance.now();
     raf = requestAnimationFrame(frame);
