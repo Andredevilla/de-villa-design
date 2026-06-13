@@ -48,6 +48,10 @@ import { wobbleRadius, integrate, repulsionForce, clamp } from './blob-physics.m
 
   function resize() {
     w = canvas.clientWidth;
+    // confine the blob field to the hero + rotating-list band; nothing animates below it
+    const band = document.querySelector('.trust');
+    const bandH = band ? Math.round(band.getBoundingClientRect().bottom + window.scrollY) : window.innerHeight;
+    canvas.style.height = bandH + 'px';
     h = canvas.clientHeight;
     canvas.width = Math.round(w * DPR);
     canvas.height = Math.round(h * DPR);
@@ -303,9 +307,13 @@ import { wobbleRadius, integrate, repulsionForce, clamp } from './blob-physics.m
     makeBlobs();
     relaxAnchors();
     canvas.dataset.ready = '1';  // success signal for headless verification
+    // fonts change the hero height (and thus the band) — re-measure once they're ready
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => { resize(); if (reduced) renderFrame(0); });
+    }
     if (!coarse) {
       window.addEventListener('mousemove', (e) => {
-        cursor.x = e.clientX; cursor.y = e.clientY; cursor.active = true;
+        cursor.x = e.clientX; cursor.y = e.clientY + window.scrollY; cursor.active = true;
       }, { passive: true });
       window.addEventListener('mouseout', () => { cursor.active = false; });
     }
