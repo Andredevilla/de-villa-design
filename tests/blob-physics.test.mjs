@@ -74,3 +74,14 @@ test('integrate caps speed at maxSpeed', () => {
   integrate(b, 1 / 60, { spring: 0, damping: 1, maxSpeed: 60 });
   assert.ok(Math.hypot(b.vx, b.vy) <= 60 + 1e-9, 'speed is capped');
 });
+
+test('integrate ignores invalid dt (negative or NaN) without corrupting the blob', () => {
+  const opts = { spring: 4, damping: 0.9, maxSpeed: 1000 };
+  const neg = { anchorX: 100, anchorY: 0, x: 0, y: 0, vx: 5, vy: 0 };
+  integrate(neg, -1 / 60, opts);
+  assert.equal(neg.x, 0); assert.equal(neg.vx, 5); // untouched, no velocity amplification
+
+  const nan = { anchorX: 100, anchorY: 0, x: 0, y: 0, vx: 5, vy: 0 };
+  integrate(nan, NaN, opts);
+  assert.equal(nan.x, 0); assert.ok(!Number.isNaN(nan.vx)); // not poisoned
+});

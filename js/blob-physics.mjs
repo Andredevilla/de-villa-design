@@ -36,9 +36,13 @@ export function separationForce(ax, ay, ar, bx, by, br, minGap, strength) {
   return { fx: (dx / dist) * f, fy: (dy / dist) * f };
 }
 
-// Advance one blob by dt seconds: spring toward anchor, apply frame-rate-independent
-// damping, cap speed, then move. Mutates and returns the blob.
+// Advance one blob by dt seconds: spring toward anchor, apply frame-rate-corrected
+// damping, cap speed, then move. Mutates and returns the blob. The spring uses
+// explicit Euler — stable for the small, dt-clamped steps the render loop feeds.
+// Rejects a bad dt (NaN or negative, e.g. a non-monotonic clock delta) so it can
+// never permanently poison the blob's state.
 export function integrate(blob, dt, { spring, damping, maxSpeed }) {
+  if (!(dt >= 0)) return blob;
   blob.vx += (blob.anchorX - blob.x) * spring * dt;
   blob.vy += (blob.anchorY - blob.y) * spring * dt;
   const d = Math.pow(damping, dt * 60);
