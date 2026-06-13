@@ -472,6 +472,9 @@ body::after {
 .hero .container { position: relative; z-index: 1; }
 
 h1 .accent, h2 .accent { font-style: italic; color: var(--sage); }
+/* the italic accent leans into trailing punctuation (e.g. the "?" after "proud of"
+   in the contact heading); a hair of right padding gives the mark room to breathe */
+h2 .accent { padding-right: 0.07em; }
 
 /* ---------- Hero load choreography ---------- */
 @keyframes rise {
@@ -653,45 +656,20 @@ h1 .accent, h2 .accent { font-style: italic; color: var(--sage); }
   text-align: center;
 }
 
-/* ---------- Calendly inline scheduler ---------- */
-.calendly-embed {
-  max-width: 760px;
-  margin: 0 auto 16px;
-  min-height: 700px;
-  position: relative;
-  background: rgba(255, 255, 255, 0.55);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-}
-/* skeleton shown until the lazy-loaded widget covers it */
-.calendly-embed::before {
-  content: "Loading the scheduler…";
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.9rem;
-  color: var(--ink-soft);
-  animation: skeleton-pulse 1.6s ease-in-out infinite;
-}
-.calendly-embed .calendly-inline-widget {
-  position: relative;
-  background: #FBFCFE;
-}
-@keyframes skeleton-pulse {
-  0%, 100% { opacity: 0.45; }
-  50% { opacity: 1; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .calendly-embed::before { animation: none; }
-}
-.calendly-embed .calendly-inline-widget {
-  min-width: 300px;
-  height: 700px;
-  border-radius: var(--radius);
-  overflow: hidden;
+/* ---------- Large glass "Book a call" CTA ---------- */
+/* inherits the liquid-glass .btn treatment; this just makes it big and centred
+   (it sits in the .contact section, which is text-align:center) */
+.btn-book {
+  font-size: 1.2rem;
+  padding: 22px 64px;
+  margin: 4px auto 8px;
+  letter-spacing: 0.01em;
 }
 @media (max-width: 600px) {
-  .calendly-embed .calendly-inline-widget { height: 920px; }
+  .btn-book { padding: 20px 44px; font-size: 1.1rem; }
 }
+
+/* glass CTA that replaces the 3 demo cards in "See the standard" — links to the
+   full demos directory (demos/index.html) */
+.work-cta { text-align: center; margin-top: 8px; }
+.btn-demos { font-size: 1.1rem; padding: 18px 48px; }

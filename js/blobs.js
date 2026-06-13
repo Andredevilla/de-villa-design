@@ -48,10 +48,12 @@ import { wobbleRadius, integrate, repulsionForce, clamp } from './blob-physics.m
 
   function resize() {
     w = canvas.clientWidth;
-    // confine the blob field to the hero + rotating-list band; nothing animates below it
+    // Confine the blob field to the HERO only: end the canvas at the TOP edge of the
+    // rotating-list band, so there is physically no canvas behind (or below) the band
+    // and blobs simply slide under it — no stacking/cover trickery required.
     const band = document.querySelector('.trust');
-    const bandH = band ? Math.round(band.getBoundingClientRect().bottom + window.scrollY) : window.innerHeight;
-    canvas.style.height = bandH + 'px';
+    const heroBottom = band ? Math.round(band.getBoundingClientRect().top + window.scrollY) : window.innerHeight;
+    canvas.style.height = heroBottom + 'px';
     h = canvas.clientHeight;
     canvas.width = Math.round(w * DPR);
     canvas.height = Math.round(h * DPR);

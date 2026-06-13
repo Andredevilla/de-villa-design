@@ -38,37 +38,5 @@ document.querySelectorAll('.reveal').forEach((el) => {
   observer.observe(el);
 });
 
-// Calendly inline scheduler: lazy-load the widget script only when the
-// contact section approaches the viewport, so it never blocks page load
-const calendlyHost = document.getElementById('calendly-embed');
-
-if (calendlyHost && 'IntersectionObserver' in window) {
-  const loadCalendly = () => {
-    const widget = document.createElement('div');
-    widget.className = 'calendly-inline-widget';
-    widget.setAttribute('data-url', calendlyHost.getAttribute('data-url'));
-    calendlyHost.appendChild(widget);
-
-    const script = document.createElement('script');
-    script.src = 'https://assets.calendly.com/assets/external/widget.js';
-    script.async = true;
-    document.body.appendChild(script);
-  };
-
-  const calObserver = new IntersectionObserver((entries) => {
-    if (entries.some((entry) => entry.isIntersecting)) {
-      calObserver.disconnect();
-      loadCalendly();
-    }
-  }, { rootMargin: '600px 0px' });
-  calObserver.observe(calendlyHost);
-} else if (calendlyHost) {
-  // very old browsers: plain link fallback
-  const link = document.createElement('a');
-  link.className = 'btn';
-  link.href = 'https://calendly.com/andre-devilladesign/free-20-minute-chat';
-  link.target = '_blank';
-  link.rel = 'noopener';
-  link.textContent = 'Book the free chat on Calendly';
-  calendlyHost.appendChild(link);
-}
+// (Calendly inline scheduler removed — the contact CTA is now a plain glass
+// "Book a call" link that opens the Calendly page directly, no widget script.)
