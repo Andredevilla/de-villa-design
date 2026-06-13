@@ -13,12 +13,12 @@ import { wobbleRadius, separationForce, integrate, repulsionForce, clamp } from 
   const PALETTE = ['#6A74E8', '#8E84F2', '#F0C4E0', '#7FD8C8'];
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const coarse = matchMedia('(hover: none)').matches;
-  const COUNT = coarse ? 6 : 11;
+  const COUNT = coarse ? 8 : 15;
   const DPR = Math.min(window.devicePixelRatio || 1, coarse ? 1.5 : 2);
   const R_MIN = coarse ? 40 : 64, R_MAX = coarse ? 78 : 120;
   const VISUAL = 1.2;          // visible radius factor — the soft gradient + wobble extend past r
   const BASE_WOBBLE = 0.06;
-  const BASE_ALPHA = 0.55;
+  const BASE_ALPHA = 0.69;     // +25% from 0.55
   const MIN_GAP = 36;          // ~0.375 inch minimum gap between visible edges
   const MAX_SPEED = 60;        // px/s
   const SPRING = 1.2;
@@ -55,6 +55,8 @@ import { wobbleRadius, separationForce, integrate, repulsionForce, clamp } from 
     let i = 0;
     for (let r = 0; r < rows && i < COUNT; r++) {
       for (let c = 0; c < cols && i < COUNT; c++, i++) {
+        const baseR = R_MIN + Math.random() * (R_MAX - R_MIN);
+        const blobR = (i % 2 === 0) ? baseR * 1.35 : baseR; // half the blobs are 35% bigger
         const jx = (Math.random() - 0.5) * (w / cols) * 0.35;
         const jy = (Math.random() - 0.5) * (h / rows) * 0.35;
         const ax = ((c + 0.5) / cols) * w + jx;
@@ -62,7 +64,7 @@ import { wobbleRadius, separationForce, integrate, repulsionForce, clamp } from 
         blobs.push({
           baseX: ax, baseY: ay, anchorX: ax, anchorY: ay,
           x: ax, y: ay, vx: 0, vy: 0,
-          r: R_MIN + Math.random() * (R_MAX - R_MIN),
+          r: blobR,
           color: PALETTE[i % PALETTE.length],
           phase: Math.random() * Math.PI * 2,
           driftX: Math.random() * Math.PI * 2,
