@@ -466,16 +466,6 @@ body::after {
 }
 
 .hero { position: relative; overflow: hidden; }
-.hero::before {
-  content: "";
-  position: absolute;
-  right: -6%;
-  bottom: 0;
-  width: min(540px, 64vw);
-  height: 78%;
-  background: linear-gradient(180deg, rgba(233, 238, 244, 0), rgba(214, 222, 240, 0.9));
-  border-radius: 999px 999px 0 0;
-}
 .hero .container { position: relative; z-index: 1; }
 
 h1 .accent, h2 .accent { font-style: italic; color: var(--sage); }
