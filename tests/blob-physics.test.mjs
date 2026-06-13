@@ -59,3 +59,18 @@ test('separationForce pushes overlapping blobs apart', () => {
   assert.ok(f.fx < 0, 'blob A pushed in -x, away from B which is at +x');
   assert.equal(f.fy, 0);
 });
+
+import { integrate } from '../js/blob-physics.mjs';
+
+test('integrate accelerates a blob toward its anchor', () => {
+  const b = { anchorX: 100, anchorY: 0, x: 0, y: 0, vx: 0, vy: 0 };
+  integrate(b, 1 / 60, { spring: 4, damping: 0.9, maxSpeed: 1000 });
+  assert.ok(b.vx > 0, 'velocity points toward anchor (+x)');
+  assert.ok(b.x > 0, 'position advances toward anchor');
+});
+
+test('integrate caps speed at maxSpeed', () => {
+  const b = { anchorX: 0, anchorY: 0, x: 0, y: 0, vx: 5000, vy: 0 };
+  integrate(b, 1 / 60, { spring: 0, damping: 1, maxSpeed: 60 });
+  assert.ok(Math.hypot(b.vx, b.vy) <= 60 + 1e-9, 'speed is capped');
+});

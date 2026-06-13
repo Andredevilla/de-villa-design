@@ -35,3 +35,21 @@ export function separationForce(ax, ay, ar, bx, by, br, minGap, strength) {
   const f = strength * overlap;
   return { fx: (dx / dist) * f, fy: (dy / dist) * f };
 }
+
+// Advance one blob by dt seconds: spring toward anchor, apply frame-rate-independent
+// damping, cap speed, then move. Mutates and returns the blob.
+export function integrate(blob, dt, { spring, damping, maxSpeed }) {
+  blob.vx += (blob.anchorX - blob.x) * spring * dt;
+  blob.vy += (blob.anchorY - blob.y) * spring * dt;
+  const d = Math.pow(damping, dt * 60);
+  blob.vx *= d;
+  blob.vy *= d;
+  const sp = Math.hypot(blob.vx, blob.vy);
+  if (sp > maxSpeed) {
+    blob.vx = (blob.vx / sp) * maxSpeed;
+    blob.vy = (blob.vy / sp) * maxSpeed;
+  }
+  blob.x += blob.vx * dt;
+  blob.y += blob.vy * dt;
+  return blob;
+}
