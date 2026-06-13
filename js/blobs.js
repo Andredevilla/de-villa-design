@@ -79,9 +79,10 @@ import { wobbleRadius, separationForce, integrate, repulsionForce, clamp } from 
   }
 
   // Hard constraint: physically push apart any pair closer than the required gap.
-  // When killVelocity is true, also cancel the velocity component bringing them together
-  // so they ease apart instead of ramming (no jitter). Run a couple of passes for stability.
-  function hardSeparate(killVelocity) {
+  // When resolveVelocity is true, transfer the closing momentum (inelastic, along the
+  // contact normal) so an incoming blob shoves the other one along and KEEPS moving
+  // instead of stopping dead. Run a couple of passes for stability.
+  function hardSeparate(resolveVelocity) {
     for (let i = 0; i < blobs.length; i++) {
       for (let j = i + 1; j < blobs.length; j++) {
         const a = blobs[i], b = blobs[j];
@@ -93,11 +94,14 @@ import { wobbleRadius, separationForce, integrate, repulsionForce, clamp } from 
           const nx = dx / dist, ny = dy / dist;
           a.x -= nx * push; a.y -= ny * push;
           b.x += nx * push; b.y += ny * push;
-          if (killVelocity) {
-            const av = a.vx * nx + a.vy * ny;
-            if (av > 0) { a.vx -= av * nx; a.vy -= av * ny; }
-            const bv = b.vx * nx + b.vy * ny;
-            if (bv < 0) { b.vx -= bv * nx; b.vy -= bv * ny; }
+          if (resolveVelocity) {
+            const va = a.vx * nx + a.vy * ny;   // A's speed along the normal (toward B if > 0)
+            const vb = b.vx * nx + b.vy * ny;   // B's speed along the normal
+            if (va - vb > 0) {                  // closing — transfer momentum instead of killing it
+              const avg = (va + vb) / 2;        // A slows to avg but keeps moving; B speeds up to avg (shoved along)
+              a.vx += (avg - va) * nx; a.vy += (avg - va) * ny;
+              b.vx += (avg - vb) * nx; b.vy += (avg - vb) * ny;
+            }
           }
         }
       }
