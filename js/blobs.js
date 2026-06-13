@@ -24,7 +24,7 @@ import { wobbleRadius, integrate, repulsionForce, clamp } from './blob-physics.m
   const SPRING = 1.2;
   const DAMPING = 0.92;
   const MERGE_OVERLAP = 0.25;  // merge two blobs once their overlap reaches 1/4 of the smaller blob's area
-  const MAX_MERGE_R = 300;     // don't merge past this radius (keeps one blob from filling the screen)
+  const MAX_R = 185;           // hard size cap (average of preview options #1 r160 and #2 r210)
   const SPLIT_HOLD = 2;        // seconds the cursor must rest on a blob before it splits
   const SPLIT_RATIOS = [0.6, 0.3, 0.45]; // area split, cycling: 60/40, then 30/70, then 45/55
   const MIN_SPLIT_R = 56;      // a blob smaller than this is too small to split further
@@ -147,18 +147,20 @@ import { wobbleRadius, integrate, repulsionForce, clamp } from './blob-physics.m
   // Merge the first pair overlapping by >= 1/4 of the smaller blob's area. Area is conserved
   // (new r = sqrt(r1^2 + r2^2)); position & velocity are area-weighted. One merge per frame
   // keeps array mutation simple and cascades naturally over subsequent frames.
+  const isMaxed = (b) => b.r >= MAX_R - 0.5;
+
   function handleMerges() {
     for (let i = 0; i < blobs.length; i++) {
       for (let j = i + 1; j < blobs.length; j++) {
         const a = blobs[i], b = blobs[j];
-        const aa = a.r * a.r, ab = b.r * b.r, tot = aa + ab;
-        if (Math.sqrt(tot) > MAX_MERGE_R) continue;             // would be too big — let them just overlap
+        if (isMaxed(a) || isMaxed(b)) continue;                 // maxed blobs no longer merge
         const d = Math.hypot(a.x - b.x, a.y - b.y);
         if (circleOverlapArea(a.r, b.r, d) >= MERGE_OVERLAP * Math.PI * Math.min(a.r, b.r) ** 2) {
+          const aa = a.r * a.r, ab = b.r * b.r, tot = aa + ab;
           const merged = makeBlob(
             (a.x * aa + b.x * ab) / tot,
             (a.y * aa + b.y * ab) / tot,
-            Math.sqrt(tot),
+            Math.min(Math.sqrt(tot), MAX_R),                    // area added, clamped to the size cap
             (a.vx * aa + b.vx * ab) / tot,
             (a.vy * aa + b.vy * ab) / tot,
           );
@@ -166,6 +168,34 @@ import { wobbleRadius, integrate, repulsionForce, clamp } from './blob-physics.m
           blobs.splice(i, 1);
           blobs.push(merged);
           return;
+        }
+      }
+    }
+  }
+
+  // A blob at the size cap holds the old MIN_GAP from every other blob (the pre-merge behaviour,
+  // but only for pairs involving a maxed blob): positional push apart + momentum transfer.
+  function separateMaxed() {
+    for (let pass = 0; pass < 2; pass++) {
+      for (let i = 0; i < blobs.length; i++) {
+        for (let j = i + 1; j < blobs.length; j++) {
+          const a = blobs[i], b = blobs[j];
+          if (!isMaxed(a) && !isMaxed(b)) continue;             // gap only applies around a maxed blob
+          const dx = b.x - a.x, dy = b.y - a.y;
+          const dist = Math.hypot(dx, dy) || 0.01;
+          const min = (a.r + b.r) * VISUAL + MIN_GAP;
+          if (dist < min) {
+            const push = (min - dist) / 2;
+            const nx = dx / dist, ny = dy / dist;
+            a.x -= nx * push; a.y -= ny * push;
+            b.x += nx * push; b.y += ny * push;
+            const va = a.vx * nx + a.vy * ny, vb = b.vx * nx + b.vy * ny;
+            if (va - vb > 0) {
+              const avg = (va + vb) / 2;
+              a.vx += (avg - va) * nx; a.vy += (avg - va) * ny;
+              b.vx += (avg - vb) * nx; b.vy += (avg - vb) * ny;
+            }
+          }
         }
       }
     }
@@ -252,7 +282,8 @@ import { wobbleRadius, integrate, repulsionForce, clamp } from './blob-physics.m
     }
     // 4) integrate
     for (const b of blobs) integrate(b, dt, { spring: SPRING, damping: DAMPING, maxSpeed: MAX_SPEED });
-    // 5) merge overlapping blobs, then split any held under the cursor long enough
+    // 5) maxed blobs hold the gap; merge non-maxed overlaps; split any held under the cursor 2s
+    separateMaxed();
     handleMerges();
     handleSplits();
   }
