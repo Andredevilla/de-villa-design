@@ -49,16 +49,11 @@
 /* ---------- Reset & base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 
-/* page bg lives on html so the fixed droplet layer (z-index:-1 on body's
-   stacking context) can sit behind content but in front of the canvas */
-html { scroll-behavior: smooth; background: var(--cream); }
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  background: transparent;
-  /* deterministic stacking on WebKit: keeps the z-index:-1 droplet layer
-     between the html background and the page content in every browser */
-  isolation: isolate;
+  background: var(--cream);
   color: var(--ink);
   font-family: var(--sans);
   font-size: 1.0625rem;
@@ -710,45 +705,6 @@ h1 .accent, h2 .accent { font-style: italic; color: var(--sage); }
   border-radius: var(--radius);
   overflow: hidden;
 }
-/* ---------- Water droplet scroll animation ---------- */
-.droplet-field {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  overflow: hidden;
-}
-.droplet-field img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  will-change: transform;
-  user-select: none;
-}
-.droplet-field .pop-bead {
-  position: absolute;
-  animation: bead-burst 0.65s cubic-bezier(0.16, 0.84, 0.44, 1) forwards;
-}
-@keyframes bead-burst {
-  from { opacity: 0.9; transform: translate(0, 0) scale(1); }
-  to { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(0.55); }
-}
-/* the splash clip animates its own eruption; CSS just times its removal —
-   animationend on this fade is what deletes the element */
-.droplet-field .splash {
-  position: absolute;
-  transform-origin: 50% 100%;
-  animation: splash-pop 1.8s ease-out forwards;
-}
-@keyframes splash-pop {
-  0% { opacity: 1; }
-  75% { opacity: 1; }
-  100% { opacity: 0; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .droplet-field { display: none; }
-}
-
 @media (max-width: 600px) {
   .calendly-embed .calendly-inline-widget { height: 920px; }
 }
