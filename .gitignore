@@ -24,3 +24,13 @@ Create demo websites for all of the.txt
 
 # Local Netlify folder
 .netlify
+
+# Figma export kit (local design deliverable, not deployed)
+figma-export/
+REDESIGN-BRIEF.md
+_reference.png
+
+# Next.js app (web/)
+web/node_modules/
+web/.next/
+web/out/

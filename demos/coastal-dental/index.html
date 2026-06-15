@@ -5,659 +5,365 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Coastal Dental — Gentle, Modern Dentistry on the Gold Coast</title>
   <meta name="description" content="Gentle, modern dentistry in Burleigh Heads. Honest advice, fair pricing and a team that actually listens. New patient check-up &amp; clean from $199." />
-  <meta name="theme-color" content="#E6F4F6" />
-  <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin.woff2" crossorigin>
+  <meta name="theme-color" content="#e7f5fd" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3.2c-2.1-1.5-4.6-1.7-6.2-.3C3.6 4.8 3.4 8.6 4.4 12.4c.7 2.6 1.2 6.4 2.9 7.8 1.2 1 2-1.2 2.4-3.2.3-1.6.7-2.8 2.3-2.8s2 1.2 2.3 2.8c.4 2 1.2 4.2 2.4 3.2 1.7-1.4 2.2-5.2 2.9-7.8 1-3.8.8-7.6-1.4-9.5-1.6-1.4-4.1-1.2-6.2.3Z' fill='%231f9bdf'/%3E%3C/svg%3E" />
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/archivo-variable.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/hanken-grotesk-variable.woff2" crossorigin>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- ============================================================
-       HEADER
-       ============================================================ -->
-  <header class="site-header" role="banner">
-    <div class="container header-inner">
-
-      <!-- Wordmark -->
-      <a href="#" class="wordmark" aria-label="Coastal Dental — home">
-        <span class="wordmark-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M12 2C8.5 2 6 4.5 6 7c0 1.5.6 2.8 1.5 3.8L6 20c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2l-1.5-9.2C17.4 9.8 18 8.5 18 7c0-2.5-2.5-5-6-5z"/>
-          </svg>
+  <!-- ===== NAV ===== -->
+  <nav class="nav" aria-label="Main">
+    <div class="nav-inner">
+      <a class="brand" href="#home" aria-label="Coastal Dental — home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M12 3.2c-2.1-1.5-4.6-1.7-6.2-.3C3.6 4.8 3.4 8.6 4.4 12.4c.7 2.6 1.2 6.4 2.9 7.8 1.2 1 2-1.2 2.4-3.2.3-1.6.7-2.8 2.3-2.8s2 1.2 2.3 2.8c.4 2 1.2 4.2 2.4 3.2 1.7-1.4 2.2-5.2 2.9-7.8 1-3.8.8-7.6-1.4-9.5-1.6-1.4-4.1-1.2-6.2.3Z" fill="#fff"/></svg>
         </span>
-        <span class="wordmark-text">Coastal <span>Dental</span></span>
+        <span class="brand-name">Coastal<span>Dental</span></span>
       </a>
 
-      <!-- Primary navigation -->
-      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
-        <a href="#services">Services</a>
-        <a href="#pricing">Pricing</a>
+      <div class="nav-links" id="nav-links">
+        <a href="#home">Home</a>
         <a href="#about">About</a>
+        <a href="#treatments">Treatments</a>
+        <a href="#pricing">Pricing</a>
         <a href="#contact">Contact</a>
-      </nav>
-
-      <!-- Actions -->
-      <div class="header-actions">
-        <a href="tel:0755358820" class="phone-link" aria-label="Call us: (07) 5535 8820">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.28h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6.1 6.1l1.08-1.08a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-          </svg>
-          (07) 5535 8820
-        </a>
-        <a href="tel:0755358820" class="btn btn-primary">Call to book</a>
-
-        <!-- Mobile menu toggle -->
-        <button class="menu-toggle" id="menu-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Open navigation menu">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
-            <line x1="3" y1="6" x2="21" y2="6"/>
-            <line x1="3" y1="12" x2="21" y2="12"/>
-            <line x1="3" y1="18" x2="21" y2="18"/>
-          </svg>
-        </button>
+        <a class="nav-book" href="#contact">Book appointment ↗</a>
       </div>
 
+      <a class="btn btn-coral nav-cta" href="#contact">Book appointment <span class="arrow" aria-hidden="true">↗</span></a>
+
+      <button class="nav-toggle" id="nav-toggle" aria-controls="nav-links" aria-expanded="false" aria-label="Open menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
     </div>
-  </header>
+  </nav>
 
+  <main>
 
-  <!-- ============================================================
-       HERO
-       ============================================================ -->
-  <section class="hero" aria-labelledby="hero-heading">
-    <img
-      class="hero-bg"
-      src="assets/hero.webp"
-      alt="Dentist consulting with a patient in a bright, modern surgery"
-      width="1376"
-      height="768"
-      fetchpriority="high"
-    />
-    <div class="hero-overlay" aria-hidden="true"></div>
-
-    <div class="container">
-      <div class="hero-inner">
-        <!-- New-patient offer chip -->
-        <p class="hero-chip" aria-label="Special offer: New patient check-up and clean from $199">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <polyline points="20 6 9 17 4 12"/>
-          </svg>
-          New patient offer — Check-up &amp; clean from $199
-        </p>
-
-        <h1 id="hero-heading">Smiles worth the<br><em>sunshine.</em></h1>
-
-        <p class="hero-sub">
-          Gentle, modern dentistry on the Gold Coast — honest advice, fair pricing,
-          and a team that actually listens.
-        </p>
-
-        <div class="hero-actions">
-          <a href="tel:0755358820" class="btn btn-primary btn-lg">Call to book</a>
-          <a href="#services" class="btn btn-outline btn-lg">Our services</a>
+    <!-- ===== HERO ===== -->
+    <header class="hero" id="home">
+      <div class="hero-panel">
+        <div class="hero-top">
+          <p class="hero-kicker"><span class="dot" aria-hidden="true"></span>GENTLE · MODERN · GOLD COAST</p>
+          <p class="hero-offer">New-patient check-up &amp; clean — <b>$199</b></p>
         </div>
 
-        <p class="hero-emergency">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="12" y1="8" x2="12" y2="12"/>
-            <line x1="12" y1="16" x2="12.01" y2="16"/>
-          </svg>
-          Dental emergency?
-          <a href="tel:0755358820" aria-label="Emergency line: call (07) 5535 8820">Call (07) 5535 8820 now — same-day appointments available (Mon–Sat, subject to availability).</a>
-        </p>
+        <h1 class="hero-title">EVERY SMILE<br>MATTERS</h1>
+
+        <div class="hero-tooth" role="img" aria-label="A 3D tooth surrounded by a blue paint splash"></div>
+
+        <div class="hero-card">
+          <p>Honest advice, fair pricing, and a team that actually listens — gentle care for the whole family.</p>
+          <div class="hero-card-hours">
+            <div class="label">WE'RE OPEN</div>
+            <div class="val">Mon–Thu · 8:00 – 6:00</div>
+          </div>
+          <a class="btn btn-coral btn-block" href="#contact">Book appointment ↗</a>
+        </div>
+
+        <div class="hero-stats">
+          <div><div class="n">12+</div><div class="l">Years caring for the coast</div></div>
+          <div><div class="n">4.9★</div><div class="l">From 300+ patient reviews</div></div>
+          <div><div class="n">Same-day</div><div class="l">Emergency appointments</div></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== MARQUEE ===== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Check-ups</span><span>Cosmetic</span><span>Invisalign®</span><span>Implants</span><span>Kids Dentistry</span><span>Emergencies</span>
+        <span>Check-ups</span><span>Cosmetic</span><span>Invisalign®</span><span>Implants</span><span>Kids Dentistry</span><span>Emergencies</span>
       </div>
     </div>
-  </section>
 
-
-  <!-- ============================================================
-       TRUST STRIP
-       ============================================================ -->
-  <div class="trust-strip" aria-label="Accepted payment methods and health funds">
-    <div class="container trust-inner">
-
-      <span class="trust-item">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
-          <line x1="1" y1="10" x2="23" y2="10"/>
-        </svg>
-        All health funds (HICAPS)
-      </span>
-
-      <span class="trust-item">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-        </svg>
-        Afterpay &amp; Zip accepted
-      </span>
-
-      <span class="trust-item">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-        </svg>
-        Medicare CDBS kids bulk-billed
-      </span>
-
-      <span class="trust-item">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="12" cy="12" r="10"/>
-          <polyline points="12 6 12 12 16 14"/>
-        </svg>
-        Same-day emergencies
-      </span>
-
-      <span class="trust-item">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-          <circle cx="9" cy="7" r="4"/>
-          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-        </svg>
-        3 dentists + oral health therapist
-      </span>
-
-    </div>
-  </div>
-
-
-  <!-- ============================================================
-       SERVICES
-       ============================================================ -->
-  <section class="section" id="services" aria-labelledby="services-heading">
-    <div class="container">
-
-      <header class="section-header">
-        <span class="section-eyebrow">What we offer</span>
-        <h2 id="services-heading">Everything your smile needs</h2>
-        <p>From routine check-ups to full smile makeovers — gentle care for the whole family.</p>
-      </header>
-
-      <div class="services-grid">
-
-        <!-- 1. Check-up & clean — featured -->
-        <article class="service-card featured" aria-label="Check-up and clean — new patient offer">
-          <div class="service-icon" aria-hidden="true">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2C8.5 2 6 4.5 6 7c0 1.5.6 2.8 1.5 3.8L6 20c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2l-1.5-9.2C17.4 9.8 18 8.5 18 7c0-2.5-2.5-5-6-5z"/>
-            </svg>
+    <!-- ===== ABOUT ===== -->
+    <section class="section about" id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="about-head">
+          <div>
+            <span class="eyebrow">About Coastal Dental</span>
+            <h2 class="h2" id="about-heading">A practice that feels nothing like a dentist's.</h2>
           </div>
-          <h3>Check-up &amp; Clean</h3>
-          <p>A thorough exam, professional scale and polish, and digital X-rays to catch problems early. Everything in one friendly visit.</p>
-          <div class="offer-badge" aria-label="New patient offer: $199">
-            <span class="offer-price">$199</span>
-            <span>New patient offer · exam + scale + X-rays</span>
+          <div class="about-vision">
+            <span class="eyebrow coral">Our vision</span>
+            <p>We started Coastal Dental because we were tired of patients arriving anxious and leaving confused about what they'd just paid for. Our whole practice is built around the opposite — clear communication, honest recommendations, and a team that genuinely looks forward to seeing you.</p>
           </div>
-        </article>
+        </div>
 
-        <!-- 2. Cosmetic dentistry -->
-        <article class="service-card" aria-label="Cosmetic dentistry">
-          <div class="service-icon" aria-hidden="true">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="5"/>
-              <line x1="12" y1="1" x2="12" y2="3"/>
-              <line x1="12" y1="21" x2="12" y2="23"/>
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-              <line x1="1" y1="12" x2="3" y2="12"/>
-              <line x1="21" y1="12" x2="23" y2="12"/>
-              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-            </svg>
-          </div>
-          <h3>Cosmetic Dentistry</h3>
-          <p>Whitening, porcelain veneers, and full smile makeovers tailored to your face. We focus on results that look naturally brilliant.</p>
-        </article>
-
-        <!-- 3. Invisalign -->
-        <article class="service-card" aria-label="Invisalign teeth straightening">
-          <div class="service-icon" aria-hidden="true">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-              <polyline points="14 2 14 8 20 8"/>
-              <line x1="16" y1="13" x2="8" y2="13"/>
-              <line x1="16" y1="17" x2="8" y2="17"/>
-              <polyline points="10 9 9 9 8 9"/>
-            </svg>
-          </div>
-          <h3>Invisalign<sup>®</sup></h3>
-          <p>Discreet clear aligners with a 3D digital preview before you begin. Straighten your teeth on your terms — no wires, no fuss.</p>
-        </article>
-
-        <!-- 4. Dental implants -->
-        <article class="service-card" aria-label="Dental implants">
-          <div class="service-icon" aria-hidden="true">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="12" y1="5" x2="12" y2="19"/>
-              <polyline points="5 12 12 5 19 12"/>
-            </svg>
-          </div>
-          <h3>Dental Implants</h3>
-          <p>From single-tooth replacement to full-arch restoration — permanent, natural-looking solutions that last a lifetime with proper care.</p>
-        </article>
-
-        <!-- 5. Children's dentistry -->
-        <article class="service-card" aria-label="Children's dentistry — Medicare bulk-billed">
-          <div class="service-icon" aria-hidden="true">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-            </svg>
-          </div>
-          <h3>Children's Dentistry</h3>
-          <p>Gentle, patient care that turns nervous little ones into confident dental patients. Eligible children bulk-billed under Medicare CDBS.</p>
-        </article>
-
-        <!-- 6. Emergency appointments -->
-        <article class="service-card" aria-label="Emergency dental appointments — same-day">
-          <div class="service-icon" aria-hidden="true">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-            </svg>
-          </div>
-          <h3>Emergency Appointments</h3>
-          <p>Severe toothache, a broken tooth, or knocked-out crown? We reserve spots every day for urgent cases — call us first.</p>
-          <span class="emergency-tag" aria-label="Same-day care available">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="12" cy="12" r="10"/>
-              <polyline points="12 6 12 12 16 14"/>
-            </svg>
-            Same-day care
-          </span>
-        </article>
-
+        <div class="collage">
+          <figure class="tall">
+            <img src="assets/reception.webp" alt="Coastal Dental's bright, welcoming reception area" width="900" height="1205" loading="lazy" decoding="async">
+            <figcaption class="cap-bl">Our clinic</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/patient1.webp" alt="A relaxed patient during a routine check-up" width="820" height="820" loading="lazy" decoding="async">
+            <figcaption class="cap-tl">Check-ups</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/patient2.webp" alt="A bright, healthy cosmetic-dentistry result" width="820" height="820" loading="lazy" decoding="async">
+            <figcaption class="cap-tr">Cosmetic</figcaption>
+          </figure>
+          <figure class="wide">
+            <img src="assets/kids.webp" alt="A child smiling confidently after a gentle dental visit" width="1200" height="670" loading="lazy" decoding="async">
+            <figcaption class="cap-bl">Kids welcome</figcaption>
+          </figure>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-
-  <!-- ============================================================
-       PRICING
-       ============================================================ -->
-  <section class="section" id="pricing" aria-labelledby="pricing-heading">
-    <div class="container">
-      <div class="pricing-inner">
-
-        <div class="pricing-copy">
-          <h2 id="pricing-heading">Transparent pricing. No surprises.</h2>
-          <p>
-            We believe you should know the cost before you sit in the chair.
-            Our new-patient special is our way of saying hello — and proving
-            we're as good as our word.
-          </p>
-          <ul class="pricing-includes" aria-label="What's included in the new patient offer">
-            <li>
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
-              Full clinical examination
-            </li>
-            <li>
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
-              Professional scale and polish
-            </li>
-            <li>
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
-              Digital X-rays (up to 2 bitewings)
-            </li>
-            <li>
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
-              Personalised treatment plan — no pressure
-            </li>
-          </ul>
-          <a href="tel:0755358820" class="btn btn-primary btn-lg" style="display:inline-flex;">
-            Book now — $199 new patient offer
-          </a>
+    <!-- ===== TREATMENTS ===== -->
+    <section class="treatments" id="treatments" aria-labelledby="treatments-heading">
+      <div class="container">
+        <div class="treatments-head">
+          <span class="eyebrow">What we offer</span>
+          <h2 class="h2" id="treatments-heading">Everything your smile needs</h2>
+          <p>From routine check-ups to full smile makeovers — gentle care for the whole family.</p>
         </div>
+        <div class="treat-grid">
 
-        <div class="pricing-card" aria-label="New patient offer: $199">
-          <p class="pricing-card-label">New patient offer</p>
-          <p class="pricing-card-price" aria-label="One hundred and ninety nine dollars">
-            <sup>$</sup>199
-          </p>
-          <p class="pricing-card-desc">Check-up &amp; Clean</p>
-          <p class="pricing-card-sub">Exam · Scale &amp; Polish · X-rays</p>
-          <a href="tel:0755358820" class="btn btn-primary" style="width:100%; justify-content:center;">
-            Call to book — (07) 5535 8820
-          </a>
-          <div class="pricing-payments" aria-label="Accepted payment methods">
-            <span class="pay-tag">HICAPS</span>
-            <span class="pay-tag">Afterpay</span>
-            <span class="pay-tag">Zip</span>
-            <span class="pay-tag">All health funds</span>
-          </div>
+          <article class="treat-card">
+            <div class="treat-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 3.2c-2.1-1.5-4.6-1.7-6.2-.3C3.6 4.8 3.4 8.6 4.4 12.4c.7 2.6 1.2 6.4 2.9 7.8 1.2 1 2-1.2 2.4-3.2.3-1.6.7-2.8 2.3-2.8s2 1.2 2.3 2.8c.4 2 1.2 4.2 2.4 3.2 1.7-1.4 2.2-5.2 2.9-7.8 1-3.8.8-7.6-1.4-9.5-1.6-1.4-4.1-1.2-6.2.3Z" fill="currentColor"/></svg>
+            </div>
+            <h3>Check-up &amp; Clean</h3>
+            <p>A thorough exam, professional scale and polish, and digital X-rays to catch problems early — all in one friendly visit.</p>
+            <span class="treat-tag">$199 new-patient offer</span>
+          </article>
+
+          <article class="treat-card">
+            <div class="treat-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 5 5.6.5-4.2 3.7 1.3 5.5L12 19l-5.1 2.7 1.3-5.5L4 12.5l5.6-.5L12 2z" fill="currentColor"/></svg>
+            </div>
+            <h3>Cosmetic Dentistry</h3>
+            <p>Whitening, porcelain veneers, and full smile makeovers tailored to your face. Results that look naturally brilliant.</p>
+          </article>
+
+          <article class="treat-card">
+            <div class="treat-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="8" width="18" height="8" rx="4" fill="currentColor"/><rect x="6" y="10.5" width="2.4" height="3" rx="1" fill="#fff"/><rect x="10.8" y="10.5" width="2.4" height="3" rx="1" fill="#fff"/><rect x="15.6" y="10.5" width="2.4" height="3" rx="1" fill="#fff"/></svg>
+            </div>
+            <h3>Invisalign<sup>®</sup></h3>
+            <p>Discreet clear aligners with a 3D digital preview before you begin. Straighten your teeth on your terms — no wires, no fuss.</p>
+          </article>
+
+          <article class="treat-card">
+            <div class="treat-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2c-3 0-5 2-5 5 0 2 1 3 1 6s0 9 2 9 1-5 2-5 0 5 2 5 2-6 2-9 1-4 1-6c0-3-2-5-5-5z" fill="currentColor"/></svg>
+            </div>
+            <h3>Dental Implants</h3>
+            <p>From single-tooth replacement to full-arch restoration — permanent, natural-looking solutions that last a lifetime.</p>
+          </article>
+
+          <article class="treat-card">
+            <div class="treat-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3.4" fill="currentColor"/><circle cx="16.5" cy="9.5" r="2.4" fill="currentColor"/><path d="M3.5 19c0-3 2.5-5 5.5-5s5.5 2 5.5 5H3.5z" fill="currentColor"/></svg>
+            </div>
+            <h3>Children's Dentistry</h3>
+            <p>Gentle, patient care that turns nervous little ones into confident dental patients.</p>
+            <span class="treat-tag">Medicare CDBS bulk-billed</span>
+          </article>
+
+          <article class="treat-card">
+            <div class="treat-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg>
+            </div>
+            <h3>Emergency Appointments</h3>
+            <p>Severe toothache, a broken tooth, or knocked-out crown? We reserve spots every day for urgent cases — call us first.</p>
+          </article>
+
         </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
-
-  <!-- ============================================================
-       ABOUT / WHY US
-       ============================================================ -->
-  <section class="section" id="about" aria-labelledby="about-heading">
-    <div class="container">
-      <div class="about-grid">
-
-        <!-- Image -->
-        <div class="about-img-wrap">
-          <img
-            src="assets/clinic.webp"
-            alt="Modern dental surgery interior — bright, clean and welcoming"
-            width="1376"
-            height="768"
-            loading="lazy"
-          />
-          <div class="about-img-badge" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-            </svg>
-            3 dentists &amp; an oral health therapist
+    <!-- ===== PRICING ===== -->
+    <section class="pricing" id="pricing" aria-labelledby="pricing-heading">
+      <div class="container">
+        <div class="pricing-panel">
+          <div class="pricing-grid">
+            <div class="pricing-copy">
+              <span class="pricing-badge">New patient offer</span>
+              <h2 id="pricing-heading">Transparent pricing.<br>No surprises.</h2>
+              <p>You should know the cost before you sit in the chair. Our new-patient special is our way of saying hello — and proving we're as good as our word.</p>
+              <ul class="pricing-list">
+                <li><span class="check" aria-hidden="true">✓</span>Full clinical examination</li>
+                <li><span class="check" aria-hidden="true">✓</span>Professional scale and polish</li>
+                <li><span class="check" aria-hidden="true">✓</span>Digital X-rays (up to 2 bitewings)</li>
+                <li><span class="check" aria-hidden="true">✓</span>Personalised treatment plan — no pressure</li>
+              </ul>
+            </div>
+            <div class="price-card">
+              <div class="label">CHECK-UP &amp; CLEAN</div>
+              <div class="amount">$199</div>
+              <div class="desc">Exam · Scale &amp; Polish · Digital X-rays</div>
+              <a class="btn btn-coral btn-block" href="tel:0755358820">Book now ↗</a>
+              <div class="fine">HICAPS · Afterpay · Zip accepted</div>
+            </div>
           </div>
         </div>
-
-        <!-- Copy -->
-        <div class="about-content">
-          <p class="about-eyebrow">About Coastal Dental</p>
-          <h2 id="about-heading">A practice that feels nothing like a dentist's.</h2>
-          <p>
-            We started Coastal Dental because we were tired of patients arriving anxious
-            and leaving confused about what they'd just paid for. Our whole practice is
-            built around the opposite experience — clear communication, honest recommendations,
-            and a team that genuinely looks forward to seeing you.
-          </p>
-
-          <ul class="about-list" aria-label="Why choose Coastal Dental">
-            <li>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
-              <span><strong>Experienced team</strong> — 3 dentists and a dedicated oral health therapist, plus 4 support staff who know your name.</span>
-            </li>
-            <li>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
-              <span><strong>Transparent pricing</strong> — we quote before we treat. No hidden fees, no inflated estimates.</span>
-            </li>
-            <li>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
-              <span><strong>Flexible payments</strong> — HICAPS on the spot for all health funds, plus Afterpay and Zip interest-free plans.</span>
-            </li>
-            <li>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
-              <span><strong>Accessible location</strong> — ground floor, fully wheelchair accessible, with free on-site parking at Shop 3, Burleigh Heads.</span>
-            </li>
-            <li>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
-              <span><strong>Kid-friendly</strong> — gentle, patient care and Medicare CDBS bulk-billing for eligible children.</span>
-            </li>
-          </ul>
-
-          <!-- Meet the team -->
-          <div class="team-list" aria-label="Meet the team">
-            <p class="team-list-heading">Meet the team</p>
-            <ul>
-              <li>
-                <strong>Dr Olivia Tran</strong>
-                <span>Principal dentist — gentle-dentistry advocate, 12 yrs experience</span>
-              </li>
-              <li>
-                <strong>Dr James Keller</strong>
-                <span>Cosmetic dentistry &amp; Invisalign</span>
-              </li>
-              <li>
-                <strong>Dr Priya Nair</strong>
-                <span>Children's dentistry</span>
-              </li>
-              <li>
-                <strong>Maddie Cole</strong>
-                <span>Oral health therapist</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
-
-  <!-- ============================================================
-       TESTIMONIAL
-       ============================================================ -->
-  <section class="section testimonial-section" aria-labelledby="testimonial-heading">
-    <div class="container">
-      <header class="section-header" style="margin-bottom:2rem;">
-        <span class="section-eyebrow">Patient stories</span>
-        <h2 id="testimonial-heading">What our patients say</h2>
-      </header>
-
-      <figure class="testimonial-card">
-        <div class="stars" role="img" aria-label="5 out of 5 stars">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    <!-- ===== TEAM ===== -->
+    <section class="team" id="team" aria-labelledby="team-heading">
+      <div class="container">
+        <div class="team-head">
+          <span class="eyebrow">Meet the team</span>
+          <h2 class="h2" id="team-heading">The people behind your smile</h2>
         </div>
-        <blockquote>
-          <p class="testimonial-quote">
-            "I hadn't been to a dentist in six years because I was genuinely scared. A friend recommended
-            Coastal Dental and I'm so glad she did — from the moment I walked in, it felt different.
-            They explained everything, didn't rush me, and the check-up was completely painless.
-            I actually booked my next appointment on the way out."
-          </p>
-        </blockquote>
-        <figcaption class="testimonial-author">
-          <div class="author-avatar" aria-hidden="true">SM</div>
-          <div class="author-info">
-            <strong>Sarah M.</strong>
-            <span>Burleigh Heads, QLD</span>
+        <div class="team-grid">
+          <article class="team-card">
+            <div class="team-photo"><img src="assets/team-olivia.webp" alt="Dr Olivia Tran, principal dentist" width="560" height="560" loading="lazy" decoding="async"></div>
+            <h3>Dr Olivia Tran</h3>
+            <p>Principal dentist · gentle-dentistry advocate · 12 yrs</p>
+          </article>
+          <article class="team-card">
+            <div class="team-photo"><img src="assets/team-james.webp" alt="Dr James Keller, cosmetic dentist" width="560" height="560" loading="lazy" decoding="async"></div>
+            <h3>Dr James Keller</h3>
+            <p>Cosmetic dentistry &amp; Invisalign®</p>
+          </article>
+          <article class="team-card">
+            <div class="team-photo"><img src="assets/team-priya.webp" alt="Dr Priya Nair, children's dentist" width="560" height="560" loading="lazy" decoding="async"></div>
+            <h3>Dr Priya Nair</h3>
+            <p>Children's dentistry</p>
+          </article>
+          <article class="team-card">
+            <div class="team-photo"><img src="assets/team-maddie.webp" alt="Maddie Cole, oral health therapist" width="560" height="560" loading="lazy" decoding="async"></div>
+            <h3>Maddie Cole</h3>
+            <p>Oral health therapist</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TESTIMONIAL ===== -->
+    <section class="testimonial" aria-label="Patient story">
+      <div class="container">
+        <div class="testimonial-inner">
+          <span class="eyebrow">Patient stories</span>
+          <blockquote>“I hadn't been to a dentist in six years because I was genuinely scared. From the moment I walked in, it felt different — they explained everything, didn't rush me, and the check-up was completely painless. I booked my next appointment on the way out.”</blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" aria-hidden="true">SM</div>
+            <div class="who">
+              <div class="name">Sarah M.</div>
+              <div class="meta">Burleigh Heads, QLD · <span class="stars" aria-label="Rated 5 out of 5">★★★★★</span></div>
+            </div>
           </div>
-        </figcaption>
-      </figure>
+        </div>
+      </div>
+    </section>
 
-    </div>
-  </section>
+    <!-- ===== CONTACT ===== -->
+    <section class="contact" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-copy">
+            <span class="eyebrow">Come and see us</span>
+            <h2 class="h2" id="contact-heading">Smiles worth the sunshine.</h2>
+            <p>Give us a call or drop us a line — we're friendly on the phone and quick to reply by email. New patients always welcome.</p>
+            <div class="contact-actions">
+              <a class="btn btn-coral btn-lg" href="tel:0755358820">Call to book — (07) 5535 8820</a>
+              <a class="btn btn-ghost" href="mailto:smile@coastaldental.com.au">Email us instead</a>
+            </div>
+            <p class="contact-emergency"><strong>Dental emergency?</strong> Call us immediately on <a href="tel:0755358820">(07) 5535 8820</a> — we keep same-day appointments for urgent pain, broken teeth, and accidents (Mon–Sat).</p>
+          </div>
 
-
-  <!-- ============================================================
-       CONTACT / BOOKING
-       ============================================================ -->
-  <section class="section" id="contact" aria-labelledby="contact-heading">
-    <div class="container">
-      <div class="contact-grid">
-
-        <!-- Details -->
-        <div class="contact-details">
-          <h2 id="contact-heading">Come and see us.</h2>
-
-          <div class="contact-items">
-
+          <div class="contact-card">
             <div class="contact-item">
               <div class="contact-item-icon" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                  <circle cx="12" cy="10" r="3"/>
-                </svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
               </div>
-              <div class="contact-item-body">
-                <strong>Address</strong>
-                <p>Shop 3, 1812 Gold Coast Highway<br>Burleigh Heads QLD 4220</p>
-                <p style="margin-top:0.25rem; font-size:0.85rem; color:var(--grey);">Ground floor · wheelchair accessible · free parking</p>
+              <div>
+                <div class="k">Address</div>
+                <div class="v">Shop 3, 1812 Gold Coast Highway, Burleigh Heads QLD 4220</div>
               </div>
             </div>
-
             <div class="contact-item">
               <div class="contact-item-icon" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.28h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6.1 6.1l1.08-1.08a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                </svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.28h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6.1 6.1l1.08-1.08a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               </div>
-              <div class="contact-item-body">
-                <strong>Phone</strong>
-                <a href="tel:0755358820" aria-label="Call (07) 5535 8820">(07) 5535 8820</a>
+              <div>
+                <div class="k">Phone</div>
+                <div class="v"><a href="tel:0755358820">(07) 5535 8820</a></div>
               </div>
             </div>
-
             <div class="contact-item">
               <div class="contact-item-icon" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                  <polyline points="22,6 12,13 2,6"/>
-                </svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
               </div>
-              <div class="contact-item-body">
-                <strong>Email</strong>
-                <a href="mailto:smile@coastaldental.com.au">smile@coastaldental.com.au</a>
+              <div>
+                <div class="k">Email</div>
+                <div class="v"><a href="mailto:smile@coastaldental.com.au">smile@coastaldental.com.au</a></div>
               </div>
             </div>
-
-          </div>
-
-          <!-- Hours table -->
-          <div class="hours-table">
-            <h3>Opening hours</h3>
-            <table>
-              <tbody>
-                <tr>
-                  <td>Monday – Thursday</td>
-                  <td>8am – 6pm</td>
-                </tr>
-                <tr>
-                  <td>Friday</td>
-                  <td>8am – 5pm</td>
-                </tr>
-                <tr>
-                  <td>Saturday</td>
-                  <td>8am – 12pm</td>
-                </tr>
-                <tr>
-                  <td>Sunday</td>
-                  <td>Closed</td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="contact-item">
+              <div class="contact-item-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div>
+                <div class="k">Hours</div>
+                <div class="v">Mon–Thu 8–6 · Fri 8–5 · Sat 8–12 · Sun closed</div>
+              </div>
+            </div>
+            <div class="contact-badges">
+              <span>HICAPS</span><span>Afterpay</span><span>Zip</span><span>All health funds</span><span>Free parking</span><span>Wheelchair access</span>
+            </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Booking panel -->
-        <div class="booking-panel">
-          <h3>Ready to book?</h3>
-          <p>
-            Give us a call or drop us a line — we're friendly on the phone and quick to reply by email.
-            New patients always welcome. Online booking is coming in the full build — for now, call and we'll find you a time today.
-          </p>
+  </main>
 
-          <div class="booking-ctas">
-            <a href="tel:0755358820" class="btn btn-primary btn-lg" style="justify-content:center;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.28h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6.1 6.1l1.08-1.08a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-              </svg>
-              Call to book — (07) 5535 8820
-            </a>
-            <a href="mailto:smile@coastaldental.com.au" class="btn-phone">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                <polyline points="22,6 12,13 2,6"/>
-              </svg>
-              Email us instead
-            </a>
-          </div>
-
-          <div class="emergency-note" role="alert" aria-live="polite">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-            </svg>
-            <p>
-              <strong>Dental emergency?</strong> Call us immediately on
-              <a href="tel:0755358820" aria-label="Emergency line: (07) 5535 8820">(07) 5535 8820</a>.
-              We keep same-day appointments available for urgent pain, broken teeth, and accidents (Mon–Sat, subject to availability).
-            </p>
-          </div>
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="row">
+          <span class="mark" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M12 3.2c-2.1-1.5-4.6-1.7-6.2-.3C3.6 4.8 3.4 8.6 4.4 12.4c.7 2.6 1.2 6.4 2.9 7.8 1.2 1 2-1.2 2.4-3.2.3-1.6.7-2.8 2.3-2.8s2 1.2 2.3 2.8c.4 2 1.2 4.2 2.4 3.2 1.7-1.4 2.2-5.2 2.9-7.8 1-3.8.8-7.6-1.4-9.5-1.6-1.4-4.1-1.2-6.2.3Z" fill="#fff"/></svg></span>
+          <span class="name">Coastal<span>Dental</span></span>
         </div>
-
+        <p>Shop 3, 1812 Gold Coast Highway, Burleigh Heads QLD 4220</p>
+      </div>
+      <div class="footer-cols">
+        <div>
+          <div class="h">CONTACT</div>
+          <div class="lines"><a href="tel:0755358820">(07) 5535 8820</a><br><a href="mailto:smile@coastaldental.com.au">smile@coastaldental.com.au</a></div>
+        </div>
+        <div>
+          <div class="h">HOURS</div>
+          <div class="lines">Mon–Thu 8–6 · Fri 8–5<br>Sat 8–12 · Sun closed</div>
+        </div>
       </div>
     </div>
-  </section>
-
-
-  <!-- ============================================================
-       FOOTER
-       ============================================================ -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <span class="footer-brand-icon" aria-hidden="true">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2C8.5 2 6 4.5 6 7c0 1.5.6 2.8 1.5 3.8L6 20c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2l-1.5-9.2C17.4 9.8 18 8.5 18 7c0-2.5-2.5-5-6-5z"/>
-            </svg>
-          </span>
-          <span class="footer-brand-name">Coastal Dental</span>
-        </div>
-
-        <div class="footer-meta">
-          <p>Shop 3, 1812 Gold Coast Highway, Burleigh Heads QLD 4220</p>
-          <p>
-            <a href="tel:0755358820">(07) 5535 8820</a>
-            &nbsp;·&nbsp;
-            <a href="mailto:smile@coastaldental.com.au">smile@coastaldental.com.au</a>
-          </p>
-        </div>
-      </div>
-
-      <div class="footer-divider" aria-hidden="true"></div>
-
-      <p class="footer-disclaimer">
-        Fictional concept website by <a href="/">De Villa Design</a>.
-        All business names, people, and contact details are fabricated for portfolio demonstration purposes only.
-      </p>
+    <div class="footer-bottom">
+      <span>Fictional concept website — names &amp; details fabricated for demonstration.</span>
+      <span><a href="/">Concept by De Villa Design</a></span>
     </div>
   </footer>
 
+  <a href="/" class="demo-badge" aria-label="Concept website by De Villa Design">Concept by De Villa Design</a>
 
-  <!-- ============================================================
-       DEMO BADGE
-       ============================================================ -->
-  <a href="/" class="demo-badge" aria-label="Concept website by De Villa Design">
-    Concept by De Villa Design
-  </a>
-
-
-  <!-- ============================================================
-       JAVASCRIPT — mobile nav toggle only
-       ============================================================ -->
+  <!-- ===== JS — mobile nav toggle only ===== -->
   <script>
     (function () {
-      var btn = document.getElementById('menu-toggle');
-      var nav = document.getElementById('site-nav');
+      var btn = document.getElementById('nav-toggle');
+      var nav = document.getElementById('nav-links');
       if (!btn || !nav) return;
-
       btn.addEventListener('click', function () {
-        var isOpen = nav.classList.toggle('is-open');
-        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        var open = nav.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
       });
-
-      // Close nav when a link is clicked
-      nav.querySelectorAll('a').forEach(function (link) {
-        link.addEventListener('click', function () {
+      nav.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
           nav.classList.remove('is-open');
           btn.setAttribute('aria-expanded', 'false');
+          btn.setAttribute('aria-label', 'Open menu');
         });
       });
     })();
