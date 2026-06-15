@@ -1,0 +1,9 @@
+# Production build for devilladesign.com — De Villa Design homepage.
+# Builds the Next.js app (static export) and folds the existing /demos/ sites
+# into the published output, so the homepage's /demos/<slug>/ links resolve.
+[build]
+  command = "cd web && npm install && npm run build && rm -rf out/demos && cp -r ../demos out/demos"
+  publish = "web/out"
+
+[build.environment]
+  NODE_VERSION = "20"
