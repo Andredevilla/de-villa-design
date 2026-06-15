@@ -18,9 +18,9 @@
 **Pricing:** Casual class $24 · 10-pack $199 · Unlimited monthly $159 · First week free for locals
 
 ## Theme & Design
-- **Aesthetic:** Warm organic boho. Soft arches, grain, sun-bleached texture, airy.
-- **Colours:** Terracotta `#C4683F` (primary), blush sand `#F6E8DD` (background), cream `#FDF8F3`, deep clay `#7A3B22`, leaf `#7B8458`
-- **Typography:** Elegant serif for headings (Fraunces-like), soft sans body
+- **Aesthetic:** Warm editorial Byron Bay. Deep bronze gradient, architectural guide-lines & arcs, gold detailing — unhurried and quietly luxe.
+- **Colours:** Bronze gradient `#3a2a1d → #5a4330 → #8a6843` (background), gold `#d8b86a` (accent), cream `#f3eeda` / `#efe9d6` (text), ink `#3a2a1c`
+- **Typography:** Cormorant Garamond (serif display, italic accents) + Jost (light sans body, uppercase tracked labels)
 - **Imagery:** Golden-hour light, natural textures, real practice moments
 
 ## Location & Contact

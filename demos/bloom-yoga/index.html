@@ -3,19 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#F6E8DD">
+  <meta name="theme-color" content="#3a2a1d">
   <title>Bloom Yoga Studio — Byron Bay</title>
-  <meta name="description" content="A sun-drenched Byron Bay studio for every body — from your first downward dog to your thousandth. Classes seven days — 6am starts weekdays; see the timetable for weekend sessions.">
+  <meta name="description" content="A sun-drenched Byron Bay studio for every body — from your first downward dog to your thousandth. Six styles, seven teachers, classes seven days. Free first week for locals.">
   <meta property="og:title" content="Bloom Yoga Studio — Byron Bay">
   <meta property="og:description" content="A sun-drenched Byron Bay studio for every body — from your first downward dog to your thousandth.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_AU">
-  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-variable.woff2" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-italic.woff2" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin.woff2" crossorigin>
-  <link rel="preload" as="image" href="/demos/bloom-yoga/assets/hero.webp">
-  <link rel="icon" href="data:,">
-  <link rel="stylesheet" href="/demos/bloom-yoga/style.css">
+  <link rel="preload" as="font" type="font/woff2" href="assets/cormorant.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="assets/jost.woff2" crossorigin>
+  <link rel="preload" as="image" href="assets/hero.webp">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='16' y='25' font-family='Georgia,serif' font-size='28' font-style='italic' text-anchor='middle' fill='%23d8b86a'%3EB%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -37,482 +36,257 @@
 </head>
 <body>
 
-  <!-- Skip to content -->
-  <a class="skip-link" href="#main">Skip to main content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- ─── HEADER ─────────────────────────────────────────────── -->
-  <header class="site-header" id="top" role="banner">
-    <div class="header-inner">
-      <a class="wordmark" href="#top" aria-label="Bloom Yoga Studio — back to top">
-        <span class="wordmark-bloom">Bloom</span>
-      </a>
-      <nav class="primary-nav" aria-label="Primary navigation">
-        <ul role="list">
-          <li><a href="#classes">Classes</a></li>
-          <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#studio">Studio</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-      <a class="btn btn-primary" href="tel:+61266857733">Call to book a mat</a>
-      <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav">
-        <span></span><span></span><span></span>
+  <!-- ===== NAV ===== -->
+  <nav class="nav" aria-label="Main">
+    <div class="nav-inner">
+      <a class="brand" href="#home" aria-label="Bloom Yoga Studio — home">Bloom<span>.</span></a>
+      <div class="nav-links" id="nav-links">
+        <a href="#classes">Classes</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#studio">Studio</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-book" href="#contact">Free first week</a>
+      </div>
+      <a class="btn btn-gold nav-cta" href="#contact">Free first week</a>
+      <button class="nav-toggle" id="nav-toggle" aria-controls="nav-links" aria-expanded="false" aria-label="Open menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
       </button>
     </div>
-    <!-- Mobile nav drawer -->
-    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
-      <ul role="list">
-        <li><a href="#classes">Classes</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#studio">Studio</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a class="btn btn-primary" href="tel:+61266857733">Call to book a mat</a></li>
-      </ul>
-    </nav>
-  </header>
+  </nav>
 
-  <!-- ─── MAIN ──────────────────────────────────────────────── -->
   <main id="main">
 
-    <!-- ─── HERO ──────────────────────────────────────────── -->
-    <section class="hero" aria-labelledby="hero-heading">
-      <div class="hero-inner">
+    <!-- ===== HERO ===== -->
+    <header class="hero" id="home">
+      <div class="hero-panel">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-shade" aria-hidden="true"></div>
+        <svg class="guides" viewBox="0 0 1180 720" preserveAspectRatio="none" aria-hidden="true">
+          <g stroke="rgba(216,184,106,.32)" stroke-width="1" fill="none">
+            <rect x="28" y="28" width="1124" height="664"></rect>
+            <line x1="300" y1="28" x2="300" y2="692"></line>
+            <line x1="28" y1="150" x2="1152" y2="150"></line>
+          </g>
+          <g stroke="rgba(239,233,214,.22)" stroke-width="1" fill="none">
+            <path d="M -120 760 Q 480 240 1300 540"></path>
+            <path d="M 120 -80 Q 760 360 1260 60"></path>
+            <circle cx="760" cy="370" r="300"></circle>
+          </g>
+        </svg>
         <div class="hero-content">
-          <p class="eyebrow">Byron Bay · All levels welcome</p>
-          <h1 id="hero-heading">
-            Breathe&nbsp;in.<br>
-            <em>Bloom&nbsp;out.</em>
-          </h1>
-          <p class="hero-sub">
-            A sun-drenched Byron Bay studio for every body — from your first downward dog to your thousandth.
-          </p>
+          <span class="eyebrow">Byron Bay · All Levels Welcome</span>
+          <h1>Breathe in.<br><em>Bloom out.</em></h1>
+          <p class="hero-sub">A sun-drenched Byron Bay studio for every body — from your first downward dog to your thousandth.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary btn-lg" href="tel:+61266857733">Call to book a mat</a>
-            <a class="btn btn-outline btn-lg" href="#timetable">View timetable</a>
-          </div>
-        </div>
-        <div class="hero-image-wrap">
-          <div class="hero-arch">
-            <img
-              src="/demos/bloom-yoga/assets/hero.webp"
-              alt="Students in a sun-filled Vinyasa Flow class at Bloom Yoga Studio Byron Bay"
-              width="688"
-              height="768"
-              loading="eager"
-              fetchpriority="high"
-            >
+            <a class="btn btn-gold" href="#contact">Start your free week</a>
+            <a class="btn btn-outline" href="#classes">Explore classes</a>
           </div>
         </div>
       </div>
-      <!-- decorative blobs -->
-      <div class="hero-blob hero-blob-1" aria-hidden="true"></div>
-      <div class="hero-blob hero-blob-2" aria-hidden="true"></div>
-    </section>
+    </header>
 
-    <!-- ─── CLASSES ────────────────────────────────────────── -->
-    <section class="classes section" id="classes" aria-labelledby="classes-heading">
-      <div class="container">
-        <div class="section-header">
-          <p class="eyebrow">What we offer</p>
-          <h2 id="classes-heading">Find your practice</h2>
-          <p class="section-sub">Six styles. Seven teachers. One community that holds space for wherever you are.</p>
+    <!-- ===== CLASSES ===== -->
+    <section class="section section-pad" id="classes" aria-labelledby="classes-heading">
+      <div class="offer-head">
+        <div>
+          <span class="eyebrow">What We Offer</span>
+          <h2 class="h-serif" id="classes-heading">Find your practice</h2>
         </div>
-        <ul class="classes-grid" role="list">
-
-          <li class="class-card">
-            <div class="class-icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="36" height="36">
-                <circle cx="24" cy="10" r="5" stroke="currentColor" stroke-width="2"/>
-                <path d="M12 28c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <path d="M8 38l4-10M40 38l-4-10M16 38v-8M32 38v-8M24 38v-10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <div class="class-body">
-              <div class="class-title-row">
-                <h3>Vinyasa Flow</h3>
-                <span class="chip">60 min</span>
-              </div>
-              <p>Breath-led movement that links posture to posture in a seamless, energising sequence. Suitable for all levels.</p>
-            </div>
-          </li>
-
-          <li class="class-card">
-            <div class="class-icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="36" height="36">
-                <path d="M8 36c4-8 8-12 16-12s12 4 16 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <path d="M24 24V14M18 20l6-6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <circle cx="24" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
-              </svg>
-            </div>
-            <div class="class-body">
-              <div class="class-title-row">
-                <h3>Yin &amp; Restore</h3>
-                <span class="chip">75 min</span>
-              </div>
-              <p>Slow, deep stretching held for longer to release connective tissue. Props, silence and full permission to do less.</p>
-            </div>
-          </li>
-
-          <li class="class-card">
-            <div class="class-icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="36" height="36">
-                <path d="M14 38V20M34 38V20M8 20l16-8 16 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <rect x="18" y="28" width="12" height="10" rx="2" stroke="currentColor" stroke-width="2"/>
-              </svg>
-            </div>
-            <div class="class-body">
-              <div class="class-title-row">
-                <h3>Beginners' Foundations</h3>
-                <span class="chip">4-week course</span>
-              </div>
-              <p>A small-group intro course designed to build confidence, alignment knowledge, and a language for your body. Start any month.</p>
-            </div>
-          </li>
-
-          <li class="class-card">
-            <div class="class-icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="36" height="36">
-                <circle cx="24" cy="24" r="14" stroke="currentColor" stroke-width="2"/>
-                <path d="M24 14v4M24 30v4M14 24h4M30 24h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <circle cx="24" cy="24" r="4" fill="currentColor" opacity="0.3"/>
-              </svg>
-            </div>
-            <div class="class-body">
-              <div class="class-title-row">
-                <h3>Hot 26</h3>
-                <span class="chip">60 min</span>
-              </div>
-              <p>The classic 26-posture sequence in a heated room. Detoxifying, challenging and deeply meditative. Towel and water essential.</p>
-            </div>
-          </li>
-
-          <li class="class-card">
-            <div class="class-icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="36" height="36">
-                <ellipse cx="24" cy="28" rx="10" ry="6" stroke="currentColor" stroke-width="2"/>
-                <circle cx="24" cy="14" r="5" stroke="currentColor" stroke-width="2"/>
-                <path d="M16 34c0 3 3.582 4 8 4s8-1 8-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <div class="class-body">
-              <div class="class-title-row">
-                <h3>Prenatal Yoga</h3>
-                <span class="chip">All trimesters</span>
-              </div>
-              <p>A supported, nurturing practice tailored to pregnancy. Breathwork, gentle movement and community for every stage of the journey.</p>
-            </div>
-          </li>
-
-          <li class="class-card class-card--highlight">
-            <div class="class-icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="36" height="36">
-                <path d="M24 6c-6 6-12 8-12 16a12 12 0 0 0 24 0c0-8-6-10-12-16z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                <path d="M24 26v-8M20 22h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <div class="class-body">
-              <div class="class-title-row">
-                <h3>Sunrise Beach Sessions</h3>
-                <span class="chip chip--accent">Saturdays</span>
-              </div>
-              <p>Catch the golden hour at Wategos Beach. Weather-permitting outdoor classes — bring a mat, sand optional, joy mandatory.</p>
-            </div>
-          </li>
-
-        </ul>
-
-        <!-- ─── TIMETABLE ──────────────────────────────────── -->
-        <div class="timetable-wrap" id="timetable">
-          <div class="timetable-header">
-            <p class="eyebrow">Weekly schedule</p>
-            <h2 class="timetable-title">When will we see you?</h2>
-            <p class="section-sub">Classes seven days — 6am starts weekdays; see the timetable for weekend sessions · Doors open 15 min before each class</p>
-          </div>
-          <div class="timetable-scroll" role="region" aria-label="Weekly class timetable">
-            <table class="timetable" aria-label="Weekly class timetable">
-              <thead>
-                <tr>
-                  <th scope="col" class="timetable-day-col">Day</th>
-                  <th scope="col">Morning</th>
-                  <th scope="col">Midday</th>
-                  <th scope="col">Evening</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row"><span class="day-full">Monday</span><span class="day-abbr" aria-hidden="true">Mon</span></th>
-                  <td>
-                    <span class="tt-chip tt-vinyasa">6:30am — Vinyasa Flow</span>
-                    <span class="tt-chip tt-yin">9:30am — Yin &amp; Restore</span>
-                  </td>
-                  <td><span class="tt-chip tt-vinyasa">12:15pm — Vinyasa (express)</span></td>
-                  <td><span class="tt-chip tt-hot26">5:45pm — Hot 26</span></td>
-                </tr>
-                <tr>
-                  <th scope="row"><span class="day-full">Tuesday</span><span class="day-abbr" aria-hidden="true">Tue</span></th>
-                  <td>
-                    <span class="tt-chip tt-vinyasa">6:30am — Vinyasa Flow</span>
-                    <span class="tt-chip tt-yin">9:30am — Yin &amp; Restore</span>
-                  </td>
-                  <td><span class="tt-chip tt-vinyasa">12:15pm — Vinyasa (express)</span></td>
-                  <td>
-                    <span class="tt-chip tt-vinyasa">5:45pm — Vinyasa Flow <span class="tt-room">Light Room</span></span>
-                    <span class="tt-chip tt-beginners">6:00pm — Beginners' Foundations <span class="tt-room">Garden Room</span></span>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row"><span class="day-full">Wednesday</span><span class="day-abbr" aria-hidden="true">Wed</span></th>
-                  <td>
-                    <span class="tt-chip tt-vinyasa">6:30am — Vinyasa Flow</span>
-                    <span class="tt-chip tt-prenatal">9:30am — Prenatal Yoga</span>
-                  </td>
-                  <td><span class="tt-chip tt-yin">12:15pm — Yin &amp; Restore</span></td>
-                  <td><span class="tt-chip tt-hot26">5:45pm — Hot 26</span></td>
-                </tr>
-                <tr>
-                  <th scope="row"><span class="day-full">Thursday</span><span class="day-abbr" aria-hidden="true">Thu</span></th>
-                  <td>
-                    <span class="tt-chip tt-vinyasa">6:30am — Vinyasa Flow</span>
-                    <span class="tt-chip tt-yin">9:30am — Yin &amp; Restore</span>
-                  </td>
-                  <td><span class="tt-chip tt-vinyasa">12:15pm — Vinyasa (express)</span></td>
-                  <td>
-                    <span class="tt-chip tt-vinyasa">5:45pm — Vinyasa Flow <span class="tt-room">Light Room</span></span>
-                    <span class="tt-chip tt-beginners">6:00pm — Beginners' Foundations <span class="tt-room">Garden Room</span></span>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row"><span class="day-full">Friday</span><span class="day-abbr" aria-hidden="true">Fri</span></th>
-                  <td>
-                    <span class="tt-chip tt-vinyasa">6:30am — Vinyasa Flow</span>
-                    <span class="tt-chip tt-yin">9:30am — Yin &amp; Restore</span>
-                  </td>
-                  <td><span class="tt-chip tt-vinyasa">12:15pm — Vinyasa (express)</span></td>
-                  <td><span class="tt-chip tt-hot26">5:45pm — Hot 26</span></td>
-                </tr>
-                <tr class="timetable-row--highlight">
-                  <th scope="row"><span class="day-full">Saturday</span><span class="day-abbr" aria-hidden="true">Sat</span></th>
-                  <td>
-                    <span class="tt-chip tt-beach">6:00am — Sunrise Beach Session <span class="tt-location">Wategos Beach</span></span>
-                    <span class="tt-chip tt-vinyasa">9:00am — Vinyasa Flow</span>
-                  </td>
-                  <td><span class="tt-chip tt-yin">11:30am — Yin &amp; Restore</span></td>
-                  <td><span class="tt-empty">—</span></td>
-                </tr>
-                <tr>
-                  <th scope="row"><span class="day-full">Sunday</span><span class="day-abbr" aria-hidden="true">Sun</span></th>
-                  <td><span class="tt-chip tt-yin">9:00am — Yin &amp; Restore</span></td>
-                  <td><span class="tt-empty">—</span></td>
-                  <td><span class="tt-chip tt-yin">4:00pm — Yin &amp; Restore</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p class="timetable-note">Schedule subject to seasonal changes · <a href="tel:+61266857733">Call us</a> to confirm or book your mat</p>
-        </div>
-        <!-- ─── END TIMETABLE ─────────────────────────────── -->
-
+        <p>Six styles. Seven teachers. One community that holds space for wherever you are.</p>
+      </div>
+      <div class="classes-grid">
+        <article class="class-card">
+          <div class="class-card-top"><h3>Vinyasa Flow</h3><span class="class-tag">60 min</span></div>
+          <p>Breath-led movement that links posture to posture in a seamless, energising sequence. Suitable for all levels.</p>
+          <div class="class-photo"><img src="assets/pose-vinyasa.webp" alt="A practitioner in warrior II during a Vinyasa class" width="720" height="720" loading="lazy" decoding="async"></div>
+        </article>
+        <article class="class-card">
+          <div class="class-card-top"><h3>Yin &amp; Restore</h3><span class="class-tag">75 min</span></div>
+          <p>Slow, deep stretching held for longer to release connective tissue. Props, silence and full permission to do less.</p>
+          <div class="class-photo"><img src="assets/pose-yin.webp" alt="A practitioner in a seated forward fold during a Yin class" width="720" height="720" loading="lazy" decoding="async"></div>
+        </article>
+        <article class="class-card">
+          <div class="class-card-top"><h3>Beginners' Foundations</h3><span class="class-tag">4-week course</span></div>
+          <p>A small-group intro course designed to build confidence, alignment knowledge, and a language for your body. Start any month.</p>
+        </article>
+        <article class="class-card">
+          <div class="class-card-top"><h3>Hot 26</h3><span class="class-tag">60 min</span></div>
+          <p>The classic 26-posture sequence in a heated room. Detoxifying, challenging and deeply meditative. Towel and water essential.</p>
+        </article>
+        <article class="class-card">
+          <div class="class-card-top"><h3>Prenatal Yoga</h3><span class="class-tag">All trimesters</span></div>
+          <p>A supported, nurturing practice tailored to pregnancy. Breathwork, gentle movement and community for every stage of the journey.</p>
+        </article>
+        <article class="class-card">
+          <div class="class-card-top"><h3>Sunrise Beach Sessions</h3><span class="class-tag">Saturdays</span></div>
+          <p>Catch the golden hour at Wategos Beach. Weather-permitting outdoor classes — bring a mat, sand optional, joy mandatory.</p>
+          <div class="class-photo"><img src="assets/beach.webp" alt="Two people practising at sunrise on Wategos Beach" width="1200" height="896" loading="lazy" decoding="async"></div>
+        </article>
       </div>
     </section>
 
-    <!-- ─── PRICING ────────────────────────────────────────── -->
-    <section class="pricing section" id="pricing" aria-labelledby="pricing-heading">
-      <div class="container">
-        <div class="section-header">
-          <p class="eyebrow">Simple, honest pricing</p>
-          <h2 id="pricing-heading">Your mat awaits</h2>
-          <p class="section-sub">No lock-ins. No fine print. Just yoga.</p>
-        </div>
-        <ul class="pricing-grid" role="list">
-
-          <li class="price-card">
-            <div class="price-card-inner">
-              <h3>Casual Drop-in</h3>
-              <div class="price-amount">
-                <span class="price-currency">$</span>
-                <span class="price-figure">24</span>
-              </div>
-              <p class="price-desc">Per class, any style. Book online or pay at the door.</p>
-              <a class="btn btn-outline-clay" href="tel:+61266857733">Book a mat</a>
+    <!-- ===== SCHEDULE ===== -->
+    <section class="schedule" id="schedule" aria-labelledby="schedule-heading">
+      <div class="schedule-panel">
+        <svg class="guides" viewBox="0 0 1080 600" preserveAspectRatio="none" aria-hidden="true"><g stroke="rgba(239,233,214,.12)" stroke-width="1" fill="none"><path d="M -100 80 Q 560 520 1200 120"></path><circle cx="900" cy="120" r="260"></circle></g></svg>
+        <div class="inner">
+          <span class="eyebrow">Weekly Schedule</span>
+          <h2 class="h-serif" id="schedule-heading">When will we see you?</h2>
+          <p class="schedule-intro">Classes seven days · 6am starts on weekdays · doors open 15 minutes before each class.</p>
+          <div class="sch-grid">
+            <div class="sch-row head"><span>Day</span><span>Morning</span><span>Midday</span><span>Evening</span></div>
+            <div class="sch-row">
+              <span class="day">Mon</span>
+              <span class="slot"><span class="label">Morning</span>6:30 Vinyasa Flow · 9:30 Yin &amp; Restore</span>
+              <span class="slot"><span class="label">Midday</span>12:15 Vinyasa (express)</span>
+              <span class="slot"><span class="label">Evening</span>5:45 Hot 26 · 6:00 Yin &amp; Restore</span>
             </div>
-          </li>
-
-          <li class="price-card">
-            <div class="price-card-inner">
-              <h3>10-Class Pack</h3>
-              <div class="price-amount">
-                <span class="price-currency">$</span>
-                <span class="price-figure">199</span>
-              </div>
-              <p class="price-per">$19.90 per class</p>
-              <p class="price-desc">Use over 3 months. Mix and match any class or style.</p>
-              <a class="btn btn-outline-clay" href="tel:+61266857733">Book a mat</a>
+            <div class="sch-row">
+              <span class="day">Tue</span>
+              <span class="slot"><span class="label">Morning</span>6:30 Vinyasa Flow · 9:30 Yin &amp; Restore</span>
+              <span class="slot"><span class="label">Midday</span>12:15 Vinyasa (express)</span>
+              <span class="slot"><span class="label">Evening</span>5:45 Vinyasa · 6:00 Candlelight Yin</span>
             </div>
-          </li>
-
-          <li class="price-card">
-            <div class="price-card-inner">
-              <h3>Unlimited Monthly</h3>
-              <div class="price-amount">
-                <span class="price-currency">$</span>
-                <span class="price-figure">159</span>
-                <span class="price-period">/mo</span>
-              </div>
-              <p class="price-desc">Unlimited classes, every style. Best value for dedicated practitioners.</p>
-              <a class="btn btn-outline-clay" href="tel:+61266857733">Book a mat</a>
+            <div class="sch-row">
+              <span class="day">Wed</span>
+              <span class="slot"><span class="label">Morning</span>6:30 Vinyasa Flow · 9:30 Prenatal Yoga</span>
+              <span class="slot"><span class="label">Midday</span>12:15 Yin &amp; Restore</span>
+              <span class="slot"><span class="label">Evening</span>5:45 Hot 26</span>
             </div>
-          </li>
-
-          <li class="price-card price-card--featured" aria-label="Featured offer: First week free for locals">
-            <div class="price-card-inner">
-              <span class="price-badge">Best first step</span>
-              <h3>First Week Free</h3>
-              <div class="price-amount price-amount--free">
-                <span class="price-free-text">Free</span>
-              </div>
-              <p class="price-desc">For Byron Bay locals — unlimited classes in your first week, on us. No credit card required.</p>
-              <p class="price-visitors">Staying in the area? Ask us — we're flexible.</p>
-              <a class="btn btn-primary" href="tel:+61266857733">Claim your week</a>
+            <div class="sch-row">
+              <span class="day">Thu</span>
+              <span class="slot"><span class="label">Morning</span>6:30 Vinyasa Flow · 9:30 Yin &amp; Restore</span>
+              <span class="slot"><span class="label">Midday</span>12:15 Vinyasa (express)</span>
+              <span class="slot"><span class="label">Evening</span>5:45 Vinyasa · 6:00 Yin &amp; Restore</span>
             </div>
-          </li>
-
-        </ul>
-      </div>
-    </section>
-
-    <!-- ─── STUDIO / ABOUT ──────────────────────────────────── -->
-    <section class="studio section" id="studio" aria-labelledby="studio-heading">
-      <div class="container">
-        <div class="studio-inner">
-          <div class="studio-image-wrap">
-            <div class="studio-arch">
-              <img
-                src="/demos/bloom-yoga/assets/studio.webp"
-                alt="Interior of Bloom Yoga Studio — light-filled room with timber floors and plants"
-                width="688"
-                height="768"
-                loading="lazy"
-              >
+            <div class="sch-row">
+              <span class="day">Fri</span>
+              <span class="slot"><span class="label">Morning</span>6:30 Vinyasa Flow · 9:30 Yin &amp; Restore</span>
+              <span class="slot"><span class="label">Midday</span>12:15 Vinyasa (express)</span>
+              <span class="slot"><span class="label">Evening</span>5:45 Candlelight Yin</span>
             </div>
-          </div>
-          <div class="studio-content">
-            <p class="eyebrow">Our home</p>
-            <h2 id="studio-heading">A space that breathes with you</h2>
-            <p class="studio-intro">
-              Bloom was born from a simple belief: yoga should feel like coming home. We've built a studio that reflects that — warm, unhurried, and designed to melt the day away the moment you walk in.
-            </p>
-            <ul class="studio-features" role="list">
-              <li>
-                <span class="feature-icon" aria-hidden="true">✦</span>
-                <span><strong>7 certified teachers</strong> — 200–500hr YTT trained, with specialisations across styles</span>
-              </li>
-              <li>
-                <span class="feature-icon" aria-hidden="true">✦</span>
-                <span><strong>Two beautiful rooms</strong> — the Garden Room (ground floor, leafy outlook) and the Light Room (upstairs, north-facing)</span>
-              </li>
-              <li>
-                <span class="feature-icon" aria-hidden="true">✦</span>
-                <span><strong>Everything you need</strong> — quality mats, blocks, bolsters, straps and blankets all provided</span>
-              </li>
-              <li>
-                <span class="feature-icon" aria-hidden="true">✦</span>
-                <span><strong>Clean showers</strong> — so you can practice before work without the guilt</span>
-              </li>
-              <li>
-                <span class="feature-icon" aria-hidden="true">✦</span>
-                <span><strong>Monthly full-moon gatherings</strong> — community circles, cacao and candlelight</span>
-              </li>
-            </ul>
+            <div class="sch-row">
+              <span class="day">Sat</span>
+              <span class="slot"><span class="label">Morning</span>6:00 Sunrise Beach · 9:00 Vinyasa Flow</span>
+              <span class="slot"><span class="label">Midday</span>11:30 Yin &amp; Restore</span>
+              <span class="slot"><span class="label">Evening</span>—</span>
+            </div>
+            <div class="sch-row">
+              <span class="day">Sun</span>
+              <span class="slot"><span class="label">Morning</span>9:00 Yin &amp; Restore</span>
+              <span class="slot"><span class="label">Midday</span>—</span>
+              <span class="slot"><span class="label">Evening</span>4:00 Restorative</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ─── TESTIMONIAL ─────────────────────────────────────── -->
-    <section class="testimonial section" aria-label="Student testimonial">
-      <div class="container">
-        <figure class="testimonial-inner">
-          <div class="testimonial-quote-mark" aria-hidden="true">"</div>
-          <blockquote>
-            <p>
-              I walked in as a complete beginner, convinced yoga wasn't for me. Six months later I'm here four mornings a week and I've stopped apologising for taking up space. Bloom did that.
-            </p>
-          </blockquote>
-          <figcaption>
-            <span class="testimonial-name">Simone R.</span>
-            <span class="testimonial-detail">Byron Bay local · Member since 2024</span>
-          </figcaption>
-        </figure>
+    <!-- ===== PRICING ===== -->
+    <section class="section section-pad" id="pricing" aria-labelledby="pricing-heading">
+      <div class="pricing-head">
+        <span class="eyebrow">Simple, Honest Pricing</span>
+        <h2 class="h-serif" id="pricing-heading">Your mat awaits</h2>
+        <p>No lock-ins. No fine print. Just yoga.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <div class="price-name">Casual Drop-in</div>
+          <div class="price-row"><span class="price-amount">$24</span><span class="price-unit">per class</span></div>
+          <p>Any style. Book online or pay at the door.</p>
+          <a class="btn" href="#contact">Book a class</a>
+        </div>
+        <div class="price-card">
+          <div class="price-name">10-Class Pack</div>
+          <div class="price-row"><span class="price-amount">$199</span><span class="price-unit">$19.90 / class</span></div>
+          <p>Use over 3 months. Mix and match any class or style.</p>
+          <a class="btn" href="#contact">Buy a pack</a>
+        </div>
+        <div class="price-card">
+          <div class="price-name">Unlimited Monthly</div>
+          <div class="price-row"><span class="price-amount">$159</span><span class="price-unit">/ month</span></div>
+          <p>Unlimited classes, every style. Best value for dedicated practitioners.</p>
+          <a class="btn" href="#contact">Go unlimited</a>
+        </div>
+        <div class="price-card feature">
+          <span class="price-tag">Best First Step</span>
+          <div class="price-name">First Week Free</div>
+          <div class="price-row"><span class="price-amount">Free</span><span class="price-unit">locals</span></div>
+          <p>Unlimited classes in your first week, on us. No credit card required.</p>
+          <a class="btn" href="#contact">Claim free week</a>
+        </div>
       </div>
     </section>
 
-    <!-- ─── CONTACT ────────────────────────────────────────── -->
-    <section class="contact section" id="contact" aria-labelledby="contact-heading">
-      <div class="container">
-        <div class="contact-inner">
-          <div class="contact-info">
-            <p class="eyebrow">Come find us</p>
-            <h2 id="contact-heading">We'd love to see you on the mat</h2>
-
-            <ul class="contact-list" role="list">
-              <li>
-                <span class="contact-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-                    <circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="1.5"/>
-                  </svg>
-                </span>
-                <div>
-                  <strong>Address</strong>
-                  <address>8/14 Banksia Drive, Byron Bay NSW 2481</address>
-                </div>
-              </li>
-              <li>
-                <span class="contact-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M6.62 10.79a15.053 15.053 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.01 21 3 13.99 3 5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-                  </svg>
-                </span>
-                <div>
-                  <strong>Phone</strong>
-                  <a href="tel:+61266857733">(02) 6685 7733</a>
-                </div>
-              </li>
-              <li>
-                <span class="contact-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/>
-                    <path d="M2 8l10 6 10-6" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-                  </svg>
-                </span>
-                <div>
-                  <strong>Email</strong>
-                  <a href="mailto:hello@bloomyoga.com.au">hello@bloomyoga.com.au</a>
-                </div>
-              </li>
-              <li>
-                <span class="contact-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
-                    <path d="M12 7v5l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                  </svg>
-                </span>
-                <div>
-                  <strong>Hours</strong>
-                  <p>Classes seven days — 6am starts weekdays; see the timetable for weekend sessions<br>Office Mon–Fri 9am–3pm</p>
-                </div>
-              </li>
-            </ul>
-          </div>
-
-          <div class="contact-cta-panel">
-            <div class="contact-cta-inner">
-              <p class="eyebrow">Ready to begin?</p>
-              <h3>Your first class is waiting.</h3>
-              <p>Call us to reserve your mat or ask about the free first week for locals. We'll find the right class for where you are right now.</p>
-              <a class="btn btn-primary btn-lg" href="tel:+61266857733">Call to book a mat</a>
-              <a class="btn btn-nervous" href="mailto:hello@bloomyoga.com.au">Not sure where to start? Email us — no question is too small.</a>
+    <!-- ===== STUDIO ===== -->
+    <section class="studio" id="studio" aria-labelledby="studio-heading">
+      <div class="studio-grid">
+        <div class="studio-img" role="img" aria-label="Bloom Yoga's sunlit studio room with plants, bolsters and timber floors"></div>
+        <div class="studio-copy">
+          <svg class="guides" viewBox="0 0 520 520" preserveAspectRatio="xMidYMid slice" style="opacity:.5" aria-hidden="true"><g stroke="rgba(216,184,106,.16)" stroke-width="1" fill="none"><circle cx="430" cy="120" r="200"></circle><path d="M -40 420 Q 280 180 600 360"></path></g></svg>
+          <div class="inner">
+            <span class="eyebrow">Our Home</span>
+            <h2 class="h-serif" id="studio-heading">A space that breathes with you</h2>
+            <p>Bloom was born from a simple belief: yoga should feel like coming home. Warm, unhurried, and designed to melt the day away the moment you walk in.</p>
+            <div class="features">
+              <div class="feature-row"><span class="mark" aria-hidden="true">✦</span><p>7 certified teachers — 200–500hr YTT trained, with specialisations across styles.</p></div>
+              <div class="feature-row"><span class="mark" aria-hidden="true">✦</span><p>Two beautiful rooms — the Garden Room (ground floor, leafy outlook) and the Light Room (upstairs, north-facing).</p></div>
+              <div class="feature-row"><span class="mark" aria-hidden="true">✦</span><p>Everything you need — quality mats, blocks, bolsters, straps and blankets all provided.</p></div>
+              <div class="feature-row"><span class="mark" aria-hidden="true">✦</span><p>Clean showers — so you can practice before work without the guilt.</p></div>
+              <div class="feature-row"><span class="mark" aria-hidden="true">✦</span><p>Monthly full-moon gatherings — community circles, cacao and candlelight.</p></div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TESTIMONIAL ===== -->
+    <section class="testimonial" aria-label="Member story">
+      <div class="testimonial-panel">
+        <div class="testimonial-bg" aria-hidden="true"></div>
+        <div class="testimonial-shade" aria-hidden="true"></div>
+        <svg class="guides" viewBox="0 0 1080 420" preserveAspectRatio="none" aria-hidden="true"><g stroke="rgba(216,184,106,.22)" stroke-width="1" fill="none"><path d="M -60 480 Q 540 80 1200 380"></path><circle cx="200" cy="210" r="240"></circle></g></svg>
+        <div class="testimonial-content">
+          <div class="testimonial-mark" aria-hidden="true">“</div>
+          <blockquote>I walked in as a complete beginner, convinced yoga wasn't for me. Six months later I'm here four mornings a week and I've stopped apologising for taking up space. Bloom did that.</blockquote>
+          <div class="testimonial-by">Simone R. · Byron Bay local · Member since 2024</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="contact" id="contact" aria-labelledby="contact-heading">
+      <div class="contact-grid">
+        <div class="contact-copy">
+          <span class="eyebrow">Come Find Us</span>
+          <h2 class="h-serif" id="contact-heading">We'd love to see you on the mat</h2>
+          <p>Your first class is waiting. Call us to reserve your mat or ask about the free first week for locals — we'll find the right class for where you are right now.</p>
+          <div class="contact-actions">
+            <a class="btn btn-gold" href="tel:+61266857733">Reserve your mat</a>
+            <a class="btn btn-outline" href="tel:+61266857733">(02) 6685 7733</a>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-item">
+            <div class="k">Address</div>
+            <div class="v">8/14 Banksia Drive, Byron Bay NSW 2481</div>
+          </div>
+          <div class="contact-item">
+            <div class="k">Phone</div>
+            <div class="v"><a href="tel:+61266857733">(02) 6685 7733</a></div>
+          </div>
+          <div class="contact-item">
+            <div class="k">Email</div>
+            <div class="v"><a href="mailto:hello@bloomyoga.com.au">hello@bloomyoga.com.au</a></div>
+          </div>
+          <div class="contact-item">
+            <div class="k">Hours</div>
+            <div class="v">Classes seven days · 6am weekday starts · Office Mon–Fri 9am–3pm</div>
           </div>
         </div>
       </div>
@@ -520,64 +294,51 @@
 
   </main>
 
-  <!-- ─── FOOTER ─────────────────────────────────────────────── -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <span class="wordmark-bloom wordmark-bloom--footer">Bloom</span>
-          <p>A sun-drenched Byron Bay studio for every body.</p>
-        </div>
-        <nav class="footer-nav" aria-label="Footer navigation">
-          <ul role="list">
-            <li><a href="#classes">Classes</a></li>
-            <li><a href="#pricing">Pricing</a></li>
-            <li><a href="#studio">Studio</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="name">Bloom<span>.</span></div>
+        <p>A sun-drenched Byron Bay studio for every body.</p>
+      </div>
+      <div class="footer-cols">
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="#classes">Classes</a>
+          <a href="#schedule">Schedule</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#studio">Studio</a>
+          <a href="#contact">Contact</a>
         </nav>
-        <div class="footer-contact">
-          <address>
-            8/14 Banksia Drive, Byron Bay NSW 2481<br>
-            <a href="tel:+61266857733">(02) 6685 7733</a> ·
-            <a href="mailto:hello@bloomyoga.com.au">hello@bloomyoga.com.au</a>
-          </address>
-        </div>
+        <div class="footer-meta">8/14 Banksia Drive, Byron Bay NSW 2481<br><a href="tel:+61266857733">(02) 6685 7733</a> · <a href="mailto:hello@bloomyoga.com.au">hello@bloomyoga.com.au</a></div>
       </div>
-      <div class="footer-bottom">
-        <p>© 2026 Bloom Yoga Studio. All rights reserved.</p>
-        <p>Fictional concept website by <a href="/">De Villa Design</a>.</p>
-      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Bloom Yoga Studio. All rights reserved.</span>
+      <span>Fictional concept website by <a href="/">De Villa Design</a>.</span>
     </div>
   </footer>
 
-  <!-- ─── DEMO BADGE ──────────────────────────────────────────── -->
-  <a class="demo-badge" href="/" aria-label="Concept website by De Villa Design — visit De Villa Design">
-    Concept by De Villa Design
-  </a>
+  <a href="/" class="demo-badge" aria-label="Concept website by De Villa Design">Concept by De Villa Design</a>
 
+  <!-- ===== JS — mobile nav toggle only ===== -->
   <script>
-    // Mobile nav toggle
-    const toggle = document.querySelector('.nav-toggle');
-    const mobileNav = document.querySelector('.mobile-nav');
-    if (toggle && mobileNav) {
-      toggle.addEventListener('click', () => {
-        const isOpen = toggle.getAttribute('aria-expanded') === 'true';
-        toggle.setAttribute('aria-expanded', String(!isOpen));
-        mobileNav.setAttribute('aria-hidden', String(isOpen));
-        toggle.classList.toggle('is-open', !isOpen);
-        mobileNav.classList.toggle('is-open', !isOpen);
+    (function () {
+      var btn = document.getElementById('nav-toggle');
+      var nav = document.getElementById('nav-links');
+      if (!btn || !nav) return;
+      btn.addEventListener('click', function () {
+        var open = nav.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
       });
-      // Close on nav link click
-      mobileNav.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          toggle.setAttribute('aria-expanded', 'false');
-          mobileNav.setAttribute('aria-hidden', 'true');
-          toggle.classList.remove('is-open');
-          mobileNav.classList.remove('is-open');
+      nav.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          nav.classList.remove('is-open');
+          btn.setAttribute('aria-expanded', 'false');
+          btn.setAttribute('aria-label', 'Open menu');
         });
       });
-    }
+    })();
   </script>
 
 </body>
