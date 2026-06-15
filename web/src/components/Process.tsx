@@ -1,6 +1,7 @@
 import { process } from '@/content/process'
 import { SectionHead } from '@/components/ui/SectionHead'
 import { GlassCard } from '@/components/ui/GlassCard'
+import { IridescentOrb } from '@/components/ui/IridescentOrb'
 
 export function Process() {
   return (
@@ -14,8 +15,10 @@ export function Process() {
         <div className="grid-4">
           {process.map((s) => (
             <GlassCard key={s.num}>
-              <div className="step-num">{s.num}</div>
-              <h3>{s.title}</h3>
+              <IridescentOrb size={40} className="orb-num">
+                {s.num}
+              </IridescentOrb>
+              <h3 style={{ marginTop: 16 }}>{s.title}</h3>
               <p>{s.body}</p>
             </GlassCard>
           ))}
