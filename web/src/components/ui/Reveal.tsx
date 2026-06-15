@@ -9,6 +9,7 @@ export function Reveal({ children, className = '' }: { children: ReactNode; clas
     const el = ref.current
     if (!el) return
     if (typeof IntersectionObserver === 'undefined') {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setShown(true)
       return
     }

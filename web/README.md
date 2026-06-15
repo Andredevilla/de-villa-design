@@ -1,36 +1,25 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# De Villa Design — homepage (Next.js)
 
-## Getting Started
+Static-exported marketing homepage (Next.js 16 App Router + React 19 + Tailwind v4).
+Light "liquid glass" design. Spec + plan:
+`../docs/superpowers/specs/2026-06-14-devilla-nextjs-rebuild-design.md`,
+`../docs/superpowers/plans/2026-06-14-web-nextjs-rebuild.md`.
 
-First, run the development server:
+## Commands
+- `npm run dev` — local dev at http://localhost:3000
+- `npm run build` — static export to `out/`
+- `npm run test` / `npm run e2e` — unit (Vitest) / e2e (Playwright)
+- `npm run lint` / `npm run typecheck`
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Structure
+- Content is typed config in `src/content/`.
+- Design tokens + glass component classes live in `src/app/globals.css`.
+- Section components in `src/components/`; shared primitives in `src/components/ui/`.
+  Only `Nav` and `Reveal` are client components.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Notes
+- Work-card / "Browse demos" links point at `/demos/<slug>/` (served by the repo-root
+  site). They 404 in isolated `localhost:3000` preview; for full local click-through,
+  copy the demos into `public/demos/` (git-ignored, local-only).
+- **Deployment is intentionally not wired up.** Prod still serves the repo root until
+  the publish dir is switched.
