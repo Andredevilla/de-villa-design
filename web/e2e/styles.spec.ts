@@ -16,4 +16,9 @@ test.describe('critical layout / cascade', () => {
     ).toHaveCSS('color', 'rgb(255, 255, 255)')
     await expect(page.getByRole('link', { name: 'Book a call' })).toHaveCSS('color', 'rgb(255, 255, 255)')
   })
+
+  test('contact decorative blobs stay absolutely positioned (no dead layout space)', async ({ page }) => {
+    await page.goto('/')
+    await expect(page.locator('#contact .contact-blob').first()).toHaveCSS('position', 'absolute')
+  })
 })
