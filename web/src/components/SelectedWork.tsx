@@ -9,11 +9,11 @@ export function SelectedWork() {
         <SectionHead
           eyebrow="SELECTED WORK"
           title="See the standard for yourself"
-          lead="Eight complete concept sites I designed and built — open one and explore exactly what I'd build for a business like yours."
+          lead="Eleven complete concept sites I designed and built — open one and explore exactly what I'd build for a business like yours."
         />
         <p className="work-cta">
           <GlassButton href="/demos/" variant="clear">
-            Browse all eight demos →
+            Browse all eleven demos →
           </GlassButton>
         </p>
         <div className="work-grid">

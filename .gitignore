@@ -34,3 +34,8 @@ _reference.png
 web/node_modules/
 web/.next/
 web/out/
+
+# Demo-batch image-extraction scratch: raw Claude Design exports (~50MB) + pipeline
+# scripts. demos/ is wholesale-copied into the deploy by netlify.toml, so keep this
+# out of git or it ships to production. Local only.
+demos/_exports/

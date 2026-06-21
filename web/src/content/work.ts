@@ -9,4 +9,7 @@ export const work: WorkItem[] = [
   { name: 'Serenity Physio', category: 'Physiotherapy', href: '/demos/serenity-physio/', shot: '/work/serenity-physio.webp', alt: 'Serenity Physio — concept website' },
   { name: 'Bloom Yoga Studio', category: 'Yoga studio', href: '/demos/bloom-yoga/', shot: '/work/bloom-yoga.webp', alt: 'Bloom Yoga Studio — concept website' },
   { name: 'Solace Springs Retreat', category: 'Wellness retreat', href: '/demos/solace-springs/', shot: '/work/solace-springs.webp', alt: 'Solace Springs Retreat — concept website' },
+  { name: 'Plumbline Osteopathy', category: 'Osteopathy', href: '/demos/plumbline-osteo/', shot: '/work/plumbline-osteo.webp', alt: 'Plumbline Osteopathy — concept website' },
+  { name: 'Clearwater Psychology', category: 'Psychology', href: '/demos/clearwater-psych/', shot: '/work/clearwater-psych.webp', alt: 'Clearwater Psychology — concept website' },
+  { name: 'Parkside Orthodontics', category: 'Orthodontics', href: '/demos/parkside-ortho/', shot: '/work/parkside-ortho.webp', alt: 'Parkside Orthodontics — concept website' },
 ]

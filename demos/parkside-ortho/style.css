@@ -1,0 +1,52 @@
+/* ============================================================
+   Parkside Orthodontics — De Villa Design demo
+   Imported from Claude Design (Parkside Orthodontics.dc.html).
+   Ships the default "Split" hero + floating book button.
+   Responsive rules added on top of the source's inline styling.
+   ============================================================ */
+
+/* ---- Self-hosted fonts ---- */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  src: url('assets/bricolage-grotesque.woff2') format('woff2');
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  src: url('assets/hanken-grotesk.woff2') format('woff2');
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---- Base (from the source helmet) ---- */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; }
+img { max-width: 100%; }
+@keyframes floatUp { 0% { transform: translateY(0); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0); } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; }
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 980px) {
+  .pk-nav { display: none !important; }
+}
+@media (max-width: 900px) {
+  .pk-hero, .pk-about, .pk-book { grid-template-columns: 1fr !important; }
+  .pk-why-grid, .pk-reviews { grid-template-columns: 1fr !important; }
+  .pk-team { grid-template-columns: repeat(2, 1fr) !important; }
+  .pk-aligner, .pk-card-split { grid-template-columns: 1fr !important; }
+  .pk-aligner-img, .pk-card-img { height: 260px !important; min-height: 0 !important; }
+  .pk-phone { display: none !important; }
+  .pk-footer { grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 600px) {
+  .pk-team { grid-template-columns: 1fr !important; }
+  .pk-footer { grid-template-columns: 1fr !important; }
+  .pk-form-row { grid-template-columns: 1fr !important; }
+}

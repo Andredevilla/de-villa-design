@@ -1,0 +1,51 @@
+/* ============================================================
+   Clearwater Psychology — De Villa Design demo
+   Imported from Claude Design (Clearwater Psychology.dc.html).
+   Ships the default "Split" hero (the source's switcher is dropped).
+   Responsive rules added on top of the source's inline styling.
+   ============================================================ */
+
+/* ---- Self-hosted fonts ---- */
+@font-face {
+  font-family: 'Newsreader';
+  src: url('assets/newsreader.woff2') format('woff2');
+  font-weight: 300 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  src: url('assets/hanken-grotesk.woff2') format('woff2');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---- Base (from the source helmet) ---- */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; }
+::selection { background: #C9D2C2; }
+a { color: inherit; }
+img { max-width: 100%; }
+@keyframes cwRise { from { transform: translateY(10px); } to { transform: translateY(0); } }
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .cw-herogrid { grid-template-columns: 1fr !important; gap: 48px !important; }
+  .cw-band     { grid-template-columns: 1fr !important; gap: 32px !important; }
+  .cw-about    { grid-template-columns: 1fr !important; gap: 40px !important; }
+  .cw-team     { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .cw-reviews  { grid-template-columns: 1fr !important; }
+  .cw-practical{ grid-template-columns: 1fr !important; gap: 32px !important; }
+  .cw-contact  { grid-template-columns: 1fr !important; }
+  .cw-navlinks, .cw-navphone { display: none !important; }
+  .cw-hero-img { height: 440px !important; }
+}
+@media (max-width: 560px) {
+  .cw-sec { padding-top: 64px !important; padding-bottom: 64px !important; }
+  .cw-contact-inner { padding: 44px 28px !important; }
+  .cw-hero-img { height: 360px !important; border-radius: 160px 160px 18px 18px !important; }
+  .cw-srow { gap: 14px !important; }
+  .cw-srow span:first-child { font-size: 16px !important; }
+}

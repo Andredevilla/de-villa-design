@@ -1,0 +1,45 @@
+/* ============================================================
+   Plumbline Osteopathy — De Villa Design demo
+   Imported from Claude Design (Plumbline Osteopathy.dc.html),
+   rendered with the "Clay" accent palette.
+   accent #A85D3E · accentLight #E0A684
+   ============================================================ */
+
+/* ---- Self-hosted fonts ---- */
+@font-face {
+  font-family: 'Newsreader';
+  src: url('assets/newsreader.woff2') format('woff2');
+  font-weight: 300 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  src: url('assets/hanken-grotesk.woff2') format('woff2');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---- Base ---- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #F4EFE6; -webkit-font-smoothing: antialiased; }
+::selection { background: #A85D3E; color: #F4EFE6; }
+a { color: inherit; }
+img { max-width: 100%; }
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .pl-herogrid, .pl-aboutgrid, .pl-reviewgrid, .pl-visit { grid-template-columns: 1fr !important; gap: 40px !important; }
+  .pl-why { grid-template-columns: 1fr 1fr !important; gap: 28px !important; }
+  .pl-team { grid-template-columns: 1fr 1fr !important; }
+  .pl-reviewcards { grid-template-columns: 1fr 1fr !important; }
+  .pl-navlinks { display: none !important; }
+  .pl-aboutgrid > div:first-child { order: 2; }
+}
+@media (max-width: 560px) {
+  .pl-why, .pl-team, .pl-reviewcards { grid-template-columns: 1fr !important; }
+  .pl-herocard { position: static !important; margin-top: 14px; left: 0 !important; max-width: none !important; }
+  .pl-servicerow { grid-template-columns: 1fr !important; gap: 4px !important; }
+}

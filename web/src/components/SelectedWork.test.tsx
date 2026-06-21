@@ -4,10 +4,10 @@ import { SelectedWork } from './SelectedWork'
 import { work } from '@/content/work'
 
 describe('SelectedWork', () => {
-  it('renders 8 cards linking to the real demos with screenshots', () => {
+  it('renders 11 cards linking to the real demos with screenshots', () => {
     const { container } = render(<SelectedWork />)
     const cards = container.querySelectorAll('a.work-card')
-    expect(cards).toHaveLength(8)
+    expect(cards).toHaveLength(11)
     work.forEach((w, i) => {
       const card = cards[i] as HTMLAnchorElement
       expect(card).toHaveAttribute('href', w.href)
@@ -17,6 +17,6 @@ describe('SelectedWork', () => {
   })
   it('has a Browse-all CTA to /demos/', () => {
     render(<SelectedWork />)
-    expect(screen.getByRole('link', { name: /Browse all eight demos/ })).toHaveAttribute('href', '/demos/')
+    expect(screen.getByRole('link', { name: /Browse all eleven demos/ })).toHaveAttribute('href', '/demos/')
   })
 })

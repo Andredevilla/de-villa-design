@@ -12,9 +12,9 @@ test.describe('homepage', () => {
       await expect(page.locator(`section#${id}`)).toHaveCount(1)
     }
 
-    // 8 work cards, first links to coastal-dental.
+    // 11 work cards, first links to coastal-dental.
     const cards = page.locator('a.work-card')
-    await expect(cards).toHaveCount(8)
+    await expect(cards).toHaveCount(11)
     await expect(cards.first()).toHaveAttribute('href', '/demos/coastal-dental/')
 
     // Hero primary CTA → Calendly.

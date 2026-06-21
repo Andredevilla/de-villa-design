@@ -16,8 +16,8 @@ describe('content config', () => {
     expect(services).toHaveLength(3)
     expect(services.map((s) => s.num)).toEqual(['01', '02', '03'])
   })
-  it('has exactly 8 work items with valid demo links and shots', () => {
-    expect(work).toHaveLength(8)
+  it('has exactly 11 work items with valid demo links and shots', () => {
+    expect(work).toHaveLength(11)
     for (const w of work) {
       expect(w.href).toMatch(/^\/demos\/[a-z-]+\/$/)
       expect(w.shot).toMatch(/^\/work\/[a-z-]+\.webp$/)
